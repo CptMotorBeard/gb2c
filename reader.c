@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int romSize = 32767;
+int romSize = 0x7FFF;
 
 struct instruction {
 	char inst[30]; 
