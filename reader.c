@@ -268,17 +268,17 @@ struct instruction instructions[256] = {
 	{ "RST 0x38", 0 },                   // 0xff
 };
 
-int* read (char* input) {
-	int *contents;
-	contents = malloc(romSize * sizeof(int));
+unsigned char* read (char* input) {
+	unsigned char *contents;
+	contents = malloc(romSize * sizeof(unsigned char));
 	FILE *rom = fopen(input, "r");
 	if ( rom == 0) {
 			printf( "Could not open file\n" );
 	} else {
 		int x;
-		int pc = 0;
+		unsigned short pc = 0;
 		while ((x = fgetc (rom)) != EOF) {
-			contents[pc] = x;
+			contents[pc] = (unsigned char)x;
 			pc += 1;
 		}
 		fclose(rom);
@@ -287,9 +287,9 @@ int* read (char* input) {
 }
 
 int scanner (char* input) {
-	int *rom = read(input);
-	int pc = 0;
-	int meta = 0;
+	unsigned char*rom = read(input);
+	unsigned short pc = 0;
+	unsigned short meta = 0;
 	int operands;
 	char* inst;
 	while (pc <= romSize) {
@@ -318,6 +318,7 @@ int scanner (char* input) {
 		}
 		pc ++;								
 	}
+	free(rom);
 	return 0;
 }
 
