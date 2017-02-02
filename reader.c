@@ -1,15 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Defining the types based off of GB types and data sizes
+typedef unsigned char BYTE;
+typedef char SIGNED_BYTE;
+typedef unsigned short WORD;
+typedef signed short SIGNED_WORD;
 
+// This is the size of a regular GB rom
 int romSize = 0x7FFF;
 
-struct instruction {
+// opcodes consist of the instruction, the amount of arguments and the command to be executed
+struct opcode {
 	char inst[30]; 
 	int operands;
 };
 
-struct instruction instructions[256] = {
+// There are 256 opcodes for GB
+struct opcode opcodes[256] = {
 	{ "NOP", 0 },                           // 0x00
 	{ "LD BC, 0x%04X", 2 },            // 0x01
 	{ "LD (BC), A", 0 },               // 0x02
@@ -268,26 +276,21 @@ struct instruction instructions[256] = {
 	{ "RST 0x38", 0 },                   // 0xff
 };
 
-unsigned char* read (char* input) {
-	unsigned char *contents;
-	contents = malloc(romSize * sizeof(unsigned char));
+BYTE* read (char* input) {
+	BYTE *contents;
+	contents = malloc(romSize * sizeof(BYTE));
 	FILE *rom = fopen(input, "r");
 	if ( rom == 0) {
 			printf( "Could not open file\n" );
 	} else {
-		int x;
-		unsigned short pc = 0;
-		while ((x = fgetc (rom)) != EOF) {
-			contents[pc] = (unsigned char)x;
-			pc += 1;
-		}
+		fread(contents, 1, romSize, rom);
 		fclose(rom);
 	}
 	return contents;
 }
 
 int scanner (char* input) {
-	unsigned char*rom = read(input);
+	BYTE *rom = read(input);
 	unsigned short pc = 0;
 	unsigned short meta = 0;
 	int operands;
@@ -297,8 +300,8 @@ int scanner (char* input) {
 		if (pc == 336) { meta = 0; }
 		if (meta==1) {
 		} else {
-			operands=instructions[rom[pc]].operands;
-			inst = instructions[rom[pc]].inst;
+			operands=opcodes[rom[pc]].operands;
+			inst = opcodes[rom[pc]].inst;
 			if (operands == 1) {
 				pc++;
 				printf(inst,rom[pc]);
@@ -313,7 +316,7 @@ int scanner (char* input) {
 				printf(inst,op);
 				printf("\n");
 			} else {					
-				printf("%s\n", instructions[rom[pc]].inst);
+				printf("%s\n", opcodes[rom[pc]].inst);
 			}
 		}
 		pc ++;								
