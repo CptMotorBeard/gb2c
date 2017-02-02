@@ -2,9 +2,7 @@
 
 // Defining the types based off of GB types and data sizes
 typedef unsigned char BYTE;
-typedef char SIGNED_BYTE;
 typedef unsigned short WORD;
-typedef signed short SIGNED_WORD;
 
 // Registers can work either as a single 8 bit register or a pair to make a 16 bit register.
 typedef union {
