@@ -3,9 +3,7 @@
 
 // Defining the types based off of GB types and data sizes
 typedef unsigned char BYTE;
-typedef char SIGNED_BYTE;
 typedef unsigned short WORD;
-typedef signed short SIGNED_WORD;
 
 // This is the size of a regular GB rom
 int romSize = 0x7FFF;
