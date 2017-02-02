@@ -103,3 +103,19 @@ int main( int argc, char *argv[] ) {
 	printf("%02X\n", SP.lo);
 	return 0;
 }
+
+void writeMemory(WORD address, BYTE data) {
+	// 0x0000 - 0x8000 is read only
+	if (address < 0x8000) {} // don't write anything
+	// 0xE000 - 0xFE00 also writes to RAM
+	else if ((address >= 0xE000) && (address < 0xFE00)) {
+		// Write to memory
+		cpu[address] = data;
+		// duplicate to regular RAM
+		writeMemory(address-0x2000, data);
+	}
+	// More read only areas
+	else if ((address >= 0xFEA0) && (address < 0xFEFF)) {} // don't write anything
+	// No other special areas, just write the data
+	else { cpu[address] = data; }
+}
