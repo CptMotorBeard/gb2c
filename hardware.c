@@ -1,29 +1,11 @@
 #include <stdio.h>
-
-// Defining the types based off of GB types and data sizes
-typedef unsigned char BYTE;
-typedef unsigned short WORD;
-
-// Registers can work either as a single 8 bit register or a pair to make a 16 bit register.
-typedef union {
-	struct {
-		BYTE lo;
-		BYTE hi;
-	};
-	WORD pair;
-} Register;
+#include "hardware.h"
 
 // We have our register pairs defined below.
 Register registerAF;
 Register registerBC;
 Register registerDE;
 Register registerHL;
-
-// Then we have the flags, these are the bits that the F register uses
-#define flag_Z 7
-#define flag_N 6
-#define flag_H 5
-#define flag_C 4
 
 // program counter is 16 bits, or a word
 WORD PC;
@@ -92,14 +74,6 @@ void initialize() {
 	cpu[0xFF4A] = 0x00;
 	cpu[0xFF4B] = 0x00;
 	cpu[0xFFFF] = 0x00;
-}
-
-// Simple test to make sure everything is working
-int main( int argc, char *argv[] ) {
-	initialize();
-	printf("%02X\n", SP.hi);
-	printf("%02X\n", SP.lo);
-	return 0;
 }
 
 void writeMemory(WORD address, BYTE data) {

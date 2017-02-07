@@ -1,8 +1,6 @@
-// #include <hardware.h> commented out for now
-typedef unsigned char BYTE;
-typedef unsigned short WORD;
-// Functions for all of the opcodes
+#include "hardware.h"
 
+// Functions for all of the opcodes
 void NOP() {}
 void LD_BC(WORD operand) {}
 void LD_BC_A() {}

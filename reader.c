@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-// Defining the types based off of GB types and data sizes
-typedef unsigned char BYTE;
-typedef unsigned short WORD;
-
-// This is the size of a regular GB rom
-int romSize = 0x7FFF;
+#include "hardware.h"
 
 // opcodes consist of the instruction, the amount of arguments and the command to be executed
 struct opcode {
@@ -274,21 +268,25 @@ struct opcode opcodes[256] = {
 	{ "RST 0x38", 0 },                   // 0xff
 };
 
-BYTE* read (char* input) {
-	BYTE *contents;
-	contents = malloc(romSize * sizeof(BYTE));
+BYTE cpu[0x10000];
+
+Register registerAF;
+Register registerBC;
+Register registerDE;
+Register registerHL;
+Register SP;
+
+void read (char* input) {
 	FILE *rom = fopen(input, "r");
 	if ( rom == 0) {
 			printf( "Could not open file\n" );
 	} else {
-		fread(contents, 1, romSize, rom);
+		fread(cpu, 1, romSize, rom);
 		fclose(rom);
 	}
-	return contents;
 }
 
-int scanner (char* input) {
-	BYTE *rom = read(input);
+int scanner () {
 	unsigned short pc = 0;
 	unsigned short meta = 0;
 	int operands;
@@ -298,37 +296,37 @@ int scanner (char* input) {
 		if (pc == 336) { meta = 0; }
 		if (meta==1) {
 		} else {
-			operands=opcodes[rom[pc]].operands;
-			inst = opcodes[rom[pc]].inst;
+			operands=opcodes[cpu[pc]].operands;
+			inst = opcodes[cpu[pc]].inst;
 			if (operands == 1) {
 				pc++;
-				printf(inst,rom[pc]);
+				printf(inst,cpu[pc]);
 				printf("\n");
 			}
 			else if (operands == 2) {
 				pc+=1;
 				int op;				
-				op = (rom[pc]);
+				op = (cpu[pc]);
 				pc+=1;
-				op = op | (rom[pc]<<8);
+				op = op | (cpu[pc]<<8);
 				printf(inst,op);
 				printf("\n");
 			} else {					
-				printf("%s\n", opcodes[rom[pc]].inst);
+				printf("%s\n", opcodes[cpu[pc]].inst);
 			}
 		}
 		pc ++;								
 	}
-	free(rom);
 	return 0;
 }
 
-int main ( int argc, char *argv[] ) {
-	if ( argc != 2 ) {
+int main (int argc, char *argv[]) {
+	if (argc != 2) {
 		printf( "Usage: %s filename\n", argv[0] );
-
-	} else {
-		scanner(argv[1]);
+		exit(0);
 	}
+	initialize();
+	read(argv[1]);
+	scanner();
 	return 0;
 }
