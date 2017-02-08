@@ -1,4 +1,5 @@
 #include "hardware.h"
+#include "opcodes.h"
 
 // Functions for all of the opcodes
 void NOP() {}
@@ -194,7 +195,7 @@ void CP_A() {}
 void RET_NZ() {}
 void POP_BC() {}
 void JP_NZ(WORD operand) {}
-void JP(WORD operand) {}
+void JP(WORD operand) {PC = operand;}
 void CALL_NZ(WORD operand) {}
 void PUSH_BC() {}
 void ADD_A_BYTE(BYTE operand) {}

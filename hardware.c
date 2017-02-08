@@ -91,3 +91,14 @@ void writeMemory(WORD address, BYTE data) {
 	// No other special areas, just write the data
 	else { cpu[address] = data; }
 }
+
+void printRegisters() {
+	/// 4 tabs after opcode
+	printf("\tRegister AF : %04X", registerAF.pair);
+	printf("\tRegister BC : %04X\n", registerBC.pair);
+	printf("\t\t\t\t\t\tRegister DE : %04X", registerDE.pair);
+	printf("\tRegister HL : %04X\n", registerHL.pair);
+	
+	printf("\t\t\t\t\t\tPC : %04X", PC);
+	printf("\t\t\tSP : %04X\n", SP.pair);
+}

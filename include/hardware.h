@@ -36,5 +36,6 @@ extern BYTE screen[160][144][3];
 
 // functions
 
-void initialize();
+void initialize(void);
 void writeMemory(WORD address, BYTE data);
+void printRegisters(void);
