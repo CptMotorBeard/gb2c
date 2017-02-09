@@ -270,14 +270,6 @@ struct opcode opcodes[256] = {
 	{ "RST 0x38", 0, RST_38 },                   // 0xff
 };
 
-BYTE cpu[0x10000];
-
-Register registerAF;
-Register registerBC;
-Register registerDE;
-Register registerHL;
-Register SP;
-
 void read (char* input) {
 	FILE *rom = fopen(input, "r");
 	if ( rom == 0) {

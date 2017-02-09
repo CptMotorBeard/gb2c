@@ -12,27 +12,47 @@ typedef union {
 } Register;
 
 // Then we have the flags, these are the bits that the F register uses
-#define flag_Z 7
-#define flag_N 6
-#define flag_H 5
-#define flag_C 4
+#define flag_Z (1 << 7)
+#define flag_N (1 << 6)
+#define flag_H (1 << 5)
+#define flag_C (1 << 4)
 
 // This is the size of a regular GB rom
 #define romSize 0x7FFF
 
-// All of the shared variables and functions
-// variables
-extern BYTE cpu[0x10000];
+// We have our register pairs defined below.
+Register registerAF;
+Register registerBC;
+Register registerDE;
+Register registerHL;
 
-extern WORD PC;
+// program counter is 16 bits, or a word
+WORD PC;
 
-extern Register registerAF;
-extern Register registerBC;
-extern Register registerDE;
-extern Register registerHL;
-extern Register SP;
+// stack pointer is 16 bits, but some opcodes use the high and low bits so declare it as a register
+Register SP;
 
-extern BYTE screen[160][144][3];
+// Screen resolution is 160x144. RGB is the third value
+BYTE screen[160][144][3];
+
+// The cpu memory map looks like :
+//
+//--------------------------- FFFF
+// I/O ports + internal RAM
+//--------------------------- FF00
+// Internal RAM
+//--------------------------- C000
+// 8kB switchable RAM bank
+//--------------------------- A000
+// 16kB VRAM
+//--------------------------- 8000
+// 16kB switchable ROM bank
+//--------------------------- 4000
+// 16kB ROM bank #0
+//--------------------------- 0000
+//
+// So total memory for the CPU is 0x10000 values
+BYTE cpu[0x10000];
 
 // functions
 

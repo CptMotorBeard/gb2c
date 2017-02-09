@@ -1,40 +1,6 @@
 #include <stdio.h>
 #include "hardware.h"
 
-// We have our register pairs defined below.
-Register registerAF;
-Register registerBC;
-Register registerDE;
-Register registerHL;
-
-// program counter is 16 bits, or a word
-WORD PC;
-
-// stack pointer is 16 bits, but some opcodes use the high and low bits so declare it as a register
-Register SP;
-
-// Screen resolution is 160x144. RGB is the third value
-BYTE screen[160][144][3];
-
-// The cpu memory map looks like :
-//
-//--------------------------- FFFF
-// I/O ports + internal RAM
-//--------------------------- FF00
-// Internal RAM
-//--------------------------- C000
-// 8kB switchable RAM bank
-//--------------------------- A000
-// 16kB VRAM
-//--------------------------- 8000
-// 16kB switchable ROM bank
-//--------------------------- 4000
-// 16kB ROM bank #0
-//--------------------------- 0000
-//
-// So total memory for the CPU is 0x10000 values
-BYTE cpu[0x10000];
-
 // Initial values at bootup for the hardware
 void initialize() {
 	PC = 0x100;
