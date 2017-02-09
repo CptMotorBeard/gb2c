@@ -18,6 +18,15 @@ void LD_16(Register r, WORD immediate) {
 	r.pair = immediate;
 }
 
+// Flag operations
+void setFlag(BYTE flag) {
+	registerAF.lo |= flag;
+}
+
+void clearFlag(BYTE flag) {
+	registerAF.lo &= ~flag;
+}
+
 // Functions for all of the opcodes
 void NOP() {}
 void LD_BC(WORD operand) {LD_16(registerBC, operand);}
@@ -27,7 +36,7 @@ void INC_B() {}
 void DEC_B() {}
 void LD_B(BYTE operand) {LD(registerBC, operand, 1);}
 void RLCA() {}
-void LD_04X_SP(WORD operand) {}
+void LD_04X_SP(WORD operand) {LD_16(SP, operand);}
 void ADD_HL_BC() {}
 void LD_A_BC() {LD(registerAF, cpu[registerBC.pair], 1);}
 void DEC_BC() {}
@@ -210,11 +219,19 @@ void CP_L() {}
 void CP_HL() {}
 void CP_A() {}
 void RET_NZ() {}
-void POP_BC() {}
+void POP_BC() {
+	LD_16(registerBC, cpu[SP.pair]);
+	SP.pair++;SP.pair++;
+}
 void JP_NZ(WORD operand) {}
 void JP(WORD operand) {PC = operand;}
 void CALL_NZ(WORD operand) {}
-void PUSH_BC() {}
+void PUSH_BC() {
+	SP.pair--;
+	writeMemory(SP.pair, registerBC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, registerBC.hi);
+}
 void ADD_A_BYTE(BYTE operand) {}
 void RST_00() {}
 void RET_Z() {}
@@ -226,10 +243,18 @@ void CALL(WORD operand) {}
 void ADC(BYTE operand) {}
 void RST_08() {}
 void RET_NC() {}
-void POP_DE() {}
+void POP_DE() {
+	LD_16(registerDE, cpu[SP.pair]);
+	SP.pair++;SP.pair++;
+}
 void JP_NC(WORD operand) {}
 void CALL_NC(WORD operand) {}
-void PUSH_DE() {}
+void PUSH_DE() {
+	SP.pair--;
+	writeMemory(SP.pair, registerDE.lo);
+	SP.pair--;
+	writeMemory(SP.pair, registerDE.hi);
+}
 void SUB(BYTE operand) {}
 void RST_10() {}
 void RET_C() {}
@@ -239,9 +264,17 @@ void CALL_C(WORD operand) {}
 void SBC(BYTE operand) {}
 void RST_18() {}
 void LD_FF02X_A(BYTE operand) {writeMemory(0xFF00 + operand, registerAF.hi);}
-void POP_HL() {}
+void POP_HL() {
+	LD_16(registerHL, cpu[SP.pair]);
+	SP.pair++;SP.pair++;
+}
 void LD_FFC_A() {writeMemory(0xFF00 + registerBC.lo, registerAF.hi);}
-void PUSH_HL() {}
+void PUSH_HL() {
+	SP.pair--;
+	writeMemory(SP.pair, registerHL.lo);
+	SP.pair--;
+	writeMemory(SP.pair, registerHL.hi);
+}
 void AND(BYTE operand) {}
 void RST_20() {}
 void ADD_SP(BYTE operand) {}
@@ -250,13 +283,30 @@ void LD_04X_A(WORD operand) {writeMemory(operand, registerAF.hi);}
 void XOR(BYTE operand) {}
 void RST_28() {}
 void LD_A_FF02X(BYTE operand) {LD(registerAF, cpu[0xFF00 + operand], 1);}
-void POP_AF() {}
+void POP_AF() {
+	LD_16(registerAF, cpu[SP.pair]);
+	SP.pair++;SP.pair++;
+}
 void LD_A_FFC() {LD(registerAF, cpu[0xFF00 + registerBC.lo], 1);}
 void DI() {}
-void PUSH_AF() {}
+void PUSH_AF() {
+	SP.pair--;
+	writeMemory(SP.pair, registerAF.lo);
+	SP.pair--;
+	writeMemory(SP.pair, registerAF.hi);
+}
 void OR(BYTE operand) {}
 void RST_30() {}
-void LD_HL_SP02X(BYTE operand) {}
+void LD_HL_SP02X(BYTE operand) {
+	clearFlag(flag_Z);
+	clearFlag(flag_N);
+	int result = SP.pair + operand;
+	if (result & 0xFFFF0000) {setFlag(flag_C);}
+	else {clearFlag(flag_C);}
+	if (((SP.pair & 0xF) + (operand & 0xF)) > 0xF){setFlag(flag_H);}
+	else {clearFlag(flag_H);}
+	LD_16(registerHL, (WORD)(result & 0xFFFF));
+}
 void LD_SP_HL() {LD_16(SP, registerHL.pair);}
 void LD_A_WORD(WORD operand) {LD(registerAF, cpu[operand], 1);}
 void EI() {}
