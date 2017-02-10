@@ -87,7 +87,7 @@ void LD_L(BYTE operand) {LD(registerHL, operand, 0);}
 void CPL() {
 	setFlag(flag_N);
 	setFlag(flag_H);
-	registerAF.hi = ~registerAF.hi
+	registerAF.hi = ~registerAF.hi;
 }
 void JR_NC(BYTE operand) {if (!flagSet(flag_C)){JR(operand);}}
 void LD_SP(WORD operand) {LD_16(SP, operand);}
