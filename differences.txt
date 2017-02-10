@@ -1,0 +1,8880 @@
+Our output: and03
+Their out : anda,03
+Line      : 246
+Our output: jrnz,fa
+Their out : jrnz,0156
+Line      : 247
+Our output: and03
+Their out : anda,03
+Line      : 250
+Our output: jrnz,fa
+Their out : jrnz,015D
+Line      : 251
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 256
+Our output: cp07
+Their out : cpa,07
+Line      : 295
+Our output: jrz,08
+Their out : jrz,01A9
+Line      : 296
+Our output: cp06
+Their out : cpa,06
+Line      : 297
+Our output: cp55
+Their out : cpa,55
+Line      : 303
+Our output: jrnz,08
+Their out : jrnz,01B7
+Line      : 304
+Our output: jr08
+Their out : jr01BF
+Line      : 308
+Our output: cp29
+Their out : cpa,29
+Line      : 309
+Our output: cp29
+Their out : cpa,29
+Line      : 322
+Our output: cp29
+Their out : cpa,29
+Line      : 334
+Our output: cp02
+Their out : cpa,02
+Line      : 344
+Our output: jrz,12
+Their out : jrz,0218
+Line      : 356
+Our output: cp29
+Their out : cpa,29
+Line      : 358
+Our output: jrnz,0c
+Their out : jrnz,0218
+Line      : 359
+Our output: jrz,1a
+Their out : jrz,027A
+Line      : 390
+Our output: cp03
+Their out : cpa,03
+Line      : 392
+Our output: jrnz,14
+Their out : jrnz,027A
+Line      : 393
+Our output: jrnz,fc
+Their out : jrnz,0293
+Line      : 420
+Our output: jrnz,f9
+Their out : jrnz,0293
+Line      : 422
+Our output: cp94
+Their out : cpa,94
+Line      : 437
+Our output: jrnz,fa
+Their out : jrnz,02B2
+Line      : 438
+Our output: jrnz,fc
+Their out : jrnz,02DF
+Line      : 460
+Our output: jrnz,fc
+Their out : jrnz,02EA
+Line      : 466
+Our output: jrnz,f9
+Their out : jrnz,02EA
+Line      : 468
+Our output: jrnz,fc
+Their out : jrnz,02F9
+Line      : 475
+Our output: jrnz,f9
+Their out : jrnz,02F9
+Line      : 477
+Our output: jrnz,fc
+Their out : jrnz,0305
+Line      : 482
+Our output: jrnz,fc
+Their out : jrnz,030E
+Line      : 487
+Our output: jrnz,fa
+Their out : jrnz,0319
+Line      : 495
+Our output: and0f
+Their out : anda,0F
+Line      : 518
+Our output: cp0f
+Their out : cpa,0F
+Line      : 519
+Our output: jrz,01
+Their out : jrz,035F
+Line      : 525
+Our output: jrnz,f7
+Their out : jrnz,035A
+Line      : 529
+Our output: jrz,04
+Their out : jrz,036C
+Line      : 532
+Our output: jrz,fb
+Their out : jrz,036C
+Line      : 537
+Our output: adda,c
+Their out : addc
+Line      : 553
+Our output: and04
+Their out : anda,04
+Line      : 557
+Our output: unknown
+Their out : -
+Line      : 581
+Our output: xor0e
+Their out : xora,0E
+Line      : 597
+Our output: stop
+Their out : <corruptedstop>
+Line      : 602
+Our output: cb11
+Their out : rlc
+Line      : 603
+Our output: adda,b
+Their out : addb
+Line      : 608
+Our output: cb13
+Their out : rle
+Line      : 620
+Our output: cpc4
+Their out : cpa,C4
+Line      : 641
+Our output: jrnz,f8
+Their out : jrnz,03FB
+Line      : 642
+Our output: cpcc
+Their out : cpa,CC
+Line      : 674
+Our output: jrnz,f8
+Their out : jrnz,043B
+Line      : 675
+Our output: jrnz,fc
+Their out : jrnz,0456
+Line      : 685
+Our output: cp02
+Their out : cpa,02
+Line      : 725
+Our output: jrnz,1a
+Their out : jrnz,04C7
+Line      : 727
+Our output: jrnz,0a
+Their out : jrnz,04F5
+Line      : 757
+Our output: jrz,9b
+Their out : jrz,048C
+Line      : 760
+Our output: jrz,0a
+Their out : jrz,050F
+Line      : 770
+Our output: jrnz,3a
+Their out : jrnz,0544
+Line      : 773
+Our output: jr67
+Their out : jr0576
+Line      : 776
+Our output: cb50
+Their out : bit2,b
+Line      : 780
+Our output: jrnz,48
+Their out : jrnz,0560
+Line      : 781
+Our output: cb60
+Their out : bit4,b
+Line      : 782
+Our output: jrnz,53
+Their out : jrnz,056F
+Line      : 783
+Our output: cb68
+Their out : bit5,b
+Line      : 784
+Our output: jrnz,54
+Their out : jrnz,0574
+Line      : 785
+Our output: cb58
+Their out : bit3,b
+Line      : 786
+Our output: jrz,2c
+Their out : jrz,0554
+Line      : 790
+Our output: cp08
+Their out : cpa,08
+Line      : 792
+Our output: cp29
+Their out : cpa,29
+Line      : 795
+Our output: jrz,12
+Their out : jrz,0544
+Line      : 796
+Our output: jrz,fb
+Their out : jrz,053A
+Line      : 803
+Our output: jrz,32
+Their out : jrz,0576
+Line      : 806
+Our output: cb7f
+Their out : bit7,a
+Line      : 818
+Our output: jrz,02
+Their out : jrz,055D
+Line      : 819
+Our output: jre6
+Their out : jr0546
+Line      : 822
+Our output: xor01
+Their out : xora,01
+Line      : 823
+Our output: jrz,02
+Their out : jrz,056B
+Line      : 827
+Our output: jrec
+Their out : jr0560
+Line      : 834
+Our output: jre9
+Their out : jr0562
+Line      : 838
+Our output: cb5f
+Their out : bit3,a
+Line      : 848
+Our output: jrz,0d
+Their out : jrz,059A
+Line      : 849
+Our output: cp02
+Their out : cpa,02
+Line      : 859
+Our output: jrz,02
+Their out : jrz,05A7
+Line      : 861
+Our output: cpff
+Their out : cpa,FF
+Line      : 873
+Our output: jrz,05
+Their out : jrz,05C2
+Line      : 877
+Our output: jr1c
+Their out : jr05DE
+Line      : 880
+Our output: jr03
+Their out : jr05E1
+Line      : 899
+Our output: jref
+Their out : jr05DE
+Line      : 909
+Our output: cpff
+Their out : cpa,FF
+Line      : 915
+Our output: jrz,19
+Their out : jrz,061A
+Line      : 921
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 953
+Our output: jr0a
+Their out : jr063E
+Line      : 954
+Our output: cp29
+Their out : cpa,29
+Line      : 958
+Our output: jrnz,ef
+Their out : jrnz,062D
+Line      : 959
+Our output: cp29
+Their out : cpa,29
+Line      : 979
+Our output: jrz,16
+Their out : jrz,0680
+Line      : 980
+Our output: jrz,1e
+Their out : jrz,068D
+Line      : 983
+Our output: jr0d
+Their out : jr068D
+Line      : 990
+Our output: cb47
+Their out : bit0,a
+Line      : 992
+Our output: jrnz,07
+Their out : jrnz,068D
+Line      : 993
+Our output: cb5f
+Their out : bit3,a
+Line      : 994
+Our output: jrnz,03
+Their out : jrnz,068D
+Line      : 995
+Our output: cp29
+Their out : cpa,29
+Line      : 998
+Our output: jrz,1e
+Their out : jrz,06B1
+Line      : 999
+Our output: cp50
+Their out : cpa,50
+Line      : 1008
+Our output: jrz,2d
+Their out : jrz,06D1
+Line      : 1009
+Our output: cb5f
+Their out : bit3,a
+Line      : 1020
+Our output: jrnz,22
+Their out : jrnz,06D9
+Line      : 1021
+Our output: cb47
+Their out : bit0,a
+Line      : 1022
+Our output: jrnz,1e
+Their out : jrnz,06D9
+Line      : 1023
+Our output: cp50
+Their out : cpa,50
+Line      : 1030
+Our output: jrz,09
+Their out : jrz,06D1
+Line      : 1031
+Our output: jred
+Their out : jr06CA
+Line      : 1042
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 1044
+Our output: jr1f
+Their out : jr0703
+Line      : 1045
+Our output: cp29
+Their out : cpa,29
+Line      : 1049
+Our output: jrnz,ef
+Their out : jrnz,06DD
+Line      : 1050
+Our output: jrnz,f9
+Their out : jrnz,06FC
+Line      : 1059
+Our output: jrnz,fc
+Their out : jrnz,0735
+Line      : 1084
+Our output: jrz,ae
+Their out : jrz,0723
+Line      : 1111
+Our output: jrnc,ae
+Their out : jrnc,0727
+Line      : 1114
+Our output: jrnz,48
+Their out : jrnz,07C3
+Line      : 1115
+Our output: jrz,af
+Their out : jrz,072C
+Line      : 1116
+Our output: jrnc,af
+Their out : jrnc,0730
+Line      : 1119
+Our output: jrnz,78
+Their out : jrnz,07FB
+Line      : 1120
+Our output: jrz,c0
+Their out : jrz,0745
+Line      : 1121
+Our output: jrnc,c0
+Their out : jrnc,0749
+Line      : 1124
+Our output: jrnz,80
+Their out : jrnz,070B
+Line      : 1125
+Our output: jrz,c1
+Their out : jrz,074E
+Line      : 1126
+Our output: adda,b
+Their out : addb
+Line      : 1128
+Our output: jrnc,c1
+Their out : jrnc,0752
+Line      : 1129
+Our output: jrnz,1a
+Their out : jrnz,07AD
+Line      : 1130
+Our output: jrnz,fa
+Their out : jrnz,0792
+Line      : 1134
+Our output: cp29
+Their out : cpa,29
+Line      : 1137
+Our output: jrz,23
+Their out : jrz,07C2
+Line      : 1138
+Our output: jrz,13
+Their out : jrz,07B7
+Line      : 1141
+Our output: cp60
+Their out : cpa,60
+Line      : 1143
+Our output: jrz,2d
+Their out : jrz,07D7
+Line      : 1144
+Our output: cp06
+Their out : cpa,06
+Line      : 1145
+Our output: jrnc,02
+Their out : jrnc,07B0
+Line      : 1146
+Our output: jr68
+Their out : jr082A
+Line      : 1155
+Our output: cb5f
+Their out : bit3,a
+Line      : 1157
+Our output: jrz,04
+Their out : jrz,07CC
+Line      : 1158
+Our output: jr4d
+Their out : jr0819
+Line      : 1160
+Our output: jrz,50
+Their out : jrz,0821
+Line      : 1163
+Our output: cp60
+Their out : cpa,60
+Line      : 1165
+Our output: jrnz,38
+Their out : jrnz,080F
+Line      : 1166
+Our output: jrnz,18
+Their out : jrnz,07F7
+Line      : 1170
+Our output: cp29
+Their out : cpa,29
+Line      : 1174
+Our output: cp29
+Their out : cpa,29
+Line      : 1184
+Our output: cp06
+Their out : cpa,06
+Line      : 1194
+Our output: jrnc,02
+Their out : jrnc,0817
+Line      : 1195
+Our output: cb60
+Their out : bit4,b
+Line      : 1207
+Our output: jrnz,14
+Their out : jrnz,0843
+Line      : 1208
+Our output: cb68
+Their out : bit5,b
+Line      : 1209
+Our output: jrnz,22
+Their out : jrnz,0855
+Line      : 1210
+Our output: cb70
+Their out : bit6,b
+Line      : 1211
+Our output: jrnz,24
+Their out : jrnz,085B
+Line      : 1212
+Our output: cb78
+Their out : bit7,b
+Line      : 1213
+Our output: jrz,13
+Their out : jrz,084E
+Line      : 1214
+Our output: cp03
+Their out : cpa,03
+Line      : 1215
+Our output: jrnc,0f
+Their out : jrnc,084E
+Line      : 1216
+Our output: jr05
+Their out : jr0848
+Line      : 1218
+Our output: cp05
+Their out : cpa,05
+Line      : 1219
+Our output: jrz,07
+Their out : jrz,084E
+Line      : 1220
+Our output: jrz,f6
+Their out : jrz,084E
+Line      : 1229
+Our output: jred
+Their out : jr0848
+Line      : 1231
+Our output: cp03
+Their out : cpa,03
+Line      : 1232
+Our output: jrc,ef
+Their out : jrc,084E
+Line      : 1233
+Our output: sub03
+Their out : suba,03
+Line      : 1234
+Our output: jre5
+Their out : jr0848
+Line      : 1235
+Our output: adda,b
+Their out : addb
+Line      : 1241
+Our output: adda,b
+Their out : addb
+Line      : 1247
+Our output: adda,b
+Their out : addb
+Line      : 1253
+Our output: adda,b
+Their out : addb
+Line      : 1259
+Our output: cp29
+Their out : cpa,29
+Line      : 1319
+Our output: jrz,05
+Their out : jrz,0913
+Line      : 1322
+Our output: jr84
+Their out : jr08B9
+Line      : 1341
+Our output: jr8c
+Their out : jr08C5
+Line      : 1344
+Our output: jrnz,20
+Their out : jrnz,095C
+Line      : 1346
+Our output: adda,h
+Their out : addh
+Line      : 1347
+Our output: jrnz,8c
+Their out : jrnz,08CD
+Line      : 1350
+Our output: jrnz,18
+Their out : jrnz,095C
+Line      : 1352
+Our output: adda,h
+Their out : addh
+Line      : 1353
+Our output: jr8c
+Their out : jr08D5
+Line      : 1356
+Our output: jrnz,20
+Their out : jrnz,096C
+Line      : 1358
+Our output: adda,h
+Their out : addh
+Line      : 1359
+Our output: jrnz,8c
+Their out : jrnz,08DD
+Line      : 1362
+Our output: jrnz,3e
+Their out : jrnz,0992
+Line      : 1364
+Our output: cp29
+Their out : cpa,29
+Line      : 1369
+Our output: jrz,fb
+Their out : jrz,0972
+Line      : 1381
+Our output: cp55
+Their out : cpa,55
+Line      : 1383
+Our output: jrnz,e4
+Their out : jrnz,0961
+Line      : 1384
+Our output: jrz,fb
+Their out : jrz,0994
+Line      : 1398
+Our output: jrnz,eb
+Their out : jrnz,0987
+Line      : 1400
+Our output: jrnz,e5
+Their out : jrnz,0985
+Line      : 1403
+Our output: cp05
+Their out : cpa,05
+Line      : 1405
+Our output: jrz,3d
+Their out : jrz,09E3
+Line      : 1406
+Our output: cp05
+Their out : cpa,05
+Line      : 1411
+Our output: jrnz,fa
+Their out : jrnz,09AC
+Line      : 1412
+Our output: jrnz,fa
+Their out : jrnz,09B9
+Line      : 1420
+Our output: jrnz,e7
+Their out : jrnz,09B7
+Line      : 1432
+Our output: cpc8
+Their out : cpa,C8
+Line      : 1436
+Our output: jrz,09
+Their out : jrz,09E3
+Line      : 1437
+Our output: jrnz,fc
+Their out : jrnz,09DC
+Line      : 1441
+Our output: jrf0
+Their out : jr09D3
+Line      : 1443
+Our output: jrz,fb
+Their out : jrz,09F4
+Line      : 1454
+Our output: cp55
+Their out : cpa,55
+Line      : 1456
+Our output: jrnz,e4
+Their out : jrnz,09E3
+Line      : 1457
+Our output: jrz,fb
+Their out : jrz,0A11
+Line      : 1469
+Our output: jrnz,eb
+Their out : jrnz,0A04
+Line      : 1471
+Our output: jrz,fb
+Their out : jrz,0A2A
+Line      : 1482
+Our output: cp56
+Their out : cpa,56
+Line      : 1484
+Our output: jrnz,e4
+Their out : jrnz,0A19
+Line      : 1485
+Our output: cp29
+Their out : cpa,29
+Line      : 1496
+Our output: jrz,05
+Their out : jrz,0A53
+Line      : 1497
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 1499
+Our output: jrz,03
+Their out : jrz,0A75
+Line      : 1516
+Our output: jrfa
+Their out : jr0A6F
+Line      : 1518
+Our output: jrz,fb
+Their out : jrz,0A83
+Line      : 1528
+Our output: cp29
+Their out : cpa,29
+Line      : 1530
+Our output: jrnz,e7
+Their out : jrnz,0A75
+Line      : 1531
+Our output: jrz,fb
+Their out : jrz,0A9E
+Line      : 1542
+Our output: jrnz,ec
+Their out : jrnz,0A95
+Line      : 1546
+Our output: jrnz,e6
+Their out : jrnz,0A93
+Line      : 1549
+Our output: jrz,fb
+Their out : jrz,0ABB
+Line      : 1559
+Our output: cp29
+Their out : cpa,29
+Line      : 1561
+Our output: jrnz,e7
+Their out : jrnz,0AAD
+Line      : 1562
+Our output: jrz,fb
+Their out : jrz,0AD4
+Line      : 1572
+Our output: jrnz,ec
+Their out : jrnz,0ACB
+Line      : 1576
+Our output: jrz,fb
+Their out : jrz,0AED
+Line      : 1586
+Our output: cp30
+Their out : cpa,30
+Line      : 1588
+Our output: jrnz,e7
+Their out : jrnz,0ADF
+Line      : 1589
+Our output: jrnz,fc
+Their out : jrnz,0B02
+Line      : 1596
+Our output: jrnz,fc
+Their out : jrnz,0B0A
+Line      : 1602
+Our output: andfc
+Their out : anda,FC
+Line      : 1608
+Our output: jrz,0a
+Their out : jrz,0B2A
+Line      : 1615
+Our output: cp1c
+Their out : cpa,1C
+Line      : 1620
+Our output: jrz,f4
+Their out : jrz,0B1C
+Line      : 1621
+Our output: jrf3
+Their out : jr0B1D
+Line      : 1622
+Our output: jrz,07
+Their out : jrz,0B38
+Line      : 1627
+Our output: andfc
+Their out : anda,FC
+Line      : 1630
+Our output: jrz,e1
+Their out : jrz,0B19
+Line      : 1632
+Our output: jrnz,1c
+Their out : jrnz,0B66
+Line      : 1644
+Our output: cp05
+Their out : cpa,05
+Line      : 1658
+Our output: jrnz,f1
+Their out : jrnz,0B6E
+Line      : 1671
+Our output: jrz,06
+Their out : jrz,0B8E
+Line      : 1676
+Our output: jrnz,f9
+Their out : jrnz,0B85
+Line      : 1679
+Our output: jrf2
+Their out : jr0B80
+Line      : 1680
+Our output: jrz,14
+Their out : jrz,0BD7
+Line      : 1705
+Our output: jr10
+Their out : jr0BE7
+Line      : 1715
+Our output: cp01
+Their out : cpa,01
+Line      : 1717
+Our output: jrnz,1b
+Their out : jrnz,0BF8
+Line      : 1718
+Our output: cp29
+Their out : cpa,29
+Line      : 1730
+Our output: jrnz,02
+Their out : jrnz,0BF8
+Line      : 1731
+Our output: jrnz,0a
+Their out : jrnz,0C19
+Line      : 1743
+Our output: jrnz,f9
+Their out : jrnz,0C0C
+Line      : 1746
+Our output: jrnz,f1
+Their out : jrnz,0C09
+Line      : 1750
+Our output: cp0c
+Their out : cpa,0C
+Line      : 1755
+Our output: jrnc,07
+Their out : jrnc,0C2B
+Line      : 1757
+Our output: cp08
+Their out : cpa,08
+Line      : 1758
+Our output: cp08
+Their out : cpa,08
+Line      : 1762
+Our output: cp02
+Their out : cpa,02
+Line      : 1765
+Our output: cp29
+Their out : cpa,29
+Line      : 1771
+Our output: jrz,52
+Their out : jrz,0C92
+Line      : 1772
+Our output: cpaa
+Their out : cpa,AA
+Line      : 1791
+Our output: jrz,61
+Their out : jrz,0CC8
+Line      : 1792
+Our output: cp77
+Their out : cpa,77
+Line      : 1793
+Our output: jrz,49
+Their out : jrz,0CB4
+Line      : 1794
+Our output: cp94
+Their out : cpa,94
+Line      : 1795
+Our output: jrz,cb
+Their out : jrz,0C3A
+Line      : 1796
+Our output: jrz,51
+Their out : jrz,0CC4
+Line      : 1799
+Our output: cb7f
+Their out : bit7,a
+Line      : 1800
+Our output: jrnz,6f
+Their out : jrnz,0CE6
+Line      : 1801
+Our output: cp13
+Their out : cpa,13
+Line      : 1802
+Our output: jrnc,17
+Their out : jrnc,0C92
+Line      : 1803
+Our output: sub08
+Their out : suba,08
+Line      : 1811
+Our output: jrnz,f9
+Their out : jrnz,0C82
+Line      : 1813
+Our output: jrz,04
+Their out : jrz,0C92
+Line      : 1816
+Our output: jrf9
+Their out : jr0C8B
+Line      : 1819
+Our output: jrz,07
+Their out : jrz,0C9E
+Line      : 1822
+Our output: or80
+Their out : ora,80
+Line      : 1823
+Our output: cp29
+Their out : cpa,29
+Line      : 1830
+Our output: jrnz,07
+Their out : jrnz,0CB1
+Line      : 1832
+Our output: cpaa
+Their out : cpa,AA
+Line      : 1840
+Our output: jrz,26
+Their out : jrz,0CE0
+Line      : 1841
+Our output: jrce
+Their out : jr0C92
+Line      : 1846
+Our output: jrc1
+Their out : jr0C89
+Line      : 1848
+Our output: cp77
+Their out : cpa,77
+Line      : 1850
+Our output: jrz,12
+Their out : jrz,0CE0
+Line      : 1851
+Our output: jra0
+Their out : jr0C80
+Line      : 1860
+Our output: jrac
+Their out : jr0C92
+Line      : 1863
+Our output: and7f
+Their out : anda,7F
+Line      : 1864
+Our output: cp05
+Their out : cpa,05
+Line      : 1865
+Our output: jrnc,a6
+Their out : jrnc,0C92
+Line      : 1866
+Our output: jrae
+Their out : jr0C9E
+Line      : 1868
+Our output: jrz,07
+Their out : jrz,0CFC
+Line      : 1871
+Our output: cb7f
+Their out : bit7,a
+Line      : 1872
+Our output: and07
+Their out : anda,07
+Line      : 1874
+Our output: jr0a
+Their out : jr0D06
+Line      : 1875
+Our output: jrnz,fc
+Their out : jrnz,0D0E
+Line      : 1889
+Our output: jrnz,fa
+Their out : jrnz,0D19
+Line      : 1897
+Our output: jrnz,e7
+Their out : jrnz,0D17
+Line      : 1909
+Our output: jrnz,fa
+Their out : jrnz,0D36
+Line      : 1917
+Our output: jrnz,ec
+Their out : jrnz,0D31
+Line      : 1923
+Our output: cp77
+Their out : cpa,77
+Line      : 1938
+Our output: jrnz,0c
+Their out : jrnz,0D6D
+Line      : 1939
+Our output: cpaa
+Their out : cpa,AA
+Line      : 1941
+Our output: jrnz,10
+Their out : jrnz,0D77
+Line      : 1942
+Our output: jr0a
+Their out : jr0D77
+Line      : 1945
+Our output: cpaa
+Their out : cpa,AA
+Line      : 1946
+Our output: jrnz,06
+Their out : jrnz,0D77
+Line      : 1947
+Our output: cp77
+Their out : cpa,77
+Line      : 1949
+Our output: jrz,f0
+Their out : jrz,0D67
+Line      : 1950
+Our output: cpaa
+Their out : cpa,AA
+Line      : 1957
+Our output: jrnz,02
+Their out : jrnz,0D8B
+Line      : 1959
+Our output: jrnz,05
+Their out : jrnz,0DA4
+Line      : 1972
+Our output: cp29
+Their out : cpa,29
+Line      : 1979
+Our output: jrz,03
+Their out : jrz,0DB3
+Line      : 1980
+Our output: jrz,05
+Their out : jrz,0DC9
+Line      : 1989
+Our output: cp05
+Their out : cpa,05
+Line      : 1999
+Our output: cp05
+Their out : cpa,05
+Line      : 2005
+Our output: jrnz,07
+Their out : jrnz,0DEF
+Line      : 2006
+Our output: jrz,08
+Their out : jrz,0DF5
+Line      : 2009
+Our output: jr22
+Their out : jr0E11
+Line      : 2010
+Our output: cb5f
+Their out : bit3,a
+Line      : 2012
+Our output: jrz,1c
+Their out : jrz,0E11
+Line      : 2013
+Our output: jr1d
+Their out : jr0E1A
+Line      : 2017
+Our output: jrz,0c
+Their out : jrz,0E11
+Line      : 2021
+Our output: cp29
+Their out : cpa,29
+Line      : 2023
+Our output: jrz,d7
+Their out : jrz,0DE2
+Line      : 2024
+Our output: cp60
+Their out : cpa,60
+Line      : 2026
+Our output: jrz,09
+Their out : jrz,0E1A
+Line      : 2027
+Our output: jrnz,23
+Their out : jrnz,0E49
+Line      : 2038
+Our output: xor30
+Their out : xora,30
+Line      : 2046
+Our output: cp60
+Their out : cpa,60
+Line      : 2048
+Our output: xor01
+Their out : xora,01
+Line      : 2053
+Our output: cp05
+Their out : cpa,05
+Line      : 2061
+Our output: jrnz,28
+Their out : jrnz,0E77
+Line      : 2062
+Our output: cp06
+Their out : cpa,06
+Line      : 2065
+Our output: jrz,1b
+Their out : jrz,0E73
+Line      : 2066
+Our output: cp08
+Their out : cpa,08
+Line      : 2067
+Our output: jrnc,1b
+Their out : jrnc,0E77
+Line      : 2068
+Our output: cp72
+Their out : cpa,72
+Line      : 2070
+Our output: jrnc,06
+Their out : jrnc,0E67
+Line      : 2071
+Our output: cp69
+Their out : cpa,69
+Line      : 2072
+Our output: xor01
+Their out : xora,01
+Line      : 2094
+Our output: jrnz,05
+Their out : jrnz,0E95
+Line      : 2102
+Our output: cp29
+Their out : cpa,29
+Line      : 2109
+Our output: jrz,03
+Their out : jrz,0EA4
+Line      : 2110
+Our output: jrz,05
+Their out : jrz,0EBA
+Line      : 2119
+Our output: cp05
+Their out : cpa,05
+Line      : 2129
+Our output: cp05
+Their out : cpa,05
+Line      : 2135
+Our output: jrnz,07
+Their out : jrnz,0EE0
+Line      : 2136
+Our output: jrz,08
+Their out : jrz,0EE6
+Line      : 2139
+Our output: jr22
+Their out : jr0F02
+Line      : 2140
+Our output: cb5f
+Their out : bit3,a
+Line      : 2142
+Our output: jrz,1c
+Their out : jrz,0F02
+Line      : 2143
+Our output: jr1d
+Their out : jr0F0B
+Line      : 2147
+Our output: jrz,0c
+Their out : jrz,0F02
+Line      : 2151
+Our output: cp29
+Their out : cpa,29
+Line      : 2153
+Our output: jrz,d7
+Their out : jrz,0ED3
+Line      : 2154
+Our output: cp60
+Their out : cpa,60
+Line      : 2156
+Our output: jrz,09
+Their out : jrz,0F0B
+Line      : 2157
+Our output: jrnz,1c
+Their out : jrnz,0F33
+Line      : 2168
+Our output: xor08
+Their out : xora,08
+Line      : 2176
+Our output: cp68
+Their out : cpa,68
+Line      : 2178
+Our output: xor01
+Their out : xora,01
+Line      : 2182
+Our output: cp05
+Their out : cpa,05
+Line      : 2185
+Our output: jrnz,32
+Their out : jrnz,0F6B
+Line      : 2186
+Our output: cp05
+Their out : cpa,05
+Line      : 2189
+Our output: jrz,25
+Their out : jrz,0F67
+Line      : 2190
+Our output: cp06
+Their out : cpa,06
+Line      : 2191
+Our output: jrz,11
+Their out : jrz,0F57
+Line      : 2192
+Our output: cp08
+Their out : cpa,08
+Line      : 2193
+Our output: jrnc,21
+Their out : jrnc,0F6B
+Line      : 2194
+Our output: cp72
+Their out : cpa,72
+Line      : 2196
+Our output: jrnc,18
+Their out : jrnc,0F67
+Line      : 2197
+Our output: cp61
+Their out : cpa,61
+Line      : 2198
+Our output: xor01
+Their out : xora,01
+Line      : 2225
+Our output: cp05
+Their out : cpa,05
+Line      : 2231
+Our output: jrz,1a
+Their out : jrz,0F9D
+Line      : 2232
+Our output: cp05
+Their out : cpa,05
+Line      : 2234
+Our output: jrz,14
+Their out : jrz,0F9D
+Line      : 2235
+Our output: cp29
+Their out : cpa,29
+Line      : 2237
+Our output: jrnz,0e
+Their out : jrnz,0F9D
+Line      : 2238
+Our output: jrnz,fa
+Their out : jrnz,0F97
+Line      : 2246
+Our output: jrnc,0d
+Their out : jrnc,0FB0
+Line      : 2251
+Our output: jrc,b2
+Their out : jrc,0F59
+Line      : 2254
+Our output: jrnz,fb
+Their out : jrnz,0FCD
+Line      : 2289
+Our output: cp29
+Their out : cpa,29
+Line      : 2304
+Our output: jrnz,22
+Their out : jrnz,101D
+Line      : 2305
+Our output: jrnz,03
+Their out : jrnz,1025
+Line      : 2328
+Our output: jrz,49
+Their out : jrz,1073
+Line      : 2332
+Our output: cp05
+Their out : cpa,05
+Line      : 2333
+Our output: jrnz,16
+Their out : jrnz,1044
+Line      : 2334
+Our output: cp29
+Their out : cpa,29
+Line      : 2338
+Our output: jrz,03
+Their out : jrz,103F
+Line      : 2340
+Our output: cp29
+Their out : cpa,29
+Line      : 2346
+Our output: jrnz,02
+Their out : jrnz,104F
+Line      : 2348
+Our output: jrz,17
+Their out : jrz,1073
+Line      : 2355
+Our output: jrz,3e
+Their out : jrz,10B6
+Line      : 2367
+Our output: cp05
+Their out : cpa,05
+Line      : 2368
+Our output: jrnz,16
+Their out : jrnz,1092
+Line      : 2369
+Our output: cp29
+Their out : cpa,29
+Line      : 2373
+Our output: jrz,03
+Their out : jrz,108D
+Line      : 2375
+Our output: cp29
+Their out : cpa,29
+Line      : 2381
+Our output: jrnz,02
+Their out : jrnz,109D
+Line      : 2383
+Our output: jrz,0c
+Their out : jrz,10B6
+Line      : 2390
+Our output: jrz,0b
+Their out : jrz,10C6
+Line      : 2398
+Our output: jrnz,f6
+Their out : jrnz,10D6
+Line      : 2419
+Our output: jrnz,e6
+Their out : jrnz,10CE
+Line      : 2424
+Our output: jrnz,3a
+Their out : jrnz,112E
+Line      : 2430
+Our output: jrnz,3c
+Their out : jrnz,1135
+Line      : 2433
+Our output: jrnz,21
+Their out : jrnz,111F
+Line      : 2436
+Our output: cp04
+Their out : cpa,04
+Line      : 2438
+Our output: jrz,11
+Their out : jrz,1114
+Line      : 2439
+Our output: cp04
+Their out : cpa,04
+Line      : 2441
+Our output: jr0a
+Their out : jr1116
+Line      : 2445
+Our output: cp03
+Their out : cpa,03
+Line      : 2447
+Our output: jr05
+Their out : jr1119
+Line      : 2450
+Our output: cp04
+Their out : cpa,04
+Line      : 2459
+Our output: jrnz,06
+Their out : jrnz,112A
+Line      : 2460
+Our output: jrf8
+Their out : jr1126
+Line      : 2466
+Our output: cp05
+Their out : cpa,05
+Line      : 2468
+Our output: jrz,e1
+Their out : jrz,1114
+Line      : 2469
+Our output: jrdb
+Their out : jr1110
+Line      : 2470
+Our output: cp05
+Their out : cpa,05
+Line      : 2472
+Our output: jrz,cd
+Their out : jrz,1107
+Line      : 2473
+Our output: jrd4
+Their out : jr1110
+Line      : 2474
+Our output: jrnz,fa
+Their out : jrnz,113E
+Line      : 2481
+Our output: jrnz,fc
+Their out : jrnz,114C
+Line      : 2489
+Our output: cp05
+Their out : cpa,05
+Line      : 2533
+Our output: jrz,0a
+Their out : jrz,119E
+Line      : 2534
+Our output: cp05
+Their out : cpa,05
+Line      : 2536
+Our output: jrz,04
+Their out : jrz,119E
+Line      : 2537
+Our output: jrz,14
+Their out : jrz,11BC
+Line      : 2545
+Our output: cp29
+Their out : cpa,29
+Line      : 2549
+Our output: jrnz,11
+Their out : jrnz,11C4
+Line      : 2551
+Our output: jrz,08
+Their out : jrz,11BE
+Line      : 2553
+Our output: jrz,04
+Their out : jrz,1269
+Line      : 2634
+Our output: jrz,04
+Their out : jrz,1289
+Line      : 2650
+Our output: jrnz,2e
+Their out : jrnz,12DB
+Line      : 2667
+Our output: cp58
+Their out : cpa,58
+Line      : 2673
+Our output: jrnz,21
+Their out : jrnz,12DB
+Line      : 2674
+Our output: jrnz,1d
+Their out : jrnz,1301
+Line      : 2696
+Our output: cpd0
+Their out : cpa,D0
+Line      : 2704
+Our output: jrnz,0d
+Their out : jrnz,1301
+Line      : 2705
+Our output: jrnz,0b
+Their out : jrnz,1311
+Line      : 2715
+Our output: xor01
+Their out : xora,01
+Line      : 2720
+Our output: sub82
+Their out : suba,82
+Line      : 2731
+Our output: cp92
+Their out : cpa,92
+Line      : 2757
+Our output: jrz,04
+Their out : jrz,13D4
+Line      : 2829
+Our output: jrnz,2e
+Their out : jrnz,1415
+Line      : 2841
+Our output: cp6a
+Their out : cpa,6A
+Line      : 2847
+Our output: jrnz,21
+Their out : jrnz,1415
+Line      : 2848
+Our output: jrnz,15
+Their out : jrnz,1433
+Line      : 2870
+Our output: cpe0
+Their out : cpa,E0
+Line      : 2878
+Our output: jrnz,05
+Their out : jrnz,1433
+Line      : 2879
+Our output: jrnz,0b
+Their out : jrnz,1443
+Line      : 2885
+Our output: xor01
+Their out : xora,01
+Line      : 2890
+Our output: xor80
+Their out : xora,80
+Line      : 2914
+Our output: jrnz,f7
+Their out : jrnz,1470
+Line      : 2918
+Our output: jrnz,f4
+Their out : jrnz,149B
+Line      : 2952
+Our output: cp37
+Their out : cpa,37
+Line      : 2975
+Our output: jrz,02
+Their out : jrz,14E1
+Line      : 2977
+Our output: sub1c
+Their out : suba,1C
+Line      : 2991
+Our output: adda,b
+Their out : addb
+Line      : 3010
+Our output: adda,b
+Their out : addb
+Line      : 3012
+Our output: cb58
+Their out : bit3,b
+Line      : 3018
+Our output: cb40
+Their out : bit0,b
+Line      : 3020
+Our output: cb48
+Their out : bit1,b
+Line      : 3022
+Our output: jrnz,41
+Their out : jrnz,156D
+Line      : 3023
+Our output: cb60
+Their out : bit4,b
+Line      : 3025
+Our output: jrnz,26
+Their out : jrnz,1557
+Line      : 3026
+Our output: cb68
+Their out : bit5,b
+Line      : 3027
+Our output: jrnz,2d
+Their out : jrnz,1562
+Line      : 3028
+Our output: cb70
+Their out : bit6,b
+Line      : 3029
+Our output: jrnz,16
+Their out : jrnz,154F
+Line      : 3030
+Our output: cb78
+Their out : bit7,b
+Line      : 3031
+Our output: cp1e
+Their out : cpa,1E
+Line      : 3033
+Our output: jrnc,09
+Their out : jrnc,154B
+Line      : 3034
+Our output: cp1e
+Their out : cpa,1E
+Line      : 3041
+Our output: jrc,f8
+Their out : jrc,154B
+Line      : 3042
+Our output: sub02
+Their out : suba,02
+Line      : 3043
+Our output: jred
+Their out : jr1544
+Line      : 3044
+Our output: cp1d
+Their out : cpa,1D
+Line      : 3045
+Our output: jrz,f0
+Their out : jrz,154B
+Line      : 3046
+Our output: cp1f
+Their out : cpa,1F
+Line      : 3047
+Our output: jrz,ec
+Their out : jrz,154B
+Line      : 3048
+Our output: jre2
+Their out : jr1544
+Line      : 3050
+Our output: cp1c
+Their out : cpa,1C
+Line      : 3051
+Our output: jrz,e5
+Their out : jrz,154B
+Line      : 3052
+Our output: cp1e
+Their out : cpa,1E
+Line      : 3053
+Our output: jrz,e1
+Their out : jrz,154B
+Line      : 3054
+Our output: jrd7
+Their out : jr1544
+Line      : 3056
+Our output: jrz,03
+Their out : jrz,1576
+Line      : 3060
+Our output: jrb6
+Their out : jr152C
+Line      : 3062
+Our output: jr5b
+Their out : jr15D6
+Line      : 3065
+Our output: sub17
+Their out : suba,17
+Line      : 3067
+Our output: cp08
+Their out : cpa,08
+Line      : 3068
+Our output: jrnz,02
+Their out : jrnz,1585
+Line      : 3069
+Our output: cb58
+Their out : bit3,b
+Line      : 3077
+Our output: jrnz,30
+Their out : jrnz,15C7
+Line      : 3078
+Our output: cb40
+Their out : bit0,b
+Line      : 3079
+Our output: jrnz,40
+Their out : jrnz,15DB
+Line      : 3080
+Our output: cb60
+Their out : bit4,b
+Line      : 3083
+Our output: jrnz,0e
+Their out : jrnz,15AF
+Line      : 3084
+Our output: cb68
+Their out : bit5,b
+Line      : 3085
+Our output: jrz,1e
+Their out : jrz,15C3
+Line      : 3086
+Our output: cp37
+Their out : cpa,37
+Line      : 3087
+Our output: jrz,1a
+Their out : jrz,15C3
+Line      : 3088
+Our output: jr08
+Their out : jr15B7
+Line      : 3091
+Our output: cp77
+Their out : cpa,77
+Line      : 3092
+Our output: jrz,10
+Their out : jrz,15C3
+Line      : 3093
+Our output: cp37
+Their out : cpa,37
+Line      : 3110
+Our output: jrz,02
+Their out : jrz,15D6
+Line      : 3112
+Our output: jre7
+Their out : jr15C2
+Line      : 3116
+Our output: jrf7
+Their out : jr15D6
+Line      : 3118
+Our output: jrnz,04
+Their out : jrnz,161E
+Line      : 3141
+Our output: cb58
+Their out : bit3,b
+Line      : 3151
+Our output: jrnz,ee
+Their out : jrnz,1620
+Line      : 3152
+Our output: cb40
+Their out : bit0,b
+Line      : 3153
+Our output: jrnz,ea
+Their out : jrnz,1620
+Line      : 3154
+Our output: cb48
+Their out : bit1,b
+Line      : 3156
+Our output: jrnz,e4
+Their out : jrnz,1620
+Line      : 3157
+Our output: cb60
+Their out : bit4,b
+Line      : 3159
+Our output: jrnz,14
+Their out : jrnz,1655
+Line      : 3160
+Our output: cb68
+Their out : bit5,b
+Line      : 3161
+Our output: jrnz,26
+Their out : jrnz,166B
+Line      : 3162
+Our output: cb70
+Their out : bit6,b
+Line      : 3163
+Our output: jrnz,28
+Their out : jrnz,1671
+Line      : 3164
+Our output: cb78
+Their out : bit7,b
+Line      : 3165
+Our output: jrz,1a
+Their out : jrz,1667
+Line      : 3166
+Our output: cp05
+Their out : cpa,05
+Line      : 3167
+Our output: jrnc,16
+Their out : jrnc,1667
+Line      : 3168
+Our output: jr05
+Their out : jr165A
+Line      : 3170
+Our output: cp09
+Their out : cpa,09
+Line      : 3171
+Our output: jrz,0e
+Their out : jrz,1667
+Line      : 3172
+Our output: jrz,f9
+Their out : jrz,1667
+Line      : 3182
+Our output: jre9
+Their out : jr165A
+Line      : 3184
+Our output: cp05
+Their out : cpa,05
+Line      : 3185
+Our output: jrc,f2
+Their out : jrc,1667
+Line      : 3186
+Our output: sub05
+Their out : suba,05
+Line      : 3187
+Our output: jre1
+Their out : jr165A
+Line      : 3188
+Our output: jrnc,40
+Their out : jrnc,16BC
+Line      : 3190
+Our output: jrnc,50
+Their out : jrnc,16D6
+Line      : 3199
+Our output: jrnz,04
+Their out : jrnz,16D4
+Line      : 3232
+Our output: cb58
+Their out : bit3,b
+Line      : 3246
+Our output: jrnz,ec
+Their out : jrnz,16D9
+Line      : 3247
+Our output: cb40
+Their out : bit0,b
+Line      : 3249
+Our output: jrnz,e6
+Their out : jrnz,16D9
+Line      : 3250
+Our output: cb48
+Their out : bit1,b
+Line      : 3252
+Our output: jrnz,e0
+Their out : jrnz,16D9
+Line      : 3253
+Our output: cb60
+Their out : bit4,b
+Line      : 3255
+Our output: jrnz,14
+Their out : jrnz,1712
+Line      : 3256
+Our output: cb68
+Their out : bit5,b
+Line      : 3257
+Our output: jrnz,26
+Their out : jrnz,1728
+Line      : 3258
+Our output: cb70
+Their out : bit6,b
+Line      : 3259
+Our output: jrnz,28
+Their out : jrnz,172E
+Line      : 3260
+Our output: cb78
+Their out : bit7,b
+Line      : 3261
+Our output: jrz,1a
+Their out : jrz,1724
+Line      : 3262
+Our output: cp05
+Their out : cpa,05
+Line      : 3263
+Our output: jrnc,16
+Their out : jrnc,1724
+Line      : 3264
+Our output: jr05
+Their out : jr1717
+Line      : 3266
+Our output: cp09
+Their out : cpa,09
+Line      : 3267
+Our output: jrz,0e
+Their out : jrz,1724
+Line      : 3268
+Our output: jrz,f9
+Their out : jrz,1724
+Line      : 3278
+Our output: jre9
+Their out : jr1717
+Line      : 3280
+Our output: cp05
+Their out : cpa,05
+Line      : 3281
+Our output: jrc,f2
+Their out : jrc,1724
+Line      : 3282
+Our output: sub05
+Their out : suba,05
+Line      : 3283
+Our output: jre1
+Their out : jr1717
+Line      : 3284
+Our output: jr40
+Their out : jr1779
+Line      : 3286
+Our output: jrz,40
+Their out : jrz,177B
+Line      : 3287
+Our output: jrc,40
+Their out : jrc,177D
+Line      : 3288
+Our output: jr50
+Their out : jr1793
+Line      : 3293
+Our output: jrz,50
+Their out : jrz,1795
+Line      : 3294
+Our output: jrc,50
+Their out : jrc,1797
+Line      : 3295
+Our output: cb58
+Their out : bit3,b
+Line      : 3307
+Our output: jrnz,ec
+Their out : jrnz,174A
+Line      : 3308
+Our output: cb40
+Their out : bit0,b
+Line      : 3309
+Our output: jrnz,e8
+Their out : jrnz,174A
+Line      : 3310
+Our output: cb48
+Their out : bit1,b
+Line      : 3312
+Our output: jrnz,e2
+Their out : jrnz,174A
+Line      : 3313
+Our output: cb60
+Their out : bit4,b
+Line      : 3315
+Our output: jrnz,14
+Their out : jrnz,1781
+Line      : 3316
+Our output: cb68
+Their out : bit5,b
+Line      : 3317
+Our output: jrnz,26
+Their out : jrnz,1797
+Line      : 3318
+Our output: cb70
+Their out : bit6,b
+Line      : 3319
+Our output: jrnz,28
+Their out : jrnz,179D
+Line      : 3320
+Our output: cb78
+Their out : bit7,b
+Line      : 3321
+Our output: jrz,1a
+Their out : jrz,1793
+Line      : 3322
+Our output: cp03
+Their out : cpa,03
+Line      : 3323
+Our output: jrnc,16
+Their out : jrnc,1793
+Line      : 3324
+Our output: jr05
+Their out : jr1786
+Line      : 3326
+Our output: cp05
+Their out : cpa,05
+Line      : 3327
+Our output: jrz,0e
+Their out : jrz,1793
+Line      : 3328
+Our output: jrz,f9
+Their out : jrz,1793
+Line      : 3338
+Our output: jre9
+Their out : jr1786
+Line      : 3340
+Our output: cp03
+Their out : cpa,03
+Line      : 3341
+Our output: jrc,f2
+Their out : jrc,1793
+Line      : 3342
+Our output: sub03
+Their out : suba,03
+Line      : 3343
+Our output: jre1
+Their out : jr1786
+Line      : 3344
+Our output: adda,b
+Their out : addb
+Line      : 3348
+Our output: adda,b
+Their out : addb
+Line      : 3354
+Our output: xor80
+Their out : xora,80
+Line      : 3385
+Our output: jrnz,fa
+Their out : jrnz,17DD
+Line      : 3394
+Our output: adda,l
+Their out : addl
+Line      : 3397
+Our output: jrnz,ef
+Their out : jrnz,17DA
+Line      : 3400
+Our output: jrnz,fc
+Their out : jrnz,17F4
+Line      : 3408
+Our output: jrz,04
+Their out : jrz,180B
+Line      : 3415
+Our output: jrf9
+Their out : jr1804
+Line      : 3418
+Our output: jrz,04
+Their out : jrz,1825
+Line      : 3430
+Our output: jrf9
+Their out : jr181E
+Line      : 3433
+Our output: jrz,04
+Their out : jrz,1831
+Line      : 3437
+Our output: jrf9
+Their out : jr182A
+Line      : 3440
+Our output: andf0
+Their out : anda,F0
+Line      : 3449
+Our output: jrnz,0b
+Their out : jrnz,184B
+Line      : 3450
+Our output: and0f
+Their out : anda,0F
+Line      : 3453
+Our output: jrnz,0f
+Their out : jrnz,1855
+Line      : 3454
+Our output: jrnz,f1
+Their out : jrnz,183B
+Line      : 3457
+Our output: andf0
+Their out : anda,F0
+Line      : 3460
+Our output: cb37
+Their out : swapa
+Line      : 3461
+Our output: and0f
+Their out : anda,0F
+Line      : 3465
+Our output: jrnz,f1
+Their out : jrnz,184B
+Line      : 3469
+Our output: jrnz,fa
+Their out : jrnz,185D
+Line      : 3476
+Our output: jrc,10
+Their out : jrc,1886
+Line      : 3488
+Our output: jrnz,05
+Their out : jrnz,187D
+Line      : 3489
+Our output: jrnz,f5
+Their out : jrnz,1872
+Line      : 3493
+Our output: jrnz,e8
+Their out : jrnz,186C
+Line      : 3499
+Our output: jr5e
+Their out : jr18E4
+Line      : 3500
+Our output: jrz,05
+Their out : jrz,18A0
+Line      : 3516
+Our output: jrf8
+Their out : jr1898
+Line      : 3518
+Our output: jrnz,fa
+Their out : jrnz,18A5
+Line      : 3525
+Our output: jrz,07
+Their out : jrz,18C6
+Line      : 3539
+Our output: jrf6
+Their out : jr18BC
+Line      : 3542
+Our output: jrnz,fb
+Their out : jrnz,18CA
+Line      : 3548
+Our output: jrnz,e8
+Their out : jrnz,18EF
+Line      : 3583
+Our output: jrz,05
+Their out : jrz,191A
+Line      : 3592
+Our output: jrnz,f7
+Their out : jrnz,1911
+Line      : 3596
+Our output: jrnz,e8
+Their out : jrnz,190E
+Line      : 3605
+Our output: jrnz,fa
+Their out : jrnz,193D
+Line      : 3622
+Our output: jrz,11
+Their out : jrz,195B
+Line      : 3628
+Our output: cb41
+Their out : bit0,c
+Line      : 3629
+Our output: jrnz,ed
+Their out : jrnz,193B
+Line      : 3630
+Our output: adda,d
+Their out : addd
+Line      : 3637
+Our output: jrdf
+Their out : jr193A
+Line      : 3639
+Our output: jrnz,fc
+Their out : jrnz,196D
+Line      : 3652
+Our output: jrnz,f4
+Their out : jrnz,196A
+Line      : 3656
+Our output: jrz,03
+Their out : jrz,1985
+Line      : 3662
+Our output: jrfa
+Their out : jr197F
+Line      : 3664
+Our output: jrnz,12
+Their out : jrnz,19A8
+Line      : 3675
+Our output: xor01
+Their out : xora,01
+Line      : 3679
+Our output: jrz,02
+Their out : jrz,19A5
+Line      : 3682
+Our output: cb70
+Their out : bit6,b
+Line      : 3690
+Our output: jrnz,37
+Their out : jrnz,19EB
+Line      : 3691
+Our output: cb71
+Their out : bit6,c
+Line      : 3692
+Our output: jrnz,2b
+Their out : jrnz,19E3
+Line      : 3693
+Our output: cb78
+Their out : bit7,b
+Line      : 3694
+Our output: jrnz,58
+Their out : jrnz,1A14
+Line      : 3695
+Our output: cb79
+Their out : bit7,c
+Line      : 3696
+Our output: jrnz,4c
+Their out : jrnz,1A0C
+Line      : 3697
+Our output: cb40
+Their out : bit0,b
+Line      : 3698
+Our output: jrnz,6c
+Their out : jrnz,1A30
+Line      : 3699
+Our output: cb48
+Their out : bit1,b
+Line      : 3700
+Our output: cb58
+Their out : bit3,b
+Line      : 3702
+Our output: cp37
+Their out : cpa,37
+Line      : 3710
+Our output: jrz,02
+Their out : jrz,19E0
+Line      : 3712
+Our output: jrz,02
+Their out : jrz,19F6
+Line      : 3725
+Our output: jrnz,0a
+Their out : jrnz,1A04
+Line      : 3729
+Our output: cp2f
+Their out : cpa,2F
+Line      : 3736
+Our output: jrnz,f4
+Their out : jrnz,19FC
+Line      : 3737
+Our output: jrf1
+Their out : jr19FD
+Line      : 3739
+Our output: jrz,02
+Their out : jrz,1A1F
+Line      : 3749
+Our output: cp0a
+Their out : cpa,0A
+Line      : 3752
+Our output: jrnz,05
+Their out : jrnz,1A29
+Line      : 3753
+Our output: jrd4
+Their out : jr19FD
+Line      : 3756
+Our output: cp2f
+Their out : cpa,2F
+Line      : 3757
+Our output: jrnz,f9
+Their out : jrnz,1A26
+Line      : 3758
+Our output: jrcd
+Their out : jr19FD
+Line      : 3760
+Our output: cp06
+Their out : cpa,06
+Line      : 3767
+Our output: jrz,8c
+Their out : jrz,19CC
+Line      : 3768
+Our output: cp60
+Their out : cpa,60
+Line      : 3772
+Our output: jrnz,03
+Their out : jrnz,1A4B
+Line      : 3773
+Our output: jre9
+Their out : jr1A4B
+Line      : 3790
+Our output: and03
+Their out : anda,03
+Line      : 3793
+Our output: jrnz,fa
+Their out : jrnz,1A63
+Line      : 3794
+Our output: cp77
+Their out : cpa,77
+Line      : 3816
+Our output: jrz,08
+Their out : jrz,1AA5
+Line      : 3818
+Our output: jrz,07
+Their out : jrz,1AD7
+Line      : 3843
+Our output: cp77
+Their out : cpa,77
+Line      : 3856
+Our output: jrz,01
+Their out : jrz,1AF5
+Line      : 3858
+Our output: and0f
+Their out : anda,0F
+Line      : 3861
+Our output: jrz,02
+Their out : jrz,1AFE
+Line      : 3863
+Our output: cp77
+Their out : cpa,77
+Line      : 3873
+Our output: jrnz,25
+Their out : jrnz,1B3B
+Line      : 3874
+Our output: jrz,15
+Their out : jrz,1B3B
+Line      : 3883
+Our output: jrz,05
+Their out : jrz,1B31
+Line      : 3887
+Our output: jr0a
+Their out : jr1B3B
+Line      : 3889
+Our output: jrz,0a
+Their out : jrz,1B55
+Line      : 3903
+Our output: adda,e
+Their out : adde
+Line      : 3905
+Our output: cp15
+Their out : cpa,15
+Line      : 3906
+Our output: jrc,02
+Their out : jrc,1B54
+Line      : 3907
+Our output: jrnc,2c
+Their out : jrnc,1B90
+Line      : 3918
+Our output: jrz,24
+Their out : jrz,1B8A
+Line      : 3919
+Our output: jrnz,1b
+Their out : jrnz,1B83
+Line      : 3920
+Our output: stop
+Their out : <corruptedstop>
+Line      : 3922
+Our output: jrnz,f1
+Their out : jrnz,1B81
+Line      : 3949
+Our output: jrnz,e4
+Their out : jrnz,1B7E
+Line      : 3956
+Our output: adda,l
+Their out : addl
+Line      : 3958
+Our output: adda,d
+Their out : addd
+Line      : 3960
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 3961
+Our output: adda,e
+Their out : adde
+Line      : 3962
+Our output: adda,b
+Their out : addb
+Line      : 3965
+Our output: adda,d
+Their out : addd
+Line      : 3966
+Our output: adda,l
+Their out : addl
+Line      : 3967
+Our output: adda,d
+Their out : addd
+Line      : 3969
+Our output: adda,h
+Their out : addh
+Line      : 3970
+Our output: adda,d
+Their out : addd
+Line      : 3971
+Our output: adda,e
+Their out : adde
+Line      : 3972
+Our output: adda,e
+Their out : adde
+Line      : 3974
+Our output: adda,l
+Their out : addl
+Line      : 3979
+Our output: adda,e
+Their out : adde
+Line      : 3981
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 3983
+Our output: adda,d
+Their out : addd
+Line      : 3984
+Our output: adda,b
+Their out : addb
+Line      : 3985
+Our output: adda,c
+Their out : addc
+Line      : 3986
+Our output: adda,e
+Their out : adde
+Line      : 3988
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 3990
+Our output: adda,e
+Their out : adde
+Line      : 3991
+Our output: adda,l
+Their out : addl
+Line      : 3993
+Our output: adda,l
+Their out : addl
+Line      : 3995
+Our output: jrz,03
+Their out : jrz,1BCA
+Line      : 4000
+Our output: jrfa
+Their out : jr1BC4
+Line      : 4002
+Our output: jrz,08
+Their out : jrz,1BDA
+Line      : 4007
+Our output: cp80
+Their out : cpa,80
+Line      : 4008
+Our output: jrnz,f7
+Their out : jrnz,1BCD
+Line      : 4009
+Our output: jrf5
+Their out : jr1BCF
+Line      : 4011
+Our output: cp2f
+Their out : cpa,2F
+Line      : 4012
+Our output: jrz,08
+Their out : jrz,1BE6
+Line      : 4013
+Our output: and07
+Their out : anda,07
+Line      : 4015
+Our output: or80
+Their out : ora,80
+Line      : 4016
+Our output: jr02
+Their out : jr1BE8
+Line      : 4017
+Our output: and0f
+Their out : anda,0F
+Line      : 4021
+Our output: cp0b
+Their out : cpa,0B
+Line      : 4022
+Our output: jrnz,0b
+Their out : jrnz,1BFB
+Line      : 4023
+Our output: cp2f
+Their out : cpa,2F
+Line      : 4025
+Our output: jrz,05
+Their out : jrz,1BFB
+Line      : 4026
+Our output: jr01
+Their out : jr1BFC
+Line      : 4029
+Our output: jrnz,04
+Their out : jrnz,1C08
+Line      : 4036
+Our output: and0f
+Their out : anda,0F
+Line      : 4044
+Our output: cp0c
+Their out : cpa,0C
+Line      : 4045
+Our output: jrnz,b7
+Their out : jrnz,1BCA
+Line      : 4046
+Our output: and0f
+Their out : anda,0F
+Line      : 4050
+Our output: cp0a
+Their out : cpa,0A
+Line      : 4051
+Our output: jrz,06
+Their out : jrz,1C23
+Line      : 4052
+Our output: jra7
+Their out : jr1BCA
+Line      : 4055
+Our output: cp2c
+Their out : cpa,2C
+Line      : 4057
+Our output: jrnz,f5
+Their out : jrnz,1C1D
+Line      : 4058
+Our output: cb57
+Their out : bit2,a
+Line      : 4075
+Our output: xor01
+Their out : xora,01
+Line      : 4078
+Our output: jrz,09
+Their out : jrz,1C65
+Line      : 4080
+Our output: jrf6
+Their out : jr1C5E
+Line      : 4086
+Our output: and0f
+Their out : anda,0F
+Line      : 4088
+Our output: cp0f
+Their out : cpa,0F
+Line      : 4089
+Our output: cb5f
+Their out : bit3,a
+Line      : 4095
+Our output: jrz,d4
+Their out : jrz,1C4F
+Line      : 4096
+Our output: jrnz,45
+Their out : jrnz,1CC5
+Line      : 4099
+Our output: xor01
+Their out : xora,01
+Line      : 4102
+Our output: jrz,2a
+Their out : jrz,1CB5
+Line      : 4104
+Our output: cbde
+Their out : set3,(hl)
+Line      : 4105
+Our output: and03
+Their out : anda,03
+Line      : 4112
+Our output: jrnz,fa
+Their out : jrnz,1C9A
+Line      : 4113
+Our output: jrnz,f4
+Their out : jrnz,1C9A
+Line      : 4118
+Our output: cb9e
+Their out : res3,(hl)
+Line      : 4125
+Our output: jrz,e6
+Their out : jrz,1CA8
+Line      : 4130
+Our output: jre6
+Their out : jr1CAB
+Line      : 4132
+Our output: cp29
+Their out : cpa,29
+Line      : 4134
+Our output: xor01
+Their out : xora,01
+Line      : 4137
+Our output: jrz,33
+Their out : jrz,1D05
+Line      : 4139
+Our output: jrz,39
+Their out : jrz,1D24
+Line      : 4152
+Our output: cp29
+Their out : cpa,29
+Line      : 4156
+Our output: jrnz,08
+Their out : jrnz,1CFC
+Line      : 4157
+Our output: cp94
+Their out : cpa,94
+Line      : 4166
+Our output: jrz,1f
+Their out : jrz,1D24
+Line      : 4167
+Our output: jrnz,f9
+Their out : jrnz,1D1C
+Line      : 4182
+Our output: jrnz,f7
+Their out : jrnz,1D2E
+Line      : 4194
+Our output: adda,b
+Their out : addb
+Line      : 4200
+Our output: cb47
+Their out : bit0,a
+Line      : 4217
+Our output: jrnz,03
+Their out : jrnz,1D6A
+Line      : 4218
+Our output: cb5f
+Their out : bit3,a
+Line      : 4219
+Our output: jrnz,0a
+Their out : jrnz,1D7E
+Line      : 4226
+Our output: cp37
+Their out : cpa,37
+Line      : 4228
+Our output: jrz,02
+Their out : jrz,1D7E
+Line      : 4230
+Our output: jrz,2e
+Their out : jrz,1DC1
+Line      : 4242
+Our output: jrnz,fc
+Their out : jrnz,1DBD
+Line      : 4260
+Our output: jrnz,fc
+Their out : jrnz,1DE6
+Line      : 4280
+Our output: jrnz,f7
+Their out : jrnz,1DEE
+Line      : 4287
+Our output: andf0
+Their out : anda,F0
+Line      : 4292
+Our output: jrnz,0a
+Their out : jrnz,1E0C
+Line      : 4293
+Our output: and0f
+Their out : anda,0F
+Line      : 4295
+Our output: jrnz,0b
+Their out : jrnz,1E12
+Line      : 4296
+Our output: jrnz,f2
+Their out : jrnz,1DFD
+Line      : 4299
+Our output: andf0
+Their out : anda,F0
+Line      : 4302
+Our output: cb37
+Their out : swapa
+Line      : 4303
+Our output: and0f
+Their out : anda,0F
+Line      : 4306
+Our output: jrnz,f2
+Their out : jrnz,1E0C
+Line      : 4310
+Our output: jrnz,f3
+Their out : jrnz,1E55
+Line      : 4348
+Our output: cp05
+Their out : cpa,05
+Line      : 4350
+Our output: jrnz,02
+Their out : jrnz,1E6A
+Line      : 4351
+Our output: jrnz,fb
+Their out : jrnz,1E73
+Line      : 4361
+Our output: jrnz,18
+Their out : jrnz,1EAA
+Line      : 4375
+Our output: jrz,2b
+Their out : jrz,1EC1
+Line      : 4377
+Our output: cp14
+Their out : cpa,14
+Line      : 4382
+Our output: jrz,f4
+Their out : jrz,1E96
+Line      : 4383
+Our output: jrnz,15
+Their out : jrnz,1EC5
+Line      : 4391
+Our output: andf0
+Their out : anda,F0
+Line      : 4396
+Our output: or03
+Their out : ora,03
+Line      : 4397
+Our output: xor01
+Their out : xora,01
+Line      : 4400
+Our output: cp50
+Their out : cpa,50
+Line      : 4402
+Our output: jrz,23
+Their out : jrz,1EE4
+Line      : 4403
+Our output: cp51
+Their out : cpa,51
+Line      : 4404
+Our output: jrz,25
+Their out : jrz,1EEA
+Line      : 4405
+Our output: jrnz,e2
+Their out : jrnz,1EAC
+Line      : 4409
+Our output: cp05
+Their out : cpa,05
+Line      : 4417
+Our output: jrz,02
+Their out : jrz,1EE1
+Line      : 4419
+Our output: jrdb
+Their out : jr1EC5
+Line      : 4426
+Our output: jrd5
+Their out : jr1EC5
+Line      : 4430
+Our output: cp04
+Their out : cpa,04
+Line      : 4469
+Our output: jrz,b2
+Their out : jrz,1EF0
+Line      : 4470
+Our output: jrz,23
+Their out : jrz,1F6D
+Line      : 4475
+Our output: cp01
+Their out : cpa,01
+Line      : 4479
+Our output: jrz,16
+Their out : jrz,1F6D
+Line      : 4480
+Our output: cp02
+Their out : cpa,02
+Line      : 4484
+Our output: jrz,09
+Their out : jrz,1F6D
+Line      : 4485
+Our output: jrz,0a
+Their out : jrz,1F92
+Line      : 4504
+Our output: jr37
+Their out : jr1FC9
+Line      : 4509
+Our output: cp37
+Their out : cpa,37
+Line      : 4521
+Our output: jrnz,14
+Their out : jrnz,1FC7
+Line      : 4522
+Our output: cp15
+Their out : cpa,15
+Line      : 4526
+Our output: jrnc,0f
+Their out : jrnc,1FCC
+Line      : 4527
+Our output: cp10
+Their out : cpa,10
+Line      : 4529
+Our output: jrnc,0a
+Their out : jrnc,1FCC
+Line      : 4530
+Our output: cp05
+Their out : cpa,05
+Line      : 4532
+Our output: jrnc,05
+Their out : jrnc,1FCC
+Line      : 4533
+Our output: jrnz,fa
+Their out : jrnz,1FDB
+Line      : 4550
+Our output: jrnz,ed
+Their out : jrnz,1FD8
+Line      : 4557
+Our output: cp37
+Their out : cpa,37
+Line      : 4560
+Our output: cp05
+Their out : cpa,05
+Line      : 4566
+Our output: jrnz,17
+Their out : jrnz,201E
+Line      : 4573
+Our output: jrnz,0f
+Their out : jrnz,201E
+Line      : 4578
+Our output: jrnz,07
+Their out : jrnz,201E
+Line      : 4583
+Our output: jrnz,f3
+Their out : jrnz,2024
+Line      : 4600
+Our output: jrnz,fc
+Their out : jrnz,2043
+Line      : 4613
+Our output: jrnz,f4
+Their out : jrnz,2040
+Line      : 4617
+Our output: jrnz,fc
+Their out : jrnz,2059
+Line      : 4626
+Our output: jrnz,f6
+Their out : jrnz,2057
+Line      : 4629
+Our output: andfc
+Their out : anda,FC
+Line      : 4640
+Our output: jrnz,05
+Their out : jrnz,207F
+Line      : 4644
+Our output: jrz,1d
+Their out : jrz,209C
+Line      : 4647
+Our output: cpc4
+Their out : cpa,C4
+Line      : 4654
+Our output: jrnz,03
+Their out : jrnz,208E
+Line      : 4655
+Our output: jrz,2a
+Their out : jrz,20C0
+Line      : 4661
+Our output: or80
+Their out : ora,80
+Line      : 4662
+Our output: jr24
+Their out : jr20C0
+Line      : 4664
+Our output: jrz,0a
+Their out : jrz,20AF
+Line      : 4670
+Our output: cp1c
+Their out : cpa,1C
+Line      : 4675
+Our output: jrz,f4
+Their out : jrz,20A1
+Line      : 4676
+Our output: jrf3
+Their out : jr20A2
+Line      : 4677
+Our output: jrz,07
+Their out : jrz,20BD
+Line      : 4682
+Our output: andfc
+Their out : anda,FC
+Line      : 4685
+Our output: jrz,e1
+Their out : jrz,209E
+Line      : 4687
+Our output: jrz,0c
+Their out : jrz,20DE
+Line      : 4698
+Our output: andb0
+Their out : anda,B0
+Line      : 4700
+Our output: cp80
+Their out : cpa,80
+Line      : 4701
+Our output: jrnz,25
+Their out : jrnz,20FF
+Line      : 4702
+Our output: jrnz,29
+Their out : jrnz,210C
+Line      : 4707
+Our output: jrnz,24
+Their out : jrnz,210C
+Line      : 4710
+Our output: jrnz,1f
+Their out : jrnz,210C
+Line      : 4713
+Our output: jr26
+Their out : jr211D
+Line      : 4718
+Our output: andb0
+Their out : anda,B0
+Line      : 4720
+Our output: cp80
+Their out : cpa,80
+Line      : 4721
+Our output: jrz,cd
+Their out : jrz,20CC
+Line      : 4722
+Our output: jrz,07
+Their out : jrz,2110
+Line      : 4727
+Our output: cp03
+Their out : cpa,03
+Line      : 4733
+Our output: jrz,1b
+Their out : jrz,215E
+Line      : 4758
+Our output: cp37
+Their out : cpa,37
+Line      : 4761
+Our output: jrz,37
+Their out : jrz,2181
+Line      : 4762
+Our output: cp18
+Their out : cpa,18
+Line      : 4780
+Our output: cp3f
+Their out : cpa,3F
+Line      : 4783
+Our output: cp01
+Their out : cpa,01
+Line      : 4787
+Our output: jrnz,0d
+Their out : jrnz,217F
+Line      : 4788
+Our output: jrz,04
+Their out : jrz,2189
+Line      : 4799
+Our output: jrf9
+Their out : jr2182
+Line      : 4802
+Our output: jrc2
+Their out : jr215B
+Line      : 4809
+Our output: cp02
+Their out : cpa,02
+Line      : 4811
+Our output: cp2f
+Their out : cpa,2F
+Line      : 4823
+Our output: jrnz,f7
+Their out : jrnz,21B1
+Line      : 4826
+Our output: jrnz,df
+Their out : jrnz,21AE
+Line      : 4842
+Our output: cp77
+Their out : cpa,77
+Line      : 4853
+Our output: jrz,17
+Their out : jrz,21FB
+Line      : 4854
+Our output: adda,b
+Their out : addb
+Line      : 4856
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 4859
+Our output: jrnc,16
+Their out : jrnc,220A
+Line      : 4866
+Our output: jr0f
+Their out : jr220A
+Line      : 4870
+Our output: jrz,3b
+Their out : jrz,223B
+Line      : 4874
+Our output: jrc,39
+Their out : jrc,223B
+Line      : 4875
+Our output: andf0
+Their out : anda,F0
+Line      : 4878
+Our output: cp90
+Their out : cpa,90
+Line      : 4879
+Our output: jrz,31
+Their out : jrz,223B
+Line      : 4880
+Our output: cp01
+Their out : cpa,01
+Line      : 4885
+Our output: jrz,19
+Their out : jrz,222F
+Line      : 4886
+Our output: cp02
+Their out : cpa,02
+Line      : 4889
+Our output: jrz,10
+Their out : jrz,222F
+Line      : 4890
+Our output: cp03
+Their out : cpa,03
+Line      : 4893
+Our output: jrz,07
+Their out : jrz,222F
+Line      : 4894
+Our output: jr8b
+Their out : jr21C6
+Line      : 4905
+Our output: jrca
+Their out : jr220A
+Line      : 4908
+Our output: cp03
+Their out : cpa,03
+Line      : 4910
+Our output: cb47
+Their out : bit0,a
+Line      : 4917
+Our output: jrnz,3c
+Their out : jrnz,228E
+Line      : 4918
+Our output: jrz,52
+Their out : jrz,22A8
+Line      : 4921
+Our output: sub30
+Their out : suba,30
+Line      : 4922
+Our output: cp06
+Their out : cpa,06
+Line      : 4928
+Our output: jrnz,02
+Their out : jrnz,2266
+Line      : 4930
+Our output: jrnz,fc
+Their out : jrnz,2268
+Line      : 4935
+Our output: jrnz,e5
+Their out : jrnz,2256
+Line      : 4939
+Our output: cp07
+Their out : cpa,07
+Line      : 4943
+Our output: jrz,05
+Their out : jrz,227F
+Line      : 4944
+Our output: sub30
+Their out : suba,30
+Line      : 4959
+Our output: jrnz,f7
+Their out : jrnz,2298
+Line      : 4972
+Our output: jrnz,e8
+Their out : jrnz,228E
+Line      : 4976
+Our output: jrc9
+Their out : jr2271
+Line      : 4977
+Our output: jrdd
+Their out : jr228A
+Line      : 4979
+Our output: cp01
+Their out : cpa,01
+Line      : 4984
+Our output: jrnz,fa
+Their out : jrnz,22C8
+Line      : 5003
+Our output: cpc7
+Their out : cpa,C7
+Line      : 5010
+Our output: jrnz,eb
+Their out : jrnz,22C5
+Line      : 5011
+Our output: jrnz,da
+Their out : jrnz,22BA
+Line      : 5016
+Our output: jrnz,fc
+Their out : jrnz,22E7
+Line      : 5022
+Our output: jrnz,fc
+Their out : jrnz,22F9
+Line      : 5032
+Our output: cp02
+Their out : cpa,02
+Line      : 5035
+Our output: cp03
+Their out : cpa,03
+Line      : 5042
+Our output: cp04
+Their out : cpa,04
+Line      : 5049
+Our output: cp05
+Their out : cpa,05
+Line      : 5056
+Our output: cp06
+Their out : cpa,06
+Line      : 5063
+Our output: cp07
+Their out : cpa,07
+Line      : 5070
+Our output: cp08
+Their out : cpa,08
+Line      : 5077
+Our output: jrnz,08
+Their out : jrnz,2375
+Line      : 5085
+Our output: cp1a
+Their out : cpa,1A
+Line      : 5091
+Our output: jrz,f2
+Their out : jrz,236F
+Line      : 5095
+Our output: cp09
+Their out : cpa,09
+Line      : 5100
+Our output: cp0a
+Their out : cpa,0A
+Line      : 5107
+Our output: cp0b
+Their out : cpa,0B
+Line      : 5114
+Our output: cp0c
+Their out : cpa,0C
+Line      : 5121
+Our output: cp0d
+Their out : cpa,0D
+Line      : 5128
+Our output: cp0e
+Their out : cpa,0E
+Line      : 5135
+Our output: cp0f
+Their out : cpa,0F
+Line      : 5142
+Our output: cp10
+Their out : cpa,10
+Line      : 5149
+Our output: cp11
+Their out : cpa,11
+Line      : 5157
+Our output: cp12
+Their out : cpa,12
+Line      : 5168
+Our output: cp13
+Their out : cpa,13
+Line      : 5177
+Our output: jrnz,48
+Their out : jrnz,248F
+Line      : 5188
+Our output: cp37
+Their out : cpa,37
+Line      : 5195
+Our output: jrz,08
+Their out : jrz,245F
+Line      : 5196
+Our output: cp37
+Their out : cpa,37
+Line      : 5202
+Our output: jrz,23
+Their out : jrz,248B
+Line      : 5203
+Our output: jrnz,1e
+Their out : jrnz,248B
+Line      : 5206
+Our output: jrz,03
+Their out : jrz,247E
+Line      : 5213
+Our output: cp09
+Their out : cpa,09
+Line      : 5217
+Our output: jrnz,02
+Their out : jrnz,2488
+Line      : 5219
+Our output: cp1a
+Their out : cpa,1A
+Line      : 5225
+Our output: jrz,b2
+Their out : jrz,2449
+Line      : 5229
+Our output: cp37
+Their out : cpa,37
+Line      : 5237
+Our output: cp37
+Their out : cpa,37
+Line      : 5246
+Our output: cp09
+Their out : cpa,09
+Line      : 5250
+Our output: jrnc,41
+Their out : jrnc,24FD
+Line      : 5251
+Our output: cp0a
+Their out : cpa,0A
+Line      : 5253
+Our output: sub0a
+Their out : suba,0A
+Line      : 5255
+Our output: cp15
+Their out : cpa,15
+Line      : 5259
+Our output: jrnz,02
+Their out : jrnz,24CD
+Line      : 5260
+Our output: jrz,02
+Their out : jrz,24D7
+Line      : 5268
+Our output: jrf8
+Their out : jr24CF
+Line      : 5269
+Our output: and0f
+Their out : anda,0F
+Line      : 5271
+Our output: andf0
+Their out : anda,F0
+Line      : 5278
+Our output: jrz,0d
+Their out : jrz,24F4
+Line      : 5279
+Our output: cb37
+Their out : swapa
+Line      : 5280
+Our output: cpf0
+Their out : cpa,F0
+Line      : 5283
+Our output: jrz,05
+Their out : jrz,24F4
+Line      : 5284
+Our output: jrea
+Their out : jr24DE
+Line      : 5286
+Our output: cp14
+Their out : cpa,14
+Line      : 5292
+Our output: sub14
+Their out : suba,14
+Line      : 5294
+Our output: jrbd
+Their out : jr24C3
+Line      : 5295
+Our output: jrnz,f9
+Their out : jrnz,2508
+Line      : 5302
+Our output: cb48
+Their out : bit1,b
+Line      : 5312
+Our output: jrnz,12
+Their out : jrnz,2534
+Line      : 5313
+Our output: cb40
+Their out : bit0,b
+Line      : 5314
+Our output: jrz,37
+Their out : jrz,255D
+Line      : 5315
+Our output: and03
+Their out : anda,03
+Line      : 5317
+Our output: jrz,03
+Their out : jrz,252E
+Line      : 5318
+Our output: jr14
+Their out : jr2542
+Line      : 5320
+Our output: or03
+Their out : ora,03
+Line      : 5322
+Our output: jr0e
+Their out : jr2542
+Line      : 5324
+Our output: and03
+Their out : anda,03
+Line      : 5326
+Our output: cp03
+Their out : cpa,03
+Line      : 5327
+Our output: jrz,03
+Their out : jrz,253E
+Line      : 5328
+Our output: jr04
+Their out : jr2542
+Line      : 5330
+Our output: andfc
+Their out : anda,FC
+Line      : 5332
+Our output: jrz,0d
+Their out : jrz,255D
+Line      : 5339
+Our output: cb60
+Their out : bit4,b
+Line      : 5353
+Our output: jrnz,0c
+Their out : jrnz,257B
+Line      : 5355
+Our output: cb61
+Their out : bit4,c
+Line      : 5356
+Our output: jrz,2d
+Their out : jrz,25A0
+Line      : 5357
+Our output: cb68
+Their out : bit5,b
+Line      : 5382
+Our output: jrnz,0c
+Their out : jrnz,25B2
+Line      : 5384
+Our output: cb69
+Their out : bit5,c
+Line      : 5385
+Our output: jrz,f3
+Their out : jrz,259D
+Line      : 5386
+Our output: sub08
+Their out : suba,08
+Line      : 5394
+Our output: jrc7
+Their out : jr258E
+Line      : 5402
+Our output: jrz,17
+Their out : jrz,25EA
+Line      : 5409
+Our output: cp2f
+Their out : cpa,2F
+Line      : 5418
+Our output: jrnz,0b
+Their out : jrnz,25EE
+Line      : 5419
+Our output: jrnz,e2
+Their out : jrnz,25CC
+Line      : 5425
+Our output: cp01
+Their out : cpa,01
+Line      : 5435
+Our output: jrz,1d
+Their out : jrz,2623
+Line      : 5443
+Our output: and03
+Their out : anda,03
+Line      : 5453
+Our output: jrnz,fa
+Their out : jrnz,2611
+Line      : 5454
+Our output: jrnz,dc
+Their out : jrnz,25FF
+Line      : 5464
+Our output: cp02
+Their out : cpa,02
+Line      : 5471
+Our output: jrz,46
+Their out : jrz,267A
+Line      : 5472
+Our output: jrz,54
+Their out : jrz,268D
+Line      : 5476
+Our output: and0f
+Their out : anda,0F
+Line      : 5483
+Our output: cb37
+Their out : swapa
+Line      : 5487
+Our output: and0f
+Their out : anda,0F
+Line      : 5488
+Our output: jrz,01
+Their out : jrz,264B
+Line      : 5489
+Our output: jrnz,f8
+Their out : jrnz,2650
+Line      : 5499
+Our output: jrnz,f8
+Their out : jrnz,266C
+Line      : 5517
+Our output: cp05
+Their out : cpa,05
+Line      : 5537
+Our output: jrnz,fc
+Their out : jrnz,26AB
+Line      : 5547
+Our output: jrnz,fc
+Their out : jrnz,26B4
+Line      : 5552
+Our output: andf0
+Their out : anda,F0
+Line      : 5555
+Our output: cb37
+Their out : swapa
+Line      : 5556
+Our output: and0f
+Their out : anda,0F
+Line      : 5559
+Our output: jrnz,fb
+Their out : jrnz,2704
+Line      : 5596
+Our output: cpff
+Their out : cpa,FF
+Line      : 5599
+Our output: jrf8
+Their out : jr270A
+Line      : 5603
+Our output: jr3f
+Their out : jr2755
+Line      : 5606
+Our output: adda,b
+Their out : addb
+Line      : 5608
+Our output: adda,b
+Their out : addb
+Line      : 5613
+Our output: adda,b
+Their out : addb
+Line      : 5616
+Our output: jrc,37
+Their out : jrc,2763
+Line      : 5627
+Our output: jrnz,00
+Their out : jrnz,2734
+Line      : 5634
+Our output: jrnz,00
+Their out : jrnz,273A
+Line      : 5639
+Our output: jrnz,00
+Their out : jrnz,2740
+Line      : 5644
+Our output: adda,b
+Their out : addb
+Line      : 5658
+Our output: adda,b
+Their out : addb
+Line      : 5664
+Our output: jrnz,00
+Their out : jrnz,275A
+Line      : 5665
+Our output: jrc,3e
+Their out : jrc,279B
+Line      : 5667
+Our output: adda,b
+Their out : addb
+Line      : 5668
+Our output: jrnz,00
+Their out : jrnz,276C
+Line      : 5679
+Our output: jrc,32
+Their out : jrc,27A1
+Line      : 5681
+Our output: adda,b
+Their out : addb
+Line      : 5682
+Our output: jrc,3c
+Their out : jrc,27B7
+Line      : 5691
+Our output: adda,b
+Their out : addb
+Line      : 5692
+Our output: adda,b
+Their out : addb
+Line      : 5698
+Our output: jrc,30
+Their out : jrc,27B7
+Line      : 5702
+Our output: adda,b
+Their out : addb
+Line      : 5703
+Our output: adda,b
+Their out : addb
+Line      : 5705
+Our output: adda,b
+Their out : addb
+Line      : 5711
+Our output: jrnz,4a
+Their out : jrnz,27DD
+Line      : 5713
+Our output: adda,b
+Their out : addb
+Line      : 5716
+Our output: jrnc,46
+Their out : jrnc,27DF
+Line      : 5718
+Our output: adda,b
+Their out : addb
+Line      : 5721
+Our output: jrnz,48
+Their out : jrnz,27E7
+Line      : 5723
+Our output: adda,b
+Their out : addb
+Line      : 5726
+Our output: adda,b
+Their out : addb
+Line      : 5732
+Our output: adda,b
+Their out : addb
+Line      : 5738
+Our output: adda,b
+Their out : addb
+Line      : 5744
+Our output: adda,b
+Their out : addb
+Line      : 5750
+Our output: adda,b
+Their out : addb
+Line      : 5756
+Our output: adda,b
+Their out : addb
+Line      : 5768
+Our output: adda,b
+Their out : addb
+Line      : 5769
+Our output: adda,b
+Their out : addb
+Line      : 5774
+Our output: adda,b
+Their out : addb
+Line      : 5775
+Our output: jrnz,00
+Their out : jrnz,27D8
+Line      : 5779
+Our output: adda,b
+Their out : addb
+Line      : 5785
+Our output: adda,b
+Their out : addb
+Line      : 5786
+Our output: adda,b
+Their out : addb
+Line      : 5791
+Our output: adda,b
+Their out : addb
+Line      : 5792
+Our output: jrnz,21
+Their out : jrnz,280B
+Line      : 5796
+Our output: jrnz,f8
+Their out : jrnz,27EF
+Line      : 5805
+Our output: jrnz,f8
+Their out : jrnz,27F8
+Line      : 5813
+Our output: jrnz,f6
+Their out : jrnz,2820
+Line      : 5834
+Our output: jrnz,fa
+Their out : jrnz,2847
+Line      : 5852
+Our output: jrnz,ed
+Their out : jrnz,2844
+Line      : 5859
+Our output: cpff
+Their out : cpa,FF
+Line      : 5864
+Our output: jrz,0e
+Their out : jrz,286E
+Line      : 5865
+Our output: jrnz,f6
+Their out : jrnz,285B
+Line      : 5869
+Our output: jrea
+Their out : jr2858
+Line      : 5875
+Our output: cb87
+Their out : res0,a
+Line      : 5882
+Our output: cp91
+Their out : cpa,91
+Line      : 5885
+Our output: jrnz,fa
+Their out : jrnz,287C
+Line      : 5886
+Our output: and7f
+Their out : anda,7F
+Line      : 5888
+Our output: jr2f
+Their out : jr28E2
+Line      : 5927
+Our output: jr17
+Their out : jr28D7
+Line      : 5939
+Our output: stop
+Their out : <corruptedstop>
+Line      : 5954
+Our output: stop
+Their out : <corruptedstop>
+Line      : 5969
+Our output: jr1e
+Their out : jr291C
+Line      : 5994
+Our output: jr19
+Their out : jr2972
+Line      : 6074
+Our output: stop
+Their out : <corruptedstop>
+Line      : 6117
+Our output: stop
+Their out : <corruptedstop>
+Line      : 6147
+Our output: jr1f
+Their out : jr29D5
+Line      : 6161
+Our output: stop
+Their out : <corruptedstop>
+Line      : 6214
+Our output: and0f
+Their out : anda,0F
+Line      : 6231
+Our output: cb37
+Their out : swapa
+Line      : 6232
+Our output: and0f
+Their out : anda,0F
+Line      : 6243
+Our output: sub10
+Their out : suba,10
+Line      : 6256
+Our output: cb3f
+Their out : srla
+Line      : 6257
+Our output: cb3f
+Their out : srla
+Line      : 6258
+Our output: cb3f
+Their out : srla
+Line      : 6259
+Our output: jrnz,fc
+Their out : jrnz,2A3E
+Line      : 6266
+Our output: sub08
+Their out : suba,08
+Line      : 6268
+Our output: cb3f
+Their out : srla
+Line      : 6269
+Our output: cb3f
+Their out : srla
+Line      : 6270
+Our output: cb3f
+Their out : srla
+Line      : 6271
+Our output: cb1a
+Their out : rrd
+Line      : 6285
+Our output: cb1b
+Their out : rre
+Line      : 6286
+Our output: jrnz,f9
+Their out : jrnz,2A60
+Line      : 6288
+Our output: sub84
+Their out : suba,84
+Line      : 6290
+Our output: andfe
+Their out : anda,FE
+Line      : 6291
+Our output: and1f
+Their out : anda,1F
+Line      : 6297
+Our output: cb37
+Their out : swapa
+Line      : 6312
+Our output: and0f
+Their out : anda,0F
+Line      : 6313
+Our output: jrnz,28
+Their out : jrnz,2AB7
+Line      : 6314
+Our output: jrnz,02
+Their out : jrnz,2A98
+Line      : 6318
+Our output: and0f
+Their out : anda,0F
+Line      : 6322
+Our output: jrnz,21
+Their out : jrnz,2ABF
+Line      : 6323
+Our output: jrnz,09
+Their out : jrnz,2AAE
+Line      : 6327
+Our output: jrz,02
+Their out : jrz,2AAE
+Line      : 6331
+Our output: jrnz,d4
+Their out : jrnz,2A87
+Line      : 6336
+Our output: jrd9
+Their out : jr2A98
+Line      : 6344
+Our output: jre7
+Their out : jr2AAE
+Line      : 6349
+Our output: jrnz,fd
+Their out : jrnz,2ACD
+Line      : 6354
+Our output: jrz,1d
+Their out : jrz,2AF8
+Line      : 6362
+Our output: cp80
+Their out : cpa,80
+Line      : 6363
+Our output: jrz,17
+Their out : jrz,2AF6
+Line      : 6364
+Our output: jre0
+Their out : jr2AD1
+Line      : 6375
+Our output: jre9
+Their out : jr2ADF
+Line      : 6378
+Our output: jrnz,fa
+Their out : jrnz,2AFD
+Line      : 6386
+Our output: cpff
+Their out : cpa,FF
+Line      : 6414
+Our output: jrz,c7
+Their out : jrz,2AF1
+Line      : 6415
+Our output: cpfd
+Their out : cpa,FD
+Line      : 6416
+Our output: jrnz,0e
+Their out : jrnz,2B3C
+Line      : 6417
+Our output: xor20
+Their out : xora,20
+Line      : 6419
+Our output: jr08
+Their out : jr2B40
+Line      : 6423
+Our output: jre4
+Their out : jr2B20
+Line      : 6426
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6427
+Our output: jrz,f8
+Their out : jrz,2B38
+Line      : 6428
+Our output: cb77
+Their out : bit6,a
+Line      : 6435
+Our output: jrnz,06
+Their out : jrnz,2B53
+Line      : 6436
+Our output: adda,b
+Their out : addb
+Line      : 6438
+Our output: jr0a
+Their out : jr2B5D
+Line      : 6440
+Our output: sbc08
+Their out : sbca,08
+Line      : 6448
+Our output: cb6f
+Their out : bit5,a
+Line      : 6457
+Our output: jrnz,06
+Their out : jrnz,2B72
+Line      : 6458
+Our output: adda,b
+Their out : addb
+Line      : 6460
+Our output: jr0a
+Their out : jr2B7C
+Line      : 6462
+Our output: sbc08
+Their out : sbca,08
+Line      : 6470
+Our output: jrz,04
+Their out : jrz,2B8E
+Line      : 6479
+Our output: jr02
+Their out : jr2B90
+Line      : 6481
+Our output: adda,b
+Their out : addb
+Line      : 6514
+Our output: adda,h
+Their out : addh
+Line      : 6516
+Our output: unknown
+Their out : -
+Line      : 6556
+Our output: unknown
+Their out : -
+Line      : 6559
+Our output: unknown
+Their out : -
+Line      : 6562
+Our output: unknown
+Their out : -
+Line      : 6565
+Our output: stop
+Their out : <corruptedstop>
+Line      : 6573
+Our output: jr2d
+Their out : jr2C37
+Line      : 6578
+Our output: jrnz,2d
+Their out : jrnz,2C3B
+Line      : 6581
+Our output: jrz,2d
+Their out : jrz,2C3F
+Line      : 6584
+Our output: jrnc,2d
+Their out : jrnc,2C47
+Line      : 6589
+Our output: jrc,2d
+Their out : jrc,2C4F
+Line      : 6594
+Our output: adda,b
+Their out : addb
+Line      : 6635
+Our output: adda,h
+Their out : addh
+Line      : 6637
+Our output: unknown
+Their out : -
+Line      : 6785
+Our output: jrnc,f8
+Their out : jrnc,2D1B
+Line      : 6789
+Our output: jrnc,f8
+Their out : jrnc,2D1F
+Line      : 6791
+Our output: jrnc,f8
+Their out : jrnc,2D23
+Line      : 6793
+Our output: jrnc,f8
+Their out : jrnc,2D27
+Line      : 6795
+Our output: jrnc,f0
+Their out : jrnc,2D23
+Line      : 6797
+Our output: jrnc,f0
+Their out : jrnc,2D27
+Line      : 6799
+Our output: jrnc,f0
+Their out : jrnc,2D2B
+Line      : 6801
+Our output: jrnc,f0
+Their out : jrnc,2D2F
+Line      : 6803
+Our output: jrnc,f8
+Their out : jrnc,2D3B
+Line      : 6805
+Our output: jrnc,f8
+Their out : jrnc,2D3F
+Line      : 6807
+Our output: jrnc,f8
+Their out : jrnc,2D43
+Line      : 6809
+Our output: jrnc,f8
+Their out : jrnc,2D47
+Line      : 6811
+Our output: jrnc,f8
+Their out : jrnc,2D4B
+Line      : 6813
+Our output: jrnc,f8
+Their out : jrnc,2D4F
+Line      : 6815
+Our output: jrnc,f8
+Their out : jrnc,2D53
+Line      : 6817
+Our output: jrnc,f8
+Their out : jrnc,2D57
+Line      : 6819
+Our output: jrnc,f8
+Their out : jrnc,2D5B
+Line      : 6821
+Our output: jrnc,f8
+Their out : jrnc,2D5F
+Line      : 6823
+Our output: jrnc,f8
+Their out : jrnc,2D63
+Line      : 6825
+Our output: jrnc,f8
+Their out : jrnc,2D67
+Line      : 6827
+Our output: jrnc,f8
+Their out : jrnc,2D6B
+Line      : 6829
+Our output: jrnc,f8
+Their out : jrnc,2D6F
+Line      : 6831
+Our output: jrnc,f8
+Their out : jrnc,2D73
+Line      : 6833
+Our output: jrnc,f8
+Their out : jrnc,2D77
+Line      : 6835
+Our output: jrnc,f8
+Their out : jrnc,2D7B
+Line      : 6837
+Our output: jrnc,f8
+Their out : jrnc,2D7F
+Line      : 6839
+Our output: jrnc,f8
+Their out : jrnc,2D83
+Line      : 6841
+Our output: jrnc,f8
+Their out : jrnc,2D87
+Line      : 6843
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6853
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6854
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6855
+Our output: adda,h
+Their out : addh
+Line      : 6856
+Our output: adda,h
+Their out : addh
+Line      : 6857
+Our output: adda,h
+Their out : addh
+Line      : 6858
+Our output: cp84
+Their out : cpa,84
+Line      : 6859
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6863
+Our output: cp84
+Their out : cpa,84
+Line      : 6864
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6865
+Our output: cp84
+Their out : cpa,84
+Line      : 6866
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6867
+Our output: cp84
+Their out : cpa,84
+Line      : 6868
+Our output: adda,h
+Their out : addh
+Line      : 6869
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6873
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6874
+Our output: adda,h
+Their out : addh
+Line      : 6875
+Our output: cp84
+Their out : cpa,84
+Line      : 6876
+Our output: adda,h
+Their out : addh
+Line      : 6877
+Our output: adda,h
+Their out : addh
+Line      : 6878
+Our output: cpff
+Their out : cpa,FF
+Line      : 6879
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6882
+Our output: adda,h
+Their out : addh
+Line      : 6883
+Our output: adda,h
+Their out : addh
+Line      : 6884
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6885
+Our output: cp84
+Their out : cpa,84
+Line      : 6886
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6887
+Our output: cp84
+Their out : cpa,84
+Line      : 6888
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6892
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6893
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6894
+Our output: adda,c
+Their out : addc
+Line      : 6895
+Our output: adda,c
+Their out : addc
+Line      : 6896
+Our output: adda,c
+Their out : addc
+Line      : 6897
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6898
+Our output: cp81
+Their out : cpa,81
+Line      : 6899
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6903
+Our output: cp81
+Their out : cpa,81
+Line      : 6904
+Our output: adda,c
+Their out : addc
+Line      : 6905
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6906
+Our output: adda,c
+Their out : addc
+Line      : 6907
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6908
+Our output: cp81
+Their out : cpa,81
+Line      : 6909
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6913
+Our output: adda,c
+Their out : addc
+Line      : 6914
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6915
+Our output: cp81
+Their out : cpa,81
+Line      : 6916
+Our output: adda,c
+Their out : addc
+Line      : 6917
+Our output: adda,c
+Their out : addc
+Line      : 6918
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6922
+Our output: cp81
+Their out : cpa,81
+Line      : 6923
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6924
+Our output: cp81
+Their out : cpa,81
+Line      : 6925
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6926
+Our output: adda,c
+Their out : addc
+Line      : 6927
+Our output: adda,c
+Their out : addc
+Line      : 6928
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6932
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6933
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6934
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6942
+Our output: cp88
+Their out : cpa,88
+Line      : 6943
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6944
+Our output: cp88
+Their out : cpa,88
+Line      : 6945
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6946
+Our output: cp89
+Their out : cpa,89
+Line      : 6947
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6951
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6952
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6953
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6961
+Our output: cp88
+Their out : cpa,88
+Line      : 6962
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6963
+Our output: cp88
+Their out : cpa,88
+Line      : 6964
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6965
+Our output: cp89
+Their out : cpa,89
+Line      : 6966
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6970
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6971
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6972
+Our output: cp83
+Their out : cpa,83
+Line      : 6973
+Our output: adda,e
+Their out : adde
+Line      : 6974
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6975
+Our output: adda,e
+Their out : adde
+Line      : 6976
+Our output: adda,e
+Their out : adde
+Line      : 6977
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6981
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6982
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6983
+Our output: cp83
+Their out : cpa,83
+Line      : 6984
+Our output: adda,e
+Their out : adde
+Line      : 6985
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6986
+Our output: adda,e
+Their out : adde
+Line      : 6987
+Our output: adda,e
+Their out : adde
+Line      : 6988
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6992
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6993
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6994
+Our output: cp83
+Their out : cpa,83
+Line      : 6995
+Our output: adda,e
+Their out : adde
+Line      : 6996
+Our output: cpfe
+Their out : cpa,FE
+Line      : 6997
+Our output: adda,e
+Their out : adde
+Line      : 6998
+Our output: adda,e
+Their out : adde
+Line      : 6999
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7003
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7004
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7005
+Our output: cp83
+Their out : cpa,83
+Line      : 7006
+Our output: adda,e
+Their out : adde
+Line      : 7007
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7008
+Our output: adda,e
+Their out : adde
+Line      : 7009
+Our output: adda,e
+Their out : adde
+Line      : 7010
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7014
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7015
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7016
+Our output: adda,d
+Their out : addd
+Line      : 7017
+Our output: adda,d
+Their out : addd
+Line      : 7018
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7019
+Our output: cp82
+Their out : cpa,82
+Line      : 7020
+Our output: adda,d
+Their out : addd
+Line      : 7021
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7025
+Our output: cp82
+Their out : cpa,82
+Line      : 7026
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7027
+Our output: adda,d
+Their out : addd
+Line      : 7028
+Our output: adda,d
+Their out : addd
+Line      : 7029
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7030
+Our output: adda,d
+Their out : addd
+Line      : 7031
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7035
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7036
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7037
+Our output: adda,d
+Their out : addd
+Line      : 7038
+Our output: adda,d
+Their out : addd
+Line      : 7039
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7040
+Our output: cp82
+Their out : cpa,82
+Line      : 7041
+Our output: adda,d
+Their out : addd
+Line      : 7042
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7046
+Our output: cp82
+Their out : cpa,82
+Line      : 7047
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7048
+Our output: adda,d
+Their out : addd
+Line      : 7049
+Our output: adda,d
+Their out : addd
+Line      : 7050
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7051
+Our output: adda,d
+Their out : addd
+Line      : 7052
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7056
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7057
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7058
+Our output: cp86
+Their out : cpa,86
+Line      : 7059
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7060
+Our output: cp86
+Their out : cpa,86
+Line      : 7061
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7062
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7066
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7067
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7068
+Our output: cp86
+Their out : cpa,86
+Line      : 7069
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7070
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7071
+Our output: cp86
+Their out : cpa,86
+Line      : 7072
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7076
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7077
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7078
+Our output: cp86
+Their out : cpa,86
+Line      : 7079
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7080
+Our output: cp86
+Their out : cpa,86
+Line      : 7081
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7082
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7086
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7087
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7088
+Our output: cp86
+Their out : cpa,86
+Line      : 7089
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 7090
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7091
+Our output: cp86
+Their out : cpa,86
+Line      : 7092
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7096
+Our output: cp85
+Their out : cpa,85
+Line      : 7097
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7098
+Our output: adda,l
+Their out : addl
+Line      : 7099
+Our output: adda,l
+Their out : addl
+Line      : 7100
+Our output: adda,l
+Their out : addl
+Line      : 7101
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7105
+Our output: cp85
+Their out : cpa,85
+Line      : 7106
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7107
+Our output: adda,l
+Their out : addl
+Line      : 7108
+Our output: adda,l
+Their out : addl
+Line      : 7109
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7110
+Our output: cp85
+Their out : cpa,85
+Line      : 7111
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7115
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7116
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7117
+Our output: adda,l
+Their out : addl
+Line      : 7118
+Our output: adda,l
+Their out : addl
+Line      : 7119
+Our output: adda,l
+Their out : addl
+Line      : 7120
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7121
+Our output: adda,l
+Their out : addl
+Line      : 7122
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7126
+Our output: cp85
+Their out : cpa,85
+Line      : 7127
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7128
+Our output: cp85
+Their out : cpa,85
+Line      : 7129
+Our output: adda,l
+Their out : addl
+Line      : 7130
+Our output: cpfe
+Their out : cpa,FE
+Line      : 7131
+Our output: adda,l
+Their out : addl
+Line      : 7132
+Our output: jr0f
+Their out : jr2FA4
+Line      : 7153
+Our output: jrnz,21
+Their out : jrnz,2FEA
+Line      : 7180
+Our output: jrnc,31
+Their out : jrnc,2FFC
+Line      : 7181
+Our output: unknown
+Their out : -
+Line      : 7194
+Our output: unknown
+Their out : -
+Line      : 7210
+Our output: unknown
+Their out : -
+Line      : 7212
+Our output: jrz,29
+Their out : jrz,3022
+Line      : 7216
+Our output: unknown
+Their out : -
+Line      : 7224
+Our output: unknown
+Their out : -
+Line      : 7227
+Our output: unknown
+Their out : -
+Line      : 7231
+Our output: adda,d
+Their out : addd
+Line      : 7232
+Our output: adda,e
+Their out : adde
+Line      : 7233
+Our output: unknown
+Their out : -
+Line      : 7234
+Our output: adda,e
+Their out : adde
+Line      : 7235
+Our output: unknown
+Their out : -
+Line      : 7267
+Our output: unknown
+Their out : -
+Line      : 7280
+Our output: unknown
+Their out : -
+Line      : 7286
+Our output: unknown
+Their out : -
+Line      : 7288
+Our output: unknown
+Their out : -
+Line      : 7298
+Our output: unknown
+Their out : -
+Line      : 7303
+Our output: unknown
+Their out : -
+Line      : 7306
+Our output: unknown
+Their out : -
+Line      : 7310
+Our output: adda,d
+Their out : addd
+Line      : 7311
+Our output: adda,e
+Their out : adde
+Line      : 7312
+Our output: unknown
+Their out : -
+Line      : 7313
+Our output: adda,e
+Their out : adde
+Line      : 7314
+Our output: unknown
+Their out : -
+Line      : 7327
+Our output: xore0
+Their out : xora,E0
+Line      : 7339
+Our output: unknown
+Their out : -
+Line      : 7340
+Our output: ande7
+Their out : anda,E7
+Line      : 7343
+Our output: andfd
+Their out : anda,FD
+Line      : 7346
+Our output: unknown
+Their out : -
+Line      : 7348
+Our output: unknown
+Their out : -
+Line      : 7359
+Our output: unknown
+Their out : -
+Line      : 7369
+Our output: unknown
+Their out : -
+Line      : 7375
+Our output: unknown
+Their out : -
+Line      : 7379
+Our output: unknown
+Their out : -
+Line      : 7384
+Our output: unknown
+Their out : -
+Line      : 7386
+Our output: unknown
+Their out : -
+Line      : 7390
+Our output: unknown
+Their out : -
+Line      : 7392
+Our output: unknown
+Their out : -
+Line      : 7396
+Our output: adda,d
+Their out : addd
+Line      : 7448
+Our output: unknown
+Their out : -
+Line      : 7452
+Our output: unknown
+Their out : -
+Line      : 7517
+Our output: unknown
+Their out : -
+Line      : 7519
+Our output: unknown
+Their out : -
+Line      : 7523
+Our output: unknown
+Their out : -
+Line      : 7525
+Our output: unknown
+Their out : -
+Line      : 7534
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7536
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7537
+Our output: unknown
+Their out : -
+Line      : 7538
+Our output: adda,b
+Their out : addb
+Line      : 7540
+Our output: unknown
+Their out : -
+Line      : 7541
+Our output: adda,b
+Their out : addb
+Line      : 7542
+Our output: adda,b
+Their out : addb
+Line      : 7543
+Our output: unknown
+Their out : -
+Line      : 7544
+Our output: adda,b
+Their out : addb
+Line      : 7545
+Our output: adda,c
+Their out : addc
+Line      : 7546
+Our output: unknown
+Their out : -
+Line      : 7547
+Our output: adda,c
+Their out : addc
+Line      : 7548
+Our output: unknown
+Their out : -
+Line      : 7550
+Our output: unknown
+Their out : -
+Line      : 7554
+Our output: unknown
+Their out : -
+Line      : 7557
+Our output: adda,b
+Their out : addb
+Line      : 7559
+Our output: unknown
+Their out : -
+Line      : 7560
+Our output: adda,b
+Their out : addb
+Line      : 7561
+Our output: unknown
+Their out : -
+Line      : 7563
+Our output: unknown
+Their out : -
+Line      : 7566
+Our output: unknown
+Their out : -
+Line      : 7570
+Our output: unknown
+Their out : -
+Line      : 7573
+Our output: unknown
+Their out : -
+Line      : 7576
+Our output: unknown
+Their out : -
+Line      : 7579
+Our output: jr08
+Their out : jr3202
+Line      : 7595
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7598
+Our output: jr10
+Their out : jr3212
+Line      : 7599
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7601
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7602
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7603
+Our output: jr00
+Their out : jr320B
+Line      : 7604
+Our output: jr08
+Their out : jr3215
+Line      : 7605
+Our output: jr10
+Their out : jr321F
+Line      : 7606
+Our output: jr18
+Their out : jr3229
+Line      : 7607
+Our output: jr00
+Their out : jr321A
+Line      : 7613
+Our output: jrnz,00
+Their out : jrnz,321C
+Line      : 7614
+Our output: jrz,00
+Their out : jrz,321E
+Line      : 7615
+Our output: jrnc,00
+Their out : jrnc,3220
+Line      : 7616
+Our output: jrc,00
+Their out : jrc,3222
+Line      : 7617
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7623
+Our output: jr00
+Their out : jr322F
+Line      : 7624
+Our output: jr08
+Their out : jr3239
+Line      : 7625
+Our output: jrnz,00
+Their out : jrnz,3233
+Line      : 7626
+Our output: jrnz,08
+Their out : jrnz,323D
+Line      : 7627
+Our output: jrz,00
+Their out : jrz,3237
+Line      : 7628
+Our output: jrz,08
+Their out : jrz,3241
+Line      : 7629
+Our output: jrnc,00
+Their out : jrnc,323B
+Line      : 7630
+Our output: jrnc,08
+Their out : jrnc,3245
+Line      : 7631
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7635
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7637
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7638
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7639
+Our output: jr00
+Their out : jr324F
+Line      : 7640
+Our output: jr08
+Their out : jr3259
+Line      : 7641
+Our output: jr10
+Their out : jr3263
+Line      : 7642
+Our output: jr18
+Their out : jr326D
+Line      : 7643
+Our output: jrnz,00
+Their out : jrnz,3257
+Line      : 7644
+Our output: jrnz,08
+Their out : jrnz,3261
+Line      : 7645
+Our output: jrnz,10
+Their out : jrnz,326B
+Line      : 7646
+Our output: jrnz,18
+Their out : jrnz,3275
+Line      : 7647
+Our output: jrz,00
+Their out : jrz,325F
+Line      : 7648
+Our output: jrz,08
+Their out : jrz,3269
+Line      : 7649
+Our output: jrz,10
+Their out : jrz,3273
+Line      : 7650
+Our output: jrz,18
+Their out : jrz,327D
+Line      : 7651
+Our output: jrnc,00
+Their out : jrnc,3267
+Line      : 7652
+Our output: jrnc,08
+Their out : jrnc,3271
+Line      : 7653
+Our output: jrnc,10
+Their out : jrnc,327B
+Line      : 7654
+Our output: jrnc,18
+Their out : jrnc,3285
+Line      : 7655
+Our output: jrc,00
+Their out : jrc,326F
+Line      : 7656
+Our output: jrc,08
+Their out : jrc,3279
+Line      : 7657
+Our output: jrc,10
+Their out : jrc,3283
+Line      : 7658
+Our output: jrc,18
+Their out : jrc,328D
+Line      : 7659
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7667
+Our output: stop
+Their out : <corruptedstop>
+Line      : 7668
+Our output: unknown
+Their out : -
+Line      : 7808
+Our output: andff
+Their out : anda,FF
+Line      : 7810
+Our output: andf2
+Their out : anda,F2
+Line      : 7843
+Our output: andf2
+Their out : anda,F2
+Line      : 7844
+Our output: andf2
+Their out : anda,F2
+Line      : 7845
+Our output: andf2
+Their out : anda,F2
+Line      : 7846
+Our output: andf2
+Their out : anda,F2
+Line      : 7847
+Our output: andf2
+Their out : anda,F2
+Line      : 7848
+Our output: andf2
+Their out : anda,F2
+Line      : 7849
+Our output: and4f
+Their out : anda,4F
+Line      : 7850
+Our output: andf5
+Their out : anda,F5
+Line      : 7867
+Our output: unknown
+Their out : -
+Line      : 7868
+Our output: jrnc,30
+Their out : jrnc,3431
+Line      : 8031
+Our output: jrnc,30
+Their out : jrnc,3433
+Line      : 8032
+Our output: jrnc,00
+Their out : jrnc,3408
+Line      : 8036
+Our output: jrnz,00
+Their out : jrnz,3418
+Line      : 8051
+Our output: unknown
+Their out : -
+Line      : 8055
+Our output: unknown
+Their out : -
+Line      : 8056
+Our output: unknown
+Their out : -
+Line      : 8057
+Our output: unknown
+Their out : -
+Line      : 8058
+Our output: jrnc,33
+Their out : jrnc,345D
+Line      : 8066
+Our output: jrnc,33
+Their out : jrnc,345F
+Line      : 8067
+Our output: jrnc,33
+Their out : jrnc,3461
+Line      : 8068
+Our output: jrnc,33
+Their out : jrnc,3463
+Line      : 8069
+Our output: jrnc,33
+Their out : jrnc,3465
+Line      : 8070
+Our output: jrnc,33
+Their out : jrnc,3467
+Line      : 8071
+Our output: jrnc,cc
+Their out : jrnc,3404
+Line      : 8074
+Our output: jrnc,33
+Their out : jrnc,347D
+Line      : 8083
+Our output: jrnc,30
+Their out : jrnc,347C
+Line      : 8084
+Our output: jrnc,30
+Their out : jrnc,347E
+Line      : 8085
+Our output: jrnc,3f
+Their out : jrnc,348F
+Line      : 8086
+Our output: unknown
+Their out : -
+Line      : 8116
+Our output: unknown
+Their out : -
+Line      : 8117
+Our output: unknown
+Their out : -
+Line      : 8118
+Our output: unknown
+Their out : -
+Line      : 8119
+Our output: jrnz,ff
+Their out : jrnz,3481
+Line      : 8133
+Our output: stop
+Their out : <corruptedstop>
+Line      : 8178
+Our output: adda,b
+Their out : addb
+Line      : 8179
+Our output: cp06
+Their out : cpa,06
+Line      : 8182
+Our output: cp46
+Their out : cpa,46
+Line      : 8183
+Our output: cp06
+Their out : cpa,06
+Line      : 8184
+Our output: cp06
+Their out : cpa,06
+Line      : 8185
+Our output: cp16
+Their out : cpa,16
+Line      : 8186
+Our output: cp86
+Their out : cpa,86
+Line      : 8187
+Our output: cp06
+Their out : cpa,06
+Line      : 8188
+Our output: cp06
+Their out : cpa,06
+Line      : 8189
+Our output: jrnz,ff
+Their out : jrnz,34EB
+Line      : 8222
+Our output: jrnz,ff
+Their out : jrnz,3513
+Line      : 8257
+Our output: adda,b
+Their out : addb
+Line      : 8265
+Our output: jrc,38
+Their out : jrc,35D9
+Line      : 8376
+Our output: jrnc,36
+Their out : jrnc,35DA
+Line      : 8378
+Our output: jrnc,34
+Their out : jrnc,35DA
+Line      : 8379
+Our output: jrnc,00
+Their out : jrnc,35A8
+Line      : 8380
+Our output: jrnc,34
+Their out : jrnc,35FE
+Line      : 8409
+Our output: jrnc,34
+Their out : jrnc,3600
+Line      : 8410
+Our output: jrnc,34
+Their out : jrnc,3602
+Line      : 8411
+Our output: jrnc,34
+Their out : jrnc,3604
+Line      : 8412
+Our output: jrnc,34
+Their out : jrnc,3606
+Line      : 8413
+Our output: jrnc,34
+Their out : jrnc,3608
+Line      : 8414
+Our output: jrnc,34
+Their out : jrnc,360A
+Line      : 8415
+Our output: jrnc,2c
+Their out : jrnc,3604
+Line      : 8416
+Our output: jrnc,36
+Their out : jrnc,3620
+Line      : 8433
+Our output: jrnc,33
+Their out : jrnc,361F
+Line      : 8434
+Our output: jrnc,38
+Their out : jrnc,3626
+Line      : 8435
+Our output: jrc,1f
+Their out : jrc,360F
+Line      : 8436
+Our output: jrnz,ff
+Their out : jrnz,3641
+Line      : 8511
+Our output: jrnz,ff
+Their out : jrnz,3653
+Line      : 8528
+Our output: adda,b
+Their out : addb
+Line      : 8548
+Our output: jrnz,ff
+Their out : jrnz,368F
+Line      : 8570
+Our output: stop
+Their out : <corruptedstop>
+Line      : 8577
+Our output: adda,b
+Their out : addb
+Line      : 8631
+Our output: unknown
+Their out : -
+Line      : 8709
+Our output: unknown
+Their out : -
+Line      : 8719
+Our output: unknown
+Their out : -
+Line      : 8729
+Our output: unknown
+Their out : -
+Line      : 8739
+Our output: jr00
+Their out : jr376D
+Line      : 8753
+Our output: jr00
+Their out : jr376F
+Line      : 8754
+Our output: jr00
+Their out : jr3771
+Line      : 8755
+Our output: jr00
+Their out : jr3773
+Line      : 8756
+Our output: jr00
+Their out : jr3775
+Line      : 8757
+Our output: jr00
+Their out : jr3781
+Line      : 8768
+Our output: jr00
+Their out : jr3783
+Line      : 8769
+Our output: jr00
+Their out : jr3785
+Line      : 8770
+Our output: unknown
+Their out : -
+Line      : 8777
+Our output: adda,c
+Their out : addc
+Line      : 8780
+Our output: unknown
+Their out : -
+Line      : 8783
+Our output: adda,e
+Their out : adde
+Line      : 8784
+Our output: adda,c
+Their out : addc
+Line      : 8788
+Our output: adda,c
+Their out : addc
+Line      : 8792
+Our output: adda,c
+Their out : addc
+Line      : 8802
+Our output: adda,c
+Their out : addc
+Line      : 8808
+Our output: adda,c
+Their out : addc
+Line      : 8810
+Our output: adda,c
+Their out : addc
+Line      : 8816
+Our output: adda,c
+Their out : addc
+Line      : 8818
+Our output: adda,c
+Their out : addc
+Line      : 8823
+Our output: adda,c
+Their out : addc
+Line      : 8824
+Our output: adda,c
+Their out : addc
+Line      : 8833
+Our output: adda,c
+Their out : addc
+Line      : 8834
+Our output: adda,c
+Their out : addc
+Line      : 8839
+Our output: adda,c
+Their out : addc
+Line      : 8841
+Our output: adda,c
+Their out : addc
+Line      : 8843
+Our output: adda,c
+Their out : addc
+Line      : 8845
+Our output: adda,c
+Their out : addc
+Line      : 8847
+Our output: adda,c
+Their out : addc
+Line      : 8849
+Our output: adda,c
+Their out : addc
+Line      : 8856
+Our output: adda,l
+Their out : addl
+Line      : 8858
+Our output: adda,l
+Their out : addl
+Line      : 8860
+Our output: adda,c
+Their out : addc
+Line      : 8864
+Our output: adda,c
+Their out : addc
+Line      : 8869
+Our output: adda,c
+Their out : addc
+Line      : 8879
+Our output: adda,c
+Their out : addc
+Line      : 8885
+Our output: adda,c
+Their out : addc
+Line      : 8886
+Our output: adda,e
+Their out : adde
+Line      : 8888
+Our output: adda,e
+Their out : adde
+Line      : 8890
+Our output: adda,e
+Their out : adde
+Line      : 8892
+Our output: adda,e
+Their out : adde
+Line      : 8894
+Our output: adda,c
+Their out : addc
+Line      : 8895
+Our output: unknown
+Their out : -
+Line      : 8899
+Our output: unknown
+Their out : -
+Line      : 8907
+Our output: adda,e
+Their out : adde
+Line      : 8908
+Our output: adda,l
+Their out : addl
+Line      : 8912
+Our output: unknown
+Their out : -
+Line      : 8915
+Our output: adda,e
+Their out : adde
+Line      : 8916
+Our output: unknown
+Their out : -
+Line      : 8931
+Our output: adda,b
+Their out : addb
+Line      : 8934
+Our output: unknown
+Their out : -
+Line      : 8937
+Our output: unknown
+Their out : -
+Line      : 8947
+Our output: jrnz,7b
+Their out : jrnz,38BB
+Line      : 8950
+Our output: adda,h
+Their out : addh
+Line      : 8951
+Our output: xor11
+Their out : xora,11
+Line      : 8952
+Our output: unknown
+Their out : -
+Line      : 9013
+Our output: jr00
+Their out : jr389B
+Line      : 9037
+Our output: jrc,00
+Their out : jrc,389D
+Line      : 9038
+Our output: jr00
+Their out : jr389F
+Line      : 9039
+Our output: jr00
+Their out : jr38A1
+Line      : 9040
+Our output: jr00
+Their out : jr38A3
+Line      : 9041
+Our output: jr00
+Their out : jr3901
+Line      : 9128
+Our output: jrc,00
+Their out : jrc,3903
+Line      : 9129
+Our output: jrc,00
+Their out : jrc,3905
+Line      : 9130
+Our output: jr00
+Their out : jr39AD
+Line      : 9293
+Our output: jr00
+Their out : jr39AF
+Line      : 9294
+Our output: jr00
+Their out : jr39B1
+Line      : 9295
+Our output: jr00
+Their out : jr39B3
+Line      : 9296
+Our output: jr00
+Their out : jr39D5
+Line      : 9329
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9389
+Our output: adda,b
+Their out : addb
+Line      : 9390
+Our output: jrnz,ff
+Their out : jrnz,3A23
+Line      : 9406
+Our output: adda,b
+Their out : addb
+Line      : 9408
+Our output: adda,b
+Their out : addb
+Line      : 9409
+Our output: adda,b
+Their out : addb
+Line      : 9410
+Our output: adda,b
+Their out : addb
+Line      : 9411
+Our output: adda,b
+Their out : addb
+Line      : 9412
+Our output: adda,b
+Their out : addb
+Line      : 9413
+Our output: adda,b
+Their out : addb
+Line      : 9414
+Our output: adda,b
+Their out : addb
+Line      : 9415
+Our output: adda,b
+Their out : addb
+Line      : 9416
+Our output: adda,b
+Their out : addb
+Line      : 9417
+Our output: adda,b
+Their out : addb
+Line      : 9418
+Our output: adda,b
+Their out : addb
+Line      : 9419
+Our output: adda,b
+Their out : addb
+Line      : 9420
+Our output: adda,b
+Their out : addb
+Line      : 9421
+Our output: adda,b
+Their out : addb
+Line      : 9422
+Our output: adda,b
+Their out : addb
+Line      : 9423
+Our output: adda,b
+Their out : addb
+Line      : 9424
+Our output: adda,b
+Their out : addb
+Line      : 9425
+Our output: adda,b
+Their out : addb
+Line      : 9426
+Our output: adda,b
+Their out : addb
+Line      : 9427
+Our output: adda,b
+Their out : addb
+Line      : 9440
+Our output: adda,b
+Their out : addb
+Line      : 9441
+Our output: adda,b
+Their out : addb
+Line      : 9442
+Our output: adda,b
+Their out : addb
+Line      : 9443
+Our output: jrnz,ff
+Their out : jrnz,3A51
+Line      : 9451
+Our output: jr1f
+Their out : jr3A8A
+Line      : 9475
+Our output: jrnc,7b
+Their out : jrnc,3AEF
+Line      : 9481
+Our output: adda,e
+Their out : adde
+Line      : 9502
+Our output: adda,e
+Their out : adde
+Line      : 9515
+Our output: adda,e
+Their out : adde
+Line      : 9516
+Our output: jrc,00
+Their out : jrc,3AEA
+Line      : 9566
+Our output: jrc,00
+Their out : jrc,3AEC
+Line      : 9567
+Our output: jrc,00
+Their out : jrc,3AEE
+Line      : 9568
+Our output: jrc,00
+Their out : jrc,3AF0
+Line      : 9569
+Our output: jrc,00
+Their out : jrc,3AF2
+Line      : 9570
+Our output: jrc,00
+Their out : jrc,3AF4
+Line      : 9571
+Our output: jrc,00
+Their out : jrc,3AF6
+Line      : 9572
+Our output: jrc,7c
+Their out : jrc,3B74
+Line      : 9573
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9611
+Our output: jrnz,20
+Their out : jrnz,3B4D
+Line      : 9618
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9619
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9621
+Our output: jrnc,c8
+Their out : jrnc,3AFC
+Line      : 9622
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9630
+Our output: jrnz,2a
+Their out : jrnz,3B6C
+Line      : 9632
+Our output: jrnz,3f
+Their out : jrnz,3B83
+Line      : 9633
+Our output: jrz,e8
+Their out : jrz,3B31
+Line      : 9637
+Our output: jrnz,20
+Their out : jrnz,3B6F
+Line      : 9642
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9644
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9645
+Our output: adda,b
+Their out : addb
+Line      : 9663
+Our output: adda,b
+Their out : addb
+Line      : 9664
+Our output: jrnz,a0
+Their out : jrnz,3B0F
+Line      : 9667
+Our output: jrnz,e0
+Their out : jrnz,3B52
+Line      : 9669
+Our output: adda,h
+Their out : addh
+Line      : 9676
+Our output: adda,h
+Their out : addh
+Line      : 9677
+Our output: adda,h
+Their out : addh
+Line      : 9678
+Our output: adda,h
+Their out : addh
+Line      : 9679
+Our output: unknown
+Their out : -
+Line      : 9680
+Our output: unknown
+Their out : -
+Line      : 9681
+Our output: xoree
+Their out : xora,EE
+Line      : 9688
+Our output: jr3e
+Their out : jr3BCA
+Line      : 9692
+Our output: jrnz,7f
+Their out : jrnz,3C0D
+Line      : 9693
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9712
+Our output: jr00
+Their out : jr3BFF
+Line      : 9782
+Our output: jrc,00
+Their out : jrc,3C01
+Line      : 9783
+Our output: unknown
+Their out : -
+Line      : 9790
+Our output: unknown
+Their out : -
+Line      : 9791
+Our output: unknown
+Their out : -
+Line      : 9792
+Our output: unknown
+Their out : -
+Line      : 9793
+Our output: unknown
+Their out : -
+Line      : 9794
+Our output: unknown
+Their out : -
+Line      : 9795
+Our output: unknown
+Their out : -
+Line      : 9796
+Our output: unknown
+Their out : -
+Line      : 9797
+Our output: unknown
+Their out : -
+Line      : 9798
+Our output: unknown
+Their out : -
+Line      : 9799
+Our output: unknown
+Their out : -
+Line      : 9800
+Our output: unknown
+Their out : -
+Line      : 9801
+Our output: unknown
+Their out : -
+Line      : 9802
+Our output: unknown
+Their out : -
+Line      : 9803
+Our output: unknown
+Their out : -
+Line      : 9804
+Our output: unknown
+Their out : -
+Line      : 9805
+Our output: adda,b
+Their out : addb
+Line      : 9810
+Our output: adda,b
+Their out : addb
+Line      : 9812
+Our output: adda,b
+Their out : addb
+Line      : 9838
+Our output: adda,b
+Their out : addb
+Line      : 9840
+Our output: cp02
+Their out : cpa,02
+Line      : 9888
+Our output: unknown
+Their out : -
+Line      : 9889
+Our output: unknown
+Their out : -
+Line      : 9891
+Our output: unknown
+Their out : -
+Line      : 9893
+Our output: jrnz,27
+Their out : jrnz,3CCC
+Line      : 9923
+Our output: jrnz,2f
+Their out : jrnz,3CD6
+Line      : 9924
+Our output: adda,b
+Their out : addb
+Line      : 9940
+Our output: adda,b
+Their out : addb
+Line      : 9942
+Our output: adda,b
+Their out : addb
+Line      : 9944
+Our output: adda,b
+Their out : addb
+Line      : 9946
+Our output: adda,b
+Their out : addb
+Line      : 9948
+Our output: adda,b
+Their out : addb
+Line      : 9950
+Our output: jrnz,2f
+Their out : jrnz,3D0C
+Line      : 9964
+Our output: jrnz,27
+Their out : jrnz,3D06
+Line      : 9965
+Our output: stop
+Their out : <corruptedstop>
+Line      : 9966
+Our output: adda,e
+Their out : adde
+Line      : 9976
+Our output: jrc,00
+Their out : jrc,3D1B
+Line      : 10019
+Our output: cp00
+Their out : cpa,00
+Line      : 10022
+Our output: cp00
+Their out : cpa,00
+Line      : 10023
+Our output: cp00
+Their out : cpa,00
+Line      : 10024
+Our output: jrz,e8
+Their out : jrz,3D21
+Line      : 10041
+Our output: jrnc,30
+Their out : jrnc,3D6D
+Line      : 10043
+Our output: unknown
+Their out : -
+Line      : 10048
+Our output: unknown
+Their out : -
+Line      : 10049
+Our output: jrnc,30
+Their out : jrnc,3D77
+Line      : 10050
+Our output: stop
+Their out : <corruptedstop>
+Line      : 10087
+Our output: adda,b
+Their out : addb
+Line      : 10092
+Our output: adda,b
+Their out : addb
+Line      : 10093
+Our output: adda,b
+Their out : addb
+Line      : 10094
+Our output: adda,b
+Their out : addb
+Line      : 10095
+Our output: unknown
+Their out : -
+Line      : 10113
+Our output: unknown
+Their out : -
+Line      : 10114
+Our output: jrnz,20
+Their out : jrnz,3DBD
+Line      : 10117
+Our output: jrnz,20
+Their out : jrnz,3DC1
+Line      : 10119
+Our output: jrnz,20
+Their out : jrnz,3DC3
+Line      : 10120
+Our output: jr18
+Their out : jr3DC1
+Line      : 10124
+Our output: cpfe
+Their out : cpa,FE
+Line      : 10140
+Our output: cpda
+Their out : cpa,DA
+Line      : 10143
+Our output: unknown
+Their out : -
+Line      : 10148
+Our output: unknown
+Their out : -
+Line      : 10149
+Our output: cp0e
+Their out : cpa,0E
+Line      : 10151
+Our output: cpfe
+Their out : cpa,FE
+Line      : 10152
+Our output: cpda
+Their out : cpa,DA
+Line      : 10155
+Our output: unknown
+Their out : -
+Line      : 10160
+Our output: unknown
+Their out : -
+Line      : 10161
+Our output: adda,b
+Their out : addb
+Line      : 10163
+Our output: adda,b
+Their out : addb
+Line      : 10164
+Our output: adda,e
+Their out : adde
+Line      : 10165
+Our output: adda,e
+Their out : adde
+Line      : 10166
+Our output: adda,e
+Their out : adde
+Line      : 10167
+Our output: adda,e
+Their out : adde
+Line      : 10168
+Our output: unknown
+Their out : -
+Line      : 10186
+Our output: unknown
+Their out : -
+Line      : 10205
+Our output: jrc,f8
+Their out : jrc,3E07
+Line      : 10209
+Our output: stop
+Their out : <corruptedstop>
+Line      : 10240
+Our output: unknown
+Their out : -
+Line      : 10257
+Our output: unknown
+Their out : -
+Line      : 10258
+Our output: jrnz,20
+Their out : jrnz,3E6B
+Line      : 10259
+Our output: jrnz,20
+Their out : jrnz,3E6D
+Line      : 10260
+Our output: jrnz,20
+Their out : jrnz,3E71
+Line      : 10262
+Our output: jrnz,20
+Their out : jrnz,3E73
+Line      : 10263
+Our output: jr18
+Their out : jr3E81
+Line      : 10282
+Our output: adda,h
+Their out : addh
+Line      : 10348
+Our output: adda,h
+Their out : addh
+Line      : 10349
+Our output: adda,h
+Their out : addh
+Line      : 10352
+Our output: adda,h
+Their out : addh
+Line      : 10353
+Our output: adda,h
+Their out : addh
+Line      : 10354
+Our output: adda,h
+Their out : addh
+Line      : 10355
+Our output: adda,h
+Their out : addh
+Line      : 10356
+Our output: adda,h
+Their out : addh
+Line      : 10357
+Our output: adda,h
+Their out : addh
+Line      : 10379
+Our output: adda,h
+Their out : addh
+Line      : 10380
+Our output: jrnc,31
+Their out : jrnc,3F17
+Line      : 10394
+Our output: jr1b
+Their out : jr3F18
+Line      : 10412
+Our output: jrnc,31
+Their out : jrnc,3F7B
+Line      : 10487
+Our output: jrc,39
+Their out : jrc,4010
+Line      : 10616
+Our output: jrnc,31
+Their out : jrnc,407F
+Line      : 10732
+Our output: stop
+Their out : <corruptedstop>
+Line      : 10805
+Our output: jrnc,31
+Their out : jrnc,411F
+Line      : 10880
+Our output: jrc,39
+Their out : jrc,4178
+Line      : 10953
+Our output: jr38
+Their out : jr41EA
+Line      : 11065
+Our output: jr18
+Their out : jr41CC
+Line      : 11066
+Our output: jr3c
+Their out : jr41F2
+Line      : 11067
+Our output: jr38
+Their out : jr421D
+Line      : 11108
+Our output: jrc,00
+Their out : jrc,41E7
+Line      : 11109
+Our output: jr18
+Their out : jr4253
+Line      : 11190
+Our output: jr18
+Their out : jr4255
+Line      : 11191
+Our output: jrc,00
+Their out : jrc,4247
+Line      : 11199
+Our output: jr18
+Their out : jr42AB
+Line      : 11273
+Our output: jr18
+Their out : jr42AD
+Line      : 11274
+Our output: jr00
+Their out : jr4297
+Line      : 11275
+Our output: jr00
+Their out : jr42A7
+Line      : 11290
+Our output: jr38
+Their out : jr42EC
+Line      : 11302
+Our output: jr18
+Their out : jr42D5
+Line      : 11310
+Our output: jr00
+Their out : jr42BF
+Line      : 11311
+Our output: jrc,70
+Their out : jrc,4335
+Line      : 11315
+Our output: adda,c
+Their out : addc
+Line      : 11355
+Our output: adda,c
+Their out : addc
+Line      : 11364
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11384
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11385
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11386
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11387
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11388
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11389
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11390
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11391
+Our output: stop
+Their out : <corruptedstop>
+Line      : 11417
+Our output: adda,b
+Their out : addb
+Line      : 11418
+Our output: jr18
+Their out : jr438D
+Line      : 11472
+Our output: jrc,38
+Their out : jrc,43AF
+Line      : 11473
+Our output: jr18
+Their out : jr4391
+Line      : 11474
+Our output: jr18
+Their out : jr4393
+Line      : 11475
+Our output: jr18
+Their out : jr4395
+Line      : 11476
+Our output: jrc,38
+Their out : jrc,43DB
+Line      : 11511
+Our output: jrc,38
+Their out : jrc,43E7
+Line      : 11522
+Our output: ande6
+Their out : anda,E6
+Line      : 11524
+Our output: ande6
+Their out : anda,E6
+Line      : 11525
+Our output: subd6
+Their out : suba,D6
+Line      : 11526
+Our output: subd6
+Their out : suba,D6
+Line      : 11527
+Our output: adcce
+Their out : adca,CE
+Line      : 11528
+Our output: adcce
+Their out : adca,CE
+Line      : 11529
+Our output: unknown
+Their out : -
+Line      : 11537
+Our output: unknown
+Their out : -
+Line      : 11538
+Our output: unknown
+Their out : -
+Line      : 11539
+Our output: unknown
+Their out : -
+Line      : 11540
+Our output: jrnc,30
+Their out : jrnc,4403
+Line      : 11549
+Our output: unknown
+Their out : -
+Line      : 11570
+Our output: unknown
+Their out : -
+Line      : 11571
+Our output: unknown
+Their out : -
+Line      : 11574
+Our output: unknown
+Their out : -
+Line      : 11575
+Our output: adda,b
+Their out : addb
+Line      : 11588
+Our output: adda,b
+Their out : addb
+Line      : 11589
+Our output: adda,b
+Their out : addb
+Line      : 11590
+Our output: adda,b
+Their out : addb
+Line      : 11591
+Our output: adda,b
+Their out : addb
+Line      : 11592
+Our output: adda,b
+Their out : addb
+Line      : 11593
+Our output: cpfe
+Their out : cpa,FE
+Line      : 11657
+Our output: unknown
+Their out : -
+Line      : 11660
+Our output: unknown
+Their out : -
+Line      : 11661
+Our output: unknown
+Their out : -
+Line      : 11663
+Our output: adda,b
+Their out : addb
+Line      : 11669
+Our output: jrnz,bf
+Their out : jrnz,441D
+Line      : 11677
+Our output: cp02
+Their out : cpa,02
+Line      : 11685
+Our output: unknown
+Their out : -
+Line      : 11686
+Our output: unknown
+Their out : -
+Line      : 11688
+Our output: unknown
+Their out : -
+Line      : 11690
+Our output: adda,b
+Their out : addb
+Line      : 11697
+Our output: jrnz,ff
+Their out : jrnz,447B
+Line      : 11703
+Our output: jrnz,bf
+Their out : jrnz,443D
+Line      : 11704
+Our output: adda,b
+Their out : addb
+Line      : 11733
+Our output: adda,b
+Their out : addb
+Line      : 11735
+Our output: adda,b
+Their out : addb
+Line      : 11737
+Our output: adda,b
+Their out : addb
+Line      : 11739
+Our output: adda,b
+Their out : addb
+Line      : 11741
+Our output: adda,b
+Their out : addb
+Line      : 11743
+Our output: adda,b
+Their out : addb
+Line      : 11745
+Our output: cp02
+Their out : cpa,02
+Line      : 11746
+Our output: cp02
+Their out : cpa,02
+Line      : 11747
+Our output: unknown
+Their out : -
+Line      : 11750
+Our output: unknown
+Their out : -
+Line      : 11776
+Our output: cb32
+Their out : swapd
+Line      : 11794
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 11797
+Our output: adda,e
+Their out : adde
+Line      : 11803
+Our output: adda,e
+Their out : adde
+Line      : 11805
+Our output: adda,b
+Their out : addb
+Line      : 11809
+Our output: adda,b
+Their out : addb
+Line      : 11823
+Our output: adda,b
+Their out : addb
+Line      : 11825
+Our output: adda,b
+Their out : addb
+Line      : 11827
+Our output: adda,b
+Their out : addb
+Line      : 11829
+Our output: adda,b
+Their out : addb
+Line      : 11831
+Our output: adda,b
+Their out : addb
+Line      : 11833
+Our output: adda,e
+Their out : adde
+Line      : 11844
+Our output: adda,c
+Their out : addc
+Line      : 11846
+Our output: adda,c
+Their out : addc
+Line      : 11848
+Our output: adc1b
+Their out : adca,1B
+Line      : 11856
+Our output: and09
+Their out : anda,09
+Line      : 11857
+Our output: unknown
+Their out : -
+Line      : 11879
+Our output: adda,e
+Their out : adde
+Line      : 11885
+Our output: and13
+Their out : anda,13
+Line      : 11908
+Our output: xor37
+Their out : xora,37
+Line      : 11909
+Our output: unknown
+Their out : -
+Line      : 11913
+Our output: unknown
+Their out : -
+Line      : 11915
+Our output: cp02
+Their out : cpa,02
+Line      : 11918
+Our output: cp02
+Their out : cpa,02
+Line      : 11919
+Our output: stop
+Their out : <corruptedstop>
+Line      : 11943
+Our output: jrc,ff
+Their out : jrc,45AF
+Line      : 11944
+Our output: cp01
+Their out : cpa,01
+Line      : 11960
+Our output: cp83
+Their out : cpa,83
+Line      : 11961
+Our output: adda,e
+Their out : adde
+Line      : 11965
+Our output: adda,e
+Their out : adde
+Line      : 11967
+Our output: adda,b
+Their out : addb
+Line      : 11976
+Our output: adda,b
+Their out : addb
+Line      : 11978
+Our output: unknown
+Their out : -
+Line      : 11984
+Our output: unknown
+Their out : -
+Line      : 11986
+Our output: jrnc,30
+Their out : jrnc,4633
+Line      : 12008
+Our output: jrnc,30
+Their out : jrnc,4637
+Line      : 12011
+Our output: jrnc,30
+Their out : jrnc,4639
+Line      : 12012
+Our output: jrnc,30
+Their out : jrnc,463B
+Line      : 12013
+Our output: unknown
+Their out : -
+Line      : 12024
+Our output: unknown
+Their out : -
+Line      : 12026
+Our output: unknown
+Their out : -
+Line      : 12028
+Our output: unknown
+Their out : -
+Line      : 12062
+Our output: unknown
+Their out : -
+Line      : 12064
+Our output: unknown
+Their out : -
+Line      : 12066
+Our output: unknown
+Their out : -
+Line      : 12068
+Our output: unknown
+Their out : -
+Line      : 12070
+Our output: unknown
+Their out : -
+Line      : 12072
+Our output: unknown
+Their out : -
+Line      : 12074
+Our output: unknown
+Their out : -
+Line      : 12076
+Our output: unknown
+Their out : -
+Line      : 12094
+Our output: unknown
+Their out : -
+Line      : 12096
+Our output: unknown
+Their out : -
+Line      : 12098
+Our output: unknown
+Their out : -
+Line      : 12100
+Our output: unknown
+Their out : -
+Line      : 12102
+Our output: adda,b
+Their out : addb
+Line      : 12144
+Our output: adda,b
+Their out : addb
+Line      : 12146
+Our output: adda,b
+Their out : addb
+Line      : 12172
+Our output: adda,b
+Their out : addb
+Line      : 12174
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12212
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12213
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12214
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12215
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12216
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12217
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12218
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12219
+Our output: adda,b
+Their out : addb
+Line      : 12261
+Our output: adda,b
+Their out : addb
+Line      : 12262
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12301
+Our output: cp06
+Their out : cpa,06
+Line      : 12307
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 12320
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 12321
+Our output: adda,e
+Their out : adde
+Line      : 12323
+Our output: adda,b
+Their out : addb
+Line      : 12346
+Our output: adda,b
+Their out : addb
+Line      : 12347
+Our output: adda,b
+Their out : addb
+Line      : 12348
+Our output: adda,b
+Their out : addb
+Line      : 12349
+Our output: adda,c
+Their out : addc
+Line      : 12396
+Our output: adda,c
+Their out : addc
+Line      : 12397
+Our output: cp06
+Their out : cpa,06
+Line      : 12398
+Our output: cp06
+Their out : cpa,06
+Line      : 12399
+Our output: cp06
+Their out : cpa,06
+Line      : 12400
+Our output: cp06
+Their out : cpa,06
+Line      : 12401
+Our output: cp06
+Their out : cpa,06
+Line      : 12402
+Our output: cp06
+Their out : cpa,06
+Line      : 12403
+Our output: cp06
+Their out : cpa,06
+Line      : 12404
+Our output: adda,e
+Their out : adde
+Line      : 12407
+Our output: adda,c
+Their out : addc
+Line      : 12409
+Our output: jrnz,3f
+Their out : jrnz,481B
+Line      : 12417
+Our output: jrnz,10
+Their out : jrnz,47EE
+Line      : 12418
+Our output: unknown
+Their out : -
+Line      : 12426
+Our output: adda,b
+Their out : addb
+Line      : 12433
+Our output: adda,b
+Their out : addb
+Line      : 12434
+Our output: adda,b
+Their out : addb
+Line      : 12435
+Our output: adda,b
+Their out : addb
+Line      : 12436
+Our output: adda,b
+Their out : addb
+Line      : 12437
+Our output: adda,b
+Their out : addb
+Line      : 12438
+Our output: adda,b
+Their out : addb
+Line      : 12439
+Our output: adda,b
+Their out : addb
+Line      : 12440
+Our output: adda,b
+Their out : addb
+Line      : 12441
+Our output: adda,b
+Their out : addb
+Line      : 12442
+Our output: adda,b
+Their out : addb
+Line      : 12443
+Our output: adda,b
+Their out : addb
+Line      : 12444
+Our output: adda,b
+Their out : addb
+Line      : 12445
+Our output: adda,b
+Their out : addb
+Line      : 12446
+Our output: adda,b
+Their out : addb
+Line      : 12447
+Our output: cpfe
+Their out : cpa,FE
+Line      : 12476
+Our output: unknown
+Their out : -
+Line      : 12492
+Our output: adda,b
+Their out : addb
+Line      : 12500
+Our output: adda,b
+Their out : addb
+Line      : 12510
+Our output: adda,b
+Their out : addb
+Line      : 12511
+Our output: adda,b
+Their out : addb
+Line      : 12512
+Our output: adda,b
+Their out : addb
+Line      : 12513
+Our output: unknown
+Their out : -
+Line      : 12567
+Our output: unknown
+Their out : -
+Line      : 12568
+Our output: unknown
+Their out : -
+Line      : 12579
+Our output: unknown
+Their out : -
+Line      : 12583
+Our output: unknown
+Their out : -
+Line      : 12584
+Our output: adda,e
+Their out : adde
+Line      : 12613
+Our output: adda,d
+Their out : addd
+Line      : 12614
+Our output: adda,e
+Their out : adde
+Line      : 12615
+Our output: adda,d
+Their out : addd
+Line      : 12616
+Our output: unknown
+Their out : -
+Line      : 12629
+Our output: unknown
+Their out : -
+Line      : 12631
+Our output: unknown
+Their out : -
+Line      : 12633
+Our output: unknown
+Their out : -
+Line      : 12635
+Our output: unknown
+Their out : -
+Line      : 12637
+Our output: unknown
+Their out : -
+Line      : 12639
+Our output: unknown
+Their out : -
+Line      : 12641
+Our output: unknown
+Their out : -
+Line      : 12644
+Our output: unknown
+Their out : -
+Line      : 12678
+Our output: unknown
+Their out : -
+Line      : 12680
+Our output: unknown
+Their out : -
+Line      : 12682
+Our output: unknown
+Their out : -
+Line      : 12684
+Our output: unknown
+Their out : -
+Line      : 12686
+Our output: unknown
+Their out : -
+Line      : 12688
+Our output: unknown
+Their out : -
+Line      : 12690
+Our output: unknown
+Their out : -
+Line      : 12691
+Our output: unknown
+Their out : -
+Line      : 12692
+Our output: unknown
+Their out : -
+Line      : 12709
+Our output: unknown
+Their out : -
+Line      : 12710
+Our output: unknown
+Their out : -
+Line      : 12711
+Our output: unknown
+Their out : -
+Line      : 12712
+Our output: unknown
+Their out : -
+Line      : 12713
+Our output: unknown
+Their out : -
+Line      : 12714
+Our output: unknown
+Their out : -
+Line      : 12715
+Our output: unknown
+Their out : -
+Line      : 12716
+Our output: unknown
+Their out : -
+Line      : 12717
+Our output: unknown
+Their out : -
+Line      : 12718
+Our output: unknown
+Their out : -
+Line      : 12719
+Our output: unknown
+Their out : -
+Line      : 12720
+Our output: unknown
+Their out : -
+Line      : 12721
+Our output: unknown
+Their out : -
+Line      : 12722
+Our output: unknown
+Their out : -
+Line      : 12723
+Our output: unknown
+Their out : -
+Line      : 12724
+Our output: adda,e
+Their out : adde
+Line      : 12791
+Our output: adda,e
+Their out : adde
+Line      : 12792
+Our output: adda,e
+Their out : adde
+Line      : 12793
+Our output: adda,e
+Their out : adde
+Line      : 12794
+Our output: adda,e
+Their out : adde
+Line      : 12795
+Our output: adda,e
+Their out : adde
+Line      : 12796
+Our output: adda,e
+Their out : adde
+Line      : 12797
+Our output: adda,e
+Their out : adde
+Line      : 12798
+Our output: adda,e
+Their out : adde
+Line      : 12799
+Our output: adda,e
+Their out : adde
+Line      : 12800
+Our output: adda,e
+Their out : adde
+Line      : 12802
+Our output: jrnz,20
+Their out : jrnz,49A5
+Line      : 12807
+Our output: stop
+Their out : <corruptedstop>
+Line      : 12808
+Our output: adda,e
+Their out : adde
+Line      : 12830
+Our output: adda,e
+Their out : adde
+Line      : 12832
+Our output: adda,e
+Their out : adde
+Line      : 12834
+Our output: adda,e
+Their out : adde
+Line      : 12836
+Our output: adda,e
+Their out : adde
+Line      : 12838
+Our output: adda,e
+Their out : adde
+Line      : 12840
+Our output: adda,e
+Their out : adde
+Line      : 12842
+Our output: adda,e
+Their out : adde
+Line      : 12843
+Our output: adda,e
+Their out : adde
+Line      : 12875
+Our output: adda,e
+Their out : adde
+Line      : 12877
+Our output: adda,e
+Their out : adde
+Line      : 12879
+Our output: adda,e
+Their out : adde
+Line      : 12881
+Our output: adda,e
+Their out : adde
+Line      : 12883
+Our output: adda,e
+Their out : adde
+Line      : 12885
+Our output: adda,e
+Their out : adde
+Line      : 12887
+Our output: stop
+Their out : <corruptedstop>
+Line      : 12915
+Our output: jrnc,30
+Their out : jrnc,4A2D
+Line      : 12916
+Our output: unknown
+Their out : -
+Line      : 12930
+Our output: unknown
+Their out : -
+Line      : 12931
+Our output: jrnz,20
+Their out : jrnz,4A5D
+Line      : 12978
+Our output: jr1b
+Their out : jr4A90
+Line      : 13029
+Our output: stop
+Their out : <corruptedstop>
+Line      : 13030
+Our output: jr2f
+Their out : jr4ABA
+Line      : 13046
+Our output: jr18
+Their out : jr4AB2
+Line      : 13058
+Our output: jr0f
+Their out : jr4AB5
+Line      : 13069
+Our output: jrnz,0a
+Their out : jrnz,4AB3
+Line      : 13071
+Our output: jr2f
+Their out : jr4AF5
+Line      : 13095
+Our output: jr24
+Their out : jr4AFA
+Line      : 13109
+Our output: jr18
+Their out : jr4B19
+Line      : 13147
+Our output: jr0f
+Their out : jr4B1B
+Line      : 13157
+Our output: jrnz,0a
+Their out : jrnz,4B19
+Line      : 13159
+Our output: jrnc,31
+Their out : jrnc,4B4E
+Line      : 13171
+Our output: jrc,39
+Their out : jrc,4B5F
+Line      : 13176
+Our output: stop
+Their out : <corruptedstop>
+Line      : 13208
+Our output: jr1b
+Their out : jr4B86
+Line      : 13240
+Our output: stop
+Their out : <corruptedstop>
+Line      : 13242
+Our output: jr17
+Their out : jr4B8C
+Line      : 13248
+Our output: stop
+Their out : <corruptedstop>
+Line      : 13258
+Our output: jr10
+Their out : jr4B9B
+Line      : 13266
+Our output: jr1f
+Their out : jr4BC1
+Line      : 13283
+Our output: adda,b
+Their out : addb
+Line      : 13346
+Our output: adda,c
+Their out : addc
+Line      : 13347
+Our output: adda,d
+Their out : addd
+Line      : 13348
+Our output: adda,e
+Their out : adde
+Line      : 13349
+Our output: adda,c
+Their out : addc
+Line      : 13353
+Our output: adda,d
+Their out : addd
+Line      : 13354
+Our output: adda,e
+Their out : adde
+Line      : 13355
+Our output: adda,h
+Their out : addh
+Line      : 13366
+Our output: adda,l
+Their out : addl
+Line      : 13367
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 13368
+Our output: adda,l
+Their out : addl
+Line      : 13373
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 13374
+Our output: jrnc,31
+Their out : jrnc,4D2F
+Line      : 13627
+Our output: jrc,39
+Their out : jrc,4D40
+Line      : 13632
+Our output: stop
+Their out : <corruptedstop>
+Line      : 13722
+Our output: jr19
+Their out : jr4F84
+Line      : 14232
+Our output: jr1b
+Their out : jr4F8B
+Line      : 14236
+Our output: jr19
+Their out : jr50EC
+Line      : 14577
+Our output: jr1b
+Their out : jr50F3
+Line      : 14581
+Our output: cbcc
+Their out : set1,h
+Line      : 14716
+Our output: adcd7
+Their out : adca,D7
+Line      : 14723
+Our output: unknown
+Their out : -
+Line      : 14759
+Our output: sub7d
+Their out : suba,7D
+Line      : 14768
+Our output: adda,l
+Their out : addl
+Line      : 14895
+Our output: adda,l
+Their out : addl
+Line      : 14896
+Our output: adda,l
+Their out : addl
+Line      : 14897
+Our output: adda,l
+Their out : addl
+Line      : 14898
+Our output: adda,l
+Their out : addl
+Line      : 14899
+Our output: adda,l
+Their out : addl
+Line      : 14900
+Our output: adda,l
+Their out : addl
+Line      : 14901
+Our output: adda,l
+Their out : addl
+Line      : 14902
+Our output: jrc,39
+Their out : jrc,526B
+Line      : 14905
+Our output: jrc,5a
+Their out : jrc,528E
+Line      : 14906
+Our output: jr2f
+Their out : jr52BC
+Line      : 14993
+Our output: stop
+Their out : <corruptedstop>
+Line      : 14999
+Our output: jr2c
+Their out : jr5345
+Line      : 15124
+Our output: stop
+Their out : <corruptedstop>
+Line      : 15255
+Our output: jrnc,31
+Their out : jrnc,5404
+Line      : 15300
+Our output: stop
+Their out : <corruptedstop>
+Line      : 15375
+Our output: jrnc,31
+Their out : jrnc,54A4
+Line      : 15450
+Our output: jrc,39
+Their out : jrc,54FD
+Line      : 15523
+Our output: adda,h
+Their out : addh
+Line      : 15632
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 15644
+Our output: adda,h
+Their out : addh
+Line      : 15728
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 15740
+Our output: jr1f
+Their out : jr562F
+Line      : 15815
+Our output: cp12
+Their out : cpa,12
+Line      : 15819
+Our output: adda,e
+Their out : adde
+Line      : 15825
+Our output: adda,c
+Their out : addc
+Line      : 15827
+Our output: jr1f
+Their out : jr564F
+Line      : 15840
+Our output: unknown
+Their out : -
+Line      : 15844
+Our output: cp02
+Their out : cpa,02
+Line      : 15846
+Our output: cp07
+Their out : cpa,07
+Line      : 15847
+Our output: unknown
+Their out : -
+Line      : 15848
+Our output: unknown
+Their out : -
+Line      : 15850
+Our output: jr1f
+Their out : jr5673
+Line      : 15869
+Our output: unknown
+Their out : -
+Line      : 15876
+Our output: jr18
+Their out : jr5698
+Line      : 15908
+Our output: jr1f
+Their out : jr56AB
+Line      : 15917
+Our output: stop
+Their out : <corruptedstop>
+Line      : 15926
+Our output: jrf8
+Their out : jr5694
+Line      : 15930
+Our output: unknown
+Their out : -
+Line      : 15932
+Our output: unknown
+Their out : -
+Line      : 15934
+Our output: jr1f
+Their out : jr56C9
+Line      : 15943
+Our output: jrnz,3f
+Their out : jrnz,56EB
+Line      : 15944
+Our output: jrnc,3f
+Their out : jrnc,56ED
+Line      : 15945
+Our output: adda,b
+Their out : addb
+Line      : 15950
+Our output: adda,b
+Their out : addb
+Line      : 15951
+Our output: adda,b
+Their out : addb
+Line      : 15952
+Our output: adda,b
+Their out : addb
+Line      : 15953
+Our output: adda,b
+Their out : addb
+Line      : 15954
+Our output: adda,b
+Their out : addb
+Line      : 15955
+Our output: adda,b
+Their out : addb
+Line      : 15956
+Our output: adda,b
+Their out : addb
+Line      : 15957
+Our output: jr3e
+Their out : jr5727
+Line      : 15998
+Our output: jrnz,7f
+Their out : jrnz,576A
+Line      : 15999
+Our output: jrnc,7b
+Their out : jrnc,5784
+Line      : 16028
+Our output: jrnc,7b
+Their out : jrnc,57A4
+Line      : 16055
+Our output: jrf8
+Their out : jr572E
+Line      : 16065
+Our output: unknown
+Their out : -
+Line      : 16067
+Our output: cp02
+Their out : cpa,02
+Line      : 16069
+Our output: cp07
+Their out : cpa,07
+Line      : 16070
+Our output: unknown
+Their out : -
+Line      : 16071
+Our output: unknown
+Their out : -
+Line      : 16073
+Our output: unknown
+Their out : -
+Line      : 16091
+Our output: adda,b
+Their out : addb
+Line      : 16113
+Our output: adda,b
+Their out : addb
+Line      : 16114
+Our output: jrnz,3f
+Their out : jrnz,57C7
+Line      : 16131
+Our output: unknown
+Their out : -
+Line      : 16142
+Our output: unknown
+Their out : -
+Line      : 16152
+Our output: jrnz,20
+Their out : jrnz,57CC
+Line      : 16162
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16163
+Our output: jrc,28
+Their out : jrc,57D8
+Line      : 16164
+Our output: jrz,28
+Their out : jrz,57DA
+Line      : 16165
+Our output: jr18
+Their out : jr57E2
+Line      : 16188
+Our output: jr18
+Their out : jr57E4
+Line      : 16189
+Our output: jr18
+Their out : jr57E6
+Line      : 16190
+Our output: jr18
+Their out : jr57E8
+Line      : 16191
+Our output: jr18
+Their out : jr57EA
+Line      : 16192
+Our output: xorb4
+Their out : xora,B4
+Line      : 16210
+Our output: unknown
+Their out : -
+Line      : 16221
+Our output: jrf7
+Their out : jr5822
+Line      : 16268
+Our output: jrnc,3f
+Their out : jrnc,5891
+Line      : 16300
+Our output: unknown
+Their out : -
+Line      : 16304
+Our output: jrc,cf
+Their out : jrc,582A
+Line      : 16307
+Our output: unknown
+Their out : -
+Line      : 16312
+Our output: unknown
+Their out : -
+Line      : 16314
+Our output: adda,b
+Their out : addb
+Line      : 16320
+Our output: adda,b
+Their out : addb
+Line      : 16321
+Our output: jrnz,3f
+Their out : jrnz,58D3
+Line      : 16351
+Our output: unknown
+Their out : -
+Line      : 16353
+Our output: jrc,cf
+Their out : jrc,586A
+Line      : 16356
+Our output: unknown
+Their out : -
+Line      : 16361
+Our output: unknown
+Their out : -
+Line      : 16363
+Our output: adda,b
+Their out : addb
+Line      : 16370
+Our output: adda,b
+Their out : addb
+Line      : 16371
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16388
+Our output: jr18
+Their out : jr58F2
+Line      : 16415
+Our output: jr18
+Their out : jr58F4
+Line      : 16416
+Our output: jr18
+Their out : jr58F6
+Line      : 16417
+Our output: jr18
+Their out : jr58F8
+Line      : 16418
+Our output: jrnz,3f
+Their out : jrnz,5949
+Line      : 16457
+Our output: jrnz,3f
+Their out : jrnz,5989
+Line      : 16513
+Our output: jrnz,3f
+Their out : jrnz,598B
+Line      : 16514
+Our output: cp02
+Their out : cpa,02
+Line      : 16522
+Our output: cp04
+Their out : cpa,04
+Line      : 16523
+Our output: unknown
+Their out : -
+Line      : 16524
+Our output: unknown
+Their out : -
+Line      : 16526
+Our output: adda,b
+Their out : addb
+Line      : 16538
+Our output: adda,b
+Their out : addb
+Line      : 16539
+Our output: unknown
+Their out : -
+Line      : 16556
+Our output: or08
+Their out : ora,08
+Line      : 16559
+Our output: unknown
+Their out : -
+Line      : 16573
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16581
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16582
+Our output: adcf2
+Their out : adca,F2
+Line      : 16590
+Our output: cp98
+Their out : cpa,98
+Line      : 16596
+Our output: unknown
+Their out : -
+Line      : 16598
+Our output: jr3e
+Their out : jr59F7
+Line      : 16604
+Our output: jrnz,7f
+Their out : jrnz,5A3A
+Line      : 16605
+Our output: jr18
+Their out : jr59F0
+Line      : 16633
+Our output: jr18
+Their out : jr59F2
+Line      : 16634
+Our output: jr18
+Their out : jr59F4
+Line      : 16635
+Our output: jr18
+Their out : jr59F6
+Line      : 16636
+Our output: jr18
+Their out : jr59FA
+Line      : 16639
+Our output: adda,e
+Their out : adde
+Line      : 16649
+Our output: adda,c
+Their out : addc
+Line      : 16651
+Our output: jrf8
+Their out : jr59F2
+Line      : 16657
+Our output: unknown
+Their out : -
+Line      : 16659
+Our output: unknown
+Their out : -
+Line      : 16661
+Our output: jr18
+Their out : jr5A2A
+Line      : 16678
+Our output: unknown
+Their out : -
+Line      : 16695
+Our output: unknown
+Their out : -
+Line      : 16697
+Our output: unknown
+Their out : -
+Line      : 16702
+Our output: cpef
+Their out : cpa,EF
+Line      : 16704
+Our output: jrc,ef
+Their out : jrc,5A22
+Line      : 16705
+Our output: adda,b
+Their out : addb
+Line      : 16723
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16737
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16738
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16739
+Our output: jrnz,a0
+Their out : jrnz,5A07
+Line      : 16740
+Our output: jrnz,a0
+Their out : jrnz,5A09
+Line      : 16741
+Our output: jrnz,a0
+Their out : jrnz,5A0B
+Line      : 16742
+Our output: jrnc,30
+Their out : jrnc,5AA4
+Line      : 16749
+Our output: jr08
+Their out : jr5A81
+Line      : 16751
+Our output: cp00
+Their out : cpa,00
+Line      : 16758
+Our output: unknown
+Their out : -
+Line      : 16767
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16786
+Our output: unknown
+Their out : -
+Line      : 16801
+Our output: unknown
+Their out : -
+Line      : 16802
+Our output: xor6e
+Their out : xora,6E
+Line      : 16805
+Our output: unknown
+Their out : -
+Line      : 16809
+Our output: jr3f
+Their out : jr5B0C
+Line      : 16820
+Our output: jrnz,7f
+Their out : jrnz,5B4E
+Line      : 16821
+Our output: adda,b
+Their out : addb
+Line      : 16833
+Our output: adda,b
+Their out : addb
+Line      : 16834
+Our output: adda,b
+Their out : addb
+Line      : 16841
+Our output: adda,b
+Their out : addb
+Line      : 16842
+Our output: adcfa
+Their out : adca,FA
+Line      : 16858
+Our output: unknown
+Their out : -
+Line      : 16860
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16870
+Our output: jr66
+Their out : jr5B8A
+Line      : 16885
+Our output: jrnz,20
+Their out : jrnz,5B4C
+Line      : 16892
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16899
+Our output: stop
+Their out : <corruptedstop>
+Line      : 16901
+Our output: jrz,60
+Their out : jrz,5BA8
+Line      : 16915
+Our output: jrz,60
+Their out : jrz,5BAC
+Line      : 16918
+Our output: jrz,60
+Their out : jrz,5BB0
+Line      : 16921
+Our output: jrz,67
+Their out : jrz,5BB9
+Line      : 16922
+Our output: sbc2b
+Their out : sbca,2B
+Line      : 16925
+Our output: jrnz,a0
+Their out : jrnz,5B0D
+Line      : 16942
+Our output: jrnz,a0
+Their out : jrnz,5B0F
+Line      : 16943
+Our output: jrnz,a0
+Their out : jrnz,5B11
+Line      : 16944
+Our output: jrnz,a0
+Their out : jrnz,5B13
+Line      : 16945
+Our output: jrnz,08
+Their out : jrnz,5B7D
+Line      : 16946
+Our output: unknown
+Their out : -
+Line      : 16967
+Our output: jrc,38
+Their out : jrc,5BE0
+Line      : 16990
+Our output: unknown
+Their out : -
+Line      : 17034
+Our output: unknown
+Their out : -
+Line      : 17036
+Our output: unknown
+Their out : -
+Line      : 17038
+Our output: unknown
+Their out : -
+Line      : 17043
+Our output: cpef
+Their out : cpa,EF
+Line      : 17045
+Our output: jrc,ef
+Their out : jrc,5BD2
+Line      : 17046
+Our output: jrc,01
+Their out : jrc,5BE6
+Line      : 17047
+Our output: jr66
+Their out : jr5C72
+Line      : 17075
+Our output: jr66
+Their out : jr5C74
+Line      : 17076
+Our output: jr26
+Their out : jr5C3C
+Line      : 17080
+Our output: jr24
+Their out : jr5C3C
+Line      : 17081
+Our output: jr24
+Their out : jr5C3E
+Line      : 17082
+Our output: jr00
+Their out : jr5C1F
+Line      : 17084
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17091
+Our output: jrnz,70
+Their out : jrnz,5C9D
+Line      : 17092
+Our output: jrz,00
+Their out : jrz,5C35
+Line      : 17099
+Our output: adda,b
+Their out : addb
+Line      : 17101
+Our output: adda,b
+Their out : addb
+Line      : 17102
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17121
+Our output: jrnc,7c
+Their out : jrnc,5CD7
+Line      : 17129
+Our output: xor82
+Their out : xora,82
+Line      : 17131
+Our output: adda,h
+Their out : addh
+Line      : 17133
+Our output: xor08
+Their out : xora,08
+Line      : 17146
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17150
+Our output: jrnz,f2
+Their out : jrnz,5C75
+Line      : 17157
+Our output: jrc,38
+Their out : jrc,5CDE
+Line      : 17191
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17223
+Our output: jrnc,3f
+Their out : jrnc,5D11
+Line      : 17226
+Our output: unknown
+Their out : -
+Line      : 17232
+Our output: unknown
+Their out : -
+Line      : 17248
+Our output: jrnz,3f
+Their out : jrnz,5D3B
+Line      : 17256
+Our output: jr00
+Their out : jr5D0D
+Line      : 17270
+Our output: jr00
+Their out : jr5D29
+Line      : 17295
+Our output: jr00
+Their out : jr5D31
+Line      : 17302
+Our output: adcf3
+Their out : adca,F3
+Line      : 17330
+Our output: xor73
+Their out : xora,73
+Line      : 17331
+Our output: adda,b
+Their out : addb
+Line      : 17344
+Our output: adda,b
+Their out : addb
+Line      : 17345
+Our output: adda,b
+Their out : addb
+Line      : 17352
+Our output: adda,b
+Their out : addb
+Line      : 17353
+Our output: jr3f
+Their out : jr5DAE
+Line      : 17357
+Our output: jrnz,7f
+Their out : jrnz,5DF0
+Line      : 17358
+Our output: andf2
+Their out : anda,F2
+Line      : 17379
+Our output: andf2
+Their out : anda,F2
+Line      : 17380
+Our output: andf2
+Their out : anda,F2
+Line      : 17381
+Our output: andf2
+Their out : anda,F2
+Line      : 17382
+Our output: andf2
+Their out : anda,F2
+Line      : 17383
+Our output: andf2
+Their out : anda,F2
+Line      : 17384
+Our output: andf2
+Their out : anda,F2
+Line      : 17385
+Our output: and00
+Their out : anda,00
+Line      : 17386
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17403
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17410
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17411
+Our output: adda,e
+Their out : adde
+Line      : 17426
+Our output: adda,c
+Their out : addc
+Line      : 17428
+Our output: adda,b
+Their out : addb
+Line      : 17443
+Our output: adda,b
+Their out : addb
+Line      : 17444
+Our output: adda,b
+Their out : addb
+Line      : 17445
+Our output: adda,b
+Their out : addb
+Line      : 17446
+Our output: adda,b
+Their out : addb
+Line      : 17447
+Our output: adda,b
+Their out : addb
+Line      : 17448
+Our output: adda,b
+Their out : addb
+Line      : 17449
+Our output: adda,b
+Their out : addb
+Line      : 17450
+Our output: adda,b
+Their out : addb
+Line      : 17451
+Our output: adda,b
+Their out : addb
+Line      : 17452
+Our output: adda,b
+Their out : addb
+Line      : 17453
+Our output: adda,b
+Their out : addb
+Line      : 17454
+Our output: adda,b
+Their out : addb
+Line      : 17455
+Our output: unknown
+Their out : -
+Line      : 17528
+Our output: andff
+Their out : anda,FF
+Line      : 17530
+Our output: adda,c
+Their out : addc
+Line      : 17533
+Our output: adda,l
+Their out : addl
+Line      : 17535
+Our output: adda,l
+Their out : addl
+Line      : 17537
+Our output: adda,c
+Their out : addc
+Line      : 17541
+Our output: andf5
+Their out : anda,F5
+Line      : 17593
+Our output: unknown
+Their out : -
+Line      : 17594
+Our output: jr1f
+Their out : jr5F07
+Line      : 17687
+Our output: jrnc,7b
+Their out : jrnc,5F6C
+Line      : 17693
+Our output: jrf8
+Their out : jr5EF0
+Line      : 17698
+Our output: adda,h
+Their out : addh
+Line      : 17699
+Our output: cpfa
+Their out : cpa,FA
+Line      : 17702
+Our output: cp9c
+Their out : cpa,9C
+Line      : 17703
+Our output: sbc46
+Their out : sbca,46
+Line      : 17705
+Our output: jr07
+Their out : jr5F1A
+Line      : 17718
+Our output: cp2a
+Their out : cpa,2A
+Line      : 17724
+Our output: cp3a
+Their out : cpa,3A
+Line      : 17725
+Our output: unknown
+Their out : -
+Line      : 17726
+Our output: unknown
+Their out : -
+Line      : 17728
+Our output: jr3e
+Their out : jr5F67
+Line      : 17734
+Our output: jrnz,7f
+Their out : jrnz,5FAA
+Line      : 17735
+Our output: cpf2
+Their out : cpa,F2
+Line      : 17749
+Our output: cpfa
+Their out : cpa,FA
+Line      : 17750
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17765
+Our output: unknown
+Their out : -
+Line      : 17777
+Our output: unknown
+Their out : -
+Line      : 17778
+Our output: jrnc,c0
+Their out : jrnc,5F23
+Line      : 17780
+Our output: unknown
+Their out : -
+Line      : 17795
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17855
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17856
+Our output: adda,h
+Their out : addh
+Line      : 17870
+Our output: cpec
+Their out : cpa,EC
+Line      : 17875
+Our output: jre8
+Their out : jr5FD0
+Line      : 17888
+Our output: jrc,88
+Their out : jrc,5F72
+Line      : 17889
+Our output: jrnc,f0
+Their out : jrnc,5FE3
+Line      : 17894
+Our output: jr30
+Their out : jr6027
+Line      : 17896
+Our output: jrnc,60
+Their out : jrnc,6059
+Line      : 17897
+Our output: adda,e
+Their out : adde
+Line      : 17905
+Our output: adda,e
+Their out : adde
+Line      : 17906
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17917
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17918
+Our output: unknown
+Their out : -
+Line      : 17926
+Our output: jr18
+Their out : jr603E
+Line      : 17928
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17944
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17945
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17946
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17947
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17948
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17949
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17959
+Our output: stop
+Their out : <corruptedstop>
+Line      : 17962
+Our output: cpd3
+Their out : cpa,D3
+Line      : 17969
+Our output: jrnz,90
+Their out : jrnz,5FF7
+Line      : 17977
+Our output: jrnc,98
+Their out : jrnc,6001
+Line      : 17978
+Our output: jrnz,7f
+Their out : jrnz,613C
+Line      : 18051
+Our output: jr1f
+Their out : jr61AB
+Line      : 18237
+Our output: jrnz,3f
+Their out : jrnz,61CD
+Line      : 18238
+Our output: jrnc,3f
+Their out : jrnc,61CF
+Line      : 18239
+Our output: jr17
+Their out : jr61A9
+Line      : 18240
+Our output: xor00
+Their out : xora,00
+Line      : 18319
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18343
+Our output: adda,b
+Their out : addb
+Line      : 18344
+Our output: jrnc,50
+Their out : jrnc,625E
+Line      : 18350
+Our output: jrnc,50
+Their out : jrnc,6260
+Line      : 18351
+Our output: jrc,48
+Their out : jrc,625A
+Line      : 18352
+Our output: jr28
+Their out : jr623C
+Line      : 18353
+Our output: jr08
+Their out : jr6239
+Line      : 18379
+Our output: adda,b
+Their out : addb
+Line      : 18382
+Our output: adda,b
+Their out : addb
+Line      : 18384
+Our output: adda,b
+Their out : addb
+Line      : 18386
+Our output: adda,b
+Their out : addb
+Line      : 18388
+Our output: jrnz,00
+Their out : jrnz,6247
+Line      : 18398
+Our output: jrnz,00
+Their out : jrnz,6249
+Line      : 18399
+Our output: jrnz,1f
+Their out : jrnz,626A
+Line      : 18400
+Our output: jrnz,00
+Their out : jrnz,624D
+Line      : 18401
+Our output: unknown
+Their out : -
+Line      : 18416
+Our output: jr00
+Their out : jr6281
+Line      : 18448
+Our output: jr08
+Their out : jr62B9
+Line      : 18489
+Our output: jrnz,01
+Their out : jrnz,6335
+Line      : 18614
+Our output: jrnz,04
+Their out : jrnz,6344
+Line      : 18621
+Our output: jrnz,20
+Their out : jrnz,6363
+Line      : 18623
+Our output: adda,b
+Their out : addb
+Line      : 18626
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18640
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18647
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18650
+Our output: adda,b
+Their out : addb
+Line      : 18653
+Our output: jrnz,10
+Their out : jrnz,6387
+Line      : 18658
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18662
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18665
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18668
+Our output: adda,b
+Their out : addb
+Line      : 18671
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18675
+Our output: adda,b
+Their out : addb
+Line      : 18678
+Our output: adda,b
+Their out : addb
+Line      : 18682
+Our output: jrnz,01
+Their out : jrnz,639D
+Line      : 18688
+Our output: jrnz,02
+Their out : jrnz,63A2
+Line      : 18691
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18694
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18699
+Our output: adda,b
+Their out : addb
+Line      : 18703
+Our output: jrnz,02
+Their out : jrnz,63BE
+Line      : 18709
+Our output: jrnz,02
+Their out : jrnz,63C6
+Line      : 18715
+Our output: jrnz,05
+Their out : jrnz,63CD
+Line      : 18718
+Our output: adda,b
+Their out : addb
+Line      : 18721
+Our output: jrnz,02
+Their out : jrnz,63E2
+Line      : 18732
+Our output: jrnz,03
+Their out : jrnz,63E7
+Line      : 18735
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18741
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18745
+Our output: adda,b
+Their out : addb
+Line      : 18747
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18750
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18754
+Our output: adda,b
+Their out : addb
+Line      : 18757
+Our output: adda,b
+Their out : addb
+Line      : 18765
+Our output: jrnz,00
+Their out : jrnz,6411
+Line      : 18766
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18768
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18773
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18776
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18779
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18782
+Our output: jrnz,08
+Their out : jrnz,643C
+Line      : 18793
+Our output: jrnz,06
+Their out : jrnz,6442
+Line      : 18798
+Our output: adda,b
+Their out : addb
+Line      : 18806
+Our output: jrnz,05
+Their out : jrnz,6451
+Line      : 18809
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18813
+Our output: jr00
+Their out : jr6455
+Line      : 18814
+Our output: jrnz,00
+Their out : jrnz,6461
+Line      : 18819
+Our output: adda,b
+Their out : addb
+Line      : 18821
+Our output: jrnz,06
+Their out : jrnz,646E
+Line      : 18825
+Our output: jrnz,06
+Their out : jrnz,6476
+Line      : 18831
+Our output: adda,b
+Their out : addb
+Line      : 18834
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18840
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18843
+Our output: adda,b
+Their out : addb
+Line      : 18846
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18857
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18860
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18863
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18866
+Our output: adda,b
+Their out : addb
+Line      : 18869
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18875
+Our output: adda,b
+Their out : addb
+Line      : 18878
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18912
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18919
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18920
+Our output: jr14
+Their out : jr64F7
+Line      : 18922
+Our output: jr00
+Their out : jr64E8
+Line      : 18926
+Our output: jr04
+Their out : jr64F5
+Line      : 18932
+Our output: jr00
+Their out : jr64F7
+Line      : 18935
+Our output: stop
+Their out : <corruptedstop>
+Line      : 18938
+Our output: jr08
+Their out : jr6508
+Line      : 18940
+Our output: unknown
+Their out : -
+Line      : 18951
+Our output: adda,(hl)
+Their out : add(hl)
+Line      : 18985
+Our output: unknown
+Their out : -
+Line      : 18999
+Our output: sbc6f
+Their out : sbca,6F
+Line      : 19001
+Our output: unknown
+Their out : -
+Line      : 19004
+Our output: jrnz,70
+Their out : jrnz,65C2
+Line      : 19012
+Our output: cp01
+Their out : cpa,01
+Line      : 19019
+Our output: jrz,46
+Their out : jrz,65A4
+Line      : 19020
+Our output: cp02
+Their out : cpa,02
+Line      : 19021
+Our output: jrz,7b
+Their out : jrz,65DD
+Line      : 19022
+Our output: jrnz,7b
+Their out : jrnz,65E3
+Line      : 19025
+Our output: jrz,0d
+Their out : jrz,657A
+Line      : 19028
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19058
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19060
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19062
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19064
+Our output: jrb7
+Their out : jr658F
+Line      : 19071
+Our output: jrf6
+Their out : jr65D3
+Line      : 19073
+Our output: jr85
+Their out : jr6568
+Line      : 19076
+Our output: cp28
+Their out : cpa,28
+Line      : 19080
+Our output: jrz,ec
+Their out : jrz,65D8
+Line      : 19081
+Our output: cp20
+Their out : cpa,20
+Line      : 19082
+Our output: jrz,e0
+Their out : jrz,65D0
+Line      : 19083
+Our output: cp18
+Their out : cpa,18
+Line      : 19084
+Our output: jrz,e4
+Their out : jrz,65D8
+Line      : 19085
+Our output: cp10
+Their out : cpa,10
+Line      : 19086
+Our output: jrnz,97
+Their out : jrnz,658F
+Line      : 19087
+Our output: jr94
+Their out : jr658F
+Line      : 19089
+Our output: unknown
+Their out : -
+Line      : 19091
+Our output: adda,e
+Their out : adde
+Line      : 19092
+Our output: unknown
+Their out : -
+Line      : 19095
+Our output: cp01
+Their out : cpa,01
+Line      : 19099
+Our output: cp05
+Their out : cpa,05
+Line      : 19102
+Our output: cp07
+Their out : cpa,07
+Line      : 19105
+Our output: jrnz,40
+Their out : jrnz,665E
+Line      : 19114
+Our output: adda,b
+Their out : addb
+Line      : 19119
+Our output: cp02
+Their out : cpa,02
+Line      : 19130
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19148
+Our output: adda,b
+Their out : addb
+Line      : 19151
+Our output: adda,b
+Their out : addb
+Line      : 19156
+Our output: cp04
+Their out : cpa,04
+Line      : 19165
+Our output: jrz,17
+Their out : jrz,6692
+Line      : 19166
+Our output: cp0b
+Their out : cpa,0B
+Line      : 19167
+Our output: jrz,19
+Their out : jrz,6698
+Line      : 19168
+Our output: cp0f
+Their out : cpa,0F
+Line      : 19169
+Our output: jrz,0f
+Their out : jrz,6692
+Line      : 19170
+Our output: cp18
+Their out : cpa,18
+Line      : 19171
+Our output: cp03
+Their out : cpa,03
+Line      : 19212
+Our output: unknown
+Their out : -
+Line      : 19216
+Our output: adda,e
+Their out : adde
+Line      : 19219
+Our output: adda,e
+Their out : adde
+Line      : 19232
+Our output: adda,b
+Their out : addb
+Line      : 19272
+Our output: adda,b
+Their out : addb
+Line      : 19282
+Our output: adda,b
+Their out : addb
+Line      : 19284
+Our output: adda,b
+Their out : addb
+Line      : 19286
+Our output: jrb1
+Their out : jr6722
+Line      : 19314
+Our output: adda,b
+Their out : addb
+Line      : 19321
+Our output: adda,e
+Their out : adde
+Line      : 19324
+Our output: adda,b
+Their out : addb
+Line      : 19328
+Our output: adda,b
+Their out : addb
+Line      : 19332
+Our output: adda,b
+Their out : addb
+Line      : 19336
+Our output: adda,b
+Their out : addb
+Line      : 19340
+Our output: adda,b
+Their out : addb
+Line      : 19382
+Our output: adda,b
+Their out : addb
+Line      : 19392
+Our output: jrnc,30
+Their out : jrnc,67FD
+Line      : 19397
+Our output: jrnz,20
+Their out : jrnz,67EF
+Line      : 19398
+Our output: jrnz,20
+Their out : jrnz,67F1
+Line      : 19399
+Our output: jrnz,20
+Their out : jrnz,67F3
+Line      : 19400
+Our output: jrnz,20
+Their out : jrnz,67F5
+Line      : 19401
+Our output: jrnz,20
+Their out : jrnz,67F7
+Line      : 19402
+Our output: jrnz,10
+Their out : jrnz,67E9
+Line      : 19403
+Our output: stop
+Their out : <corruptedstop>
+Line      : 19404
+Our output: jrnc,21
+Their out : jrnc,67FE
+Line      : 19405
+Our output: cp24
+Their out : cpa,24
+Line      : 19418
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19451
+Our output: adda,b
+Their out : addb
+Line      : 19453
+Our output: jrnz,60
+Their out : jrnz,689C
+Line      : 19455
+Our output: and1f
+Their out : anda,1F
+Line      : 19461
+Our output: adda,b
+Their out : addb
+Line      : 19464
+Our output: and0f
+Their out : anda,0F
+Line      : 19469
+Our output: cp0e
+Their out : cpa,0E
+Line      : 19475
+Our output: jrnc,0a
+Their out : jrnc,686F
+Line      : 19476
+Our output: andf0
+Their out : anda,F0
+Line      : 19480
+Our output: cp1e
+Their out : cpa,1E
+Line      : 19485
+Our output: jree
+Their out : jr6867
+Line      : 19490
+Our output: cp01
+Their out : cpa,01
+Line      : 19492
+Our output: cp02
+Their out : cpa,02
+Line      : 19494
+Our output: cp01
+Their out : cpa,01
+Line      : 19497
+Our output: cp02
+Their out : cpa,02
+Line      : 19499
+Our output: adda,b
+Their out : addb
+Line      : 19502
+Our output: adda,b
+Their out : addb
+Line      : 19503
+Our output: jrnz,9d
+Their out : jrnz,6835
+Line      : 19504
+Our output: adda,b
+Their out : addb
+Line      : 19506
+Our output: adda,b
+Their out : addb
+Line      : 19510
+Our output: jrnz,96
+Their out : jrnz,6838
+Line      : 19512
+Our output: adda,b
+Their out : addb
+Line      : 19514
+Our output: or20
+Their out : ora,20
+Line      : 19515
+Our output: jrec
+Their out : jr68BD
+Line      : 19533
+Our output: jrdb
+Their out : jr68BD
+Line      : 19540
+Our output: jrca
+Their out : jr68BD
+Line      : 19547
+Our output: cp09
+Their out : cpa,09
+Line      : 19551
+Our output: jrz,c4
+Their out : jrz,68C0
+Line      : 19552
+Our output: cp13
+Their out : cpa,13
+Line      : 19553
+Our output: jrz,d1
+Their out : jrz,68D1
+Line      : 19554
+Our output: cp17
+Their out : cpa,17
+Line      : 19555
+Our output: jrz,de
+Their out : jrz,68E2
+Line      : 19556
+Our output: cp20
+Their out : cpa,20
+Line      : 19557
+Our output: jrz,17
+Their out : jrz,691F
+Line      : 19558
+Our output: cp00
+Their out : cpa,00
+Line      : 19560
+Our output: cp01
+Their out : cpa,01
+Line      : 19562
+Our output: jrz,05
+Their out : jrz,6915
+Line      : 19563
+Our output: cp02
+Their out : cpa,02
+Line      : 19564
+Our output: jrz,05
+Their out : jrz,6919
+Line      : 19565
+Our output: jr02
+Their out : jr691B
+Line      : 19569
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19579
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19581
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19583
+Our output: cbbe
+Their out : res7,(hl)
+Line      : 19585
+Our output: jr25
+Their out : jr6963
+Line      : 19587
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19591
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19598
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19600
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19602
+Our output: cpe5
+Their out : cpa,E5
+Line      : 19623
+Our output: jrz,09
+Their out : jrz,6987
+Line      : 19624
+Our output: cpf5
+Their out : cpa,F5
+Line      : 19625
+Our output: jrz,13
+Their out : jrz,6995
+Line      : 19626
+Our output: cpfd
+Their out : cpa,FD
+Line      : 19627
+Our output: jrz,16
+Their out : jrz,699C
+Line      : 19628
+Our output: jr13
+Their out : jr69A1
+Line      : 19633
+Our output: jr0c
+Their out : jr69A1
+Line      : 19637
+Our output: jr05
+Their out : jr69A1
+Line      : 19641
+Our output: jrnz,fa
+Their out : jrnz,69A1
+Line      : 19649
+Our output: cb27
+Their out : slaa
+Line      : 19656
+Our output: jrnz,03
+Their out : jrnz,69C7
+Line      : 19673
+Our output: cp40
+Their out : cpa,40
+Line      : 19685
+Our output: jrnz,f8
+Their out : jrnz,69CC
+Line      : 19686
+Our output: jrz,0c
+Their out : jrz,6A21
+Line      : 19717
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19719
+Our output: jrz,07
+Their out : jrz,6A2D
+Line      : 19726
+Our output: jrz,0c
+Their out : jrz,6A41
+Line      : 19734
+Our output: cbfe
+Their out : set7,(hl)
+Line      : 19736
+Our output: jrz,07
+Their out : jrz,6A4D
+Line      : 19743
+Our output: cpff
+Their out : cpa,FF
+Line      : 19754
+Our output: jrz,f2
+Their out : jrz,6A4E
+Line      : 19755
+Our output: and1f
+Their out : anda,1F
+Line      : 19759
+Our output: jrz,06
+Their out : jrz,6A7E
+Line      : 19769
+Our output: jrf7
+Their out : jr6A75
+Line      : 19774
+Our output: jrz,3d
+Their out : jrz,6AD9
+Line      : 19789
+Our output: cp01
+Their out : cpa,01
+Line      : 19792
+Our output: jrz,37
+Their out : jrz,6ADD
+Line      : 19793
+Our output: cp03
+Their out : cpa,03
+Line      : 19794
+Our output: jrz,2f
+Their out : jrz,6AD9
+Line      : 19795
+Our output: jrnz,33
+Their out : jrnz,6AE2
+Line      : 19799
+Our output: cb46
+Their out : bit0,(hl)
+Line      : 19806
+Our output: jrz,04
+Their out : jrz,6ACB
+Line      : 19812
+Our output: cbd0
+Their out : set2,b
+Line      : 19813
+Our output: cbf0
+Their out : set6,b
+Line      : 19814
+Our output: jrz,04
+Their out : jrz,6AD5
+Line      : 19817
+Our output: cbd8
+Their out : set3,b
+Line      : 19818
+Our output: cbf8
+Their out : set7,b
+Line      : 19819
+Our output: jrf9
+Their out : jr6AD6
+Line      : 19824
+Our output: jrde
+Their out : jr6AC0
+Line      : 19826
+Our output: jrnz,f1
+Their out : jrnz,6AD9
+Line      : 19829
+Our output: jrnz,eb
+Their out : jrnz,6AD9
+Line      : 19832
+Our output: jr7f
+Their out : jr6B81
+Line      : 19843
+Our output: jrf7
+Their out : jr6AFD
+Line      : 19846
+Our output: jrnz,7f
+Their out : jrnz,6B95
+Line      : 19857
+Our output: adda,l
+Their out : addl
+Line      : 19924
+Our output: jrnz,f8
+Their out : jrnz,6B9B
+Line      : 19927
+Our output: jr2a
+Their out : jr6BE4
+Line      : 19940
+Our output: cp03
+Their out : cpa,03
+Line      : 19965
+Our output: jrz,ca
+Their out : jrz,6BAE
+Line      : 19966
+Our output: jrf1
+Their out : jr6BF0
+Line      : 19988
+Our output: jr2c
+Their out : jr6C35
+Line      : 19997
+Our output: cp03
+Their out : cpa,03
+Line      : 19999
+Our output: jrnz,10
+Their out : jrnz,6C20
+Line      : 20000
+Our output: cb7f
+Their out : bit7,a
+Line      : 20002
+Our output: jrz,09
+Their out : jrz,6C20
+Line      : 20003
+Our output: cp06
+Their out : cpa,06
+Line      : 20005
+Our output: jrnz,04
+Their out : jrnz,6C20
+Line      : 20006
+Our output: jrnz,dd
+Their out : jrnz,6C06
+Line      : 20015
+Our output: cb7e
+Their out : bit7,(hl)
+Line      : 20019
+Our output: jrnz,d5
+Their out : jrnz,6C06
+Line      : 20020
+Our output: cp00
+Their out : cpa,00
+Line      : 20036
+Our output: jrz,1f
+Their out : jrz,6C6C
+Line      : 20037
+Our output: cpff
+Their out : cpa,FF
+Line      : 20038
+Our output: jrz,04
+Their out : jrz,6C55
+Line      : 20039
+Our output: jrd5
+Their out : jr6C41
+Line      : 20055
+Our output: cp00
+Their out : cpa,00
+Line      : 20076
+Our output: cp9d
+Their out : cpa,9D
+Line      : 20078
+Our output: andf0
+Their out : anda,F0
+Line      : 20080
+Our output: cpa0
+Their out : cpa,A0
+Line      : 20081
+Our output: jrnz,1a
+Their out : jrnz,6CBC
+Line      : 20082
+Our output: and0f
+Their out : anda,0F
+Line      : 20084
+Our output: cp04
+Their out : cpa,04
+Line      : 20106
+Our output: cp01
+Their out : cpa,01
+Line      : 20117
+Our output: jrz,0f
+Their out : jrz,6CE8
+Line      : 20118
+Our output: jr17
+Their out : jr6D04
+Line      : 20131
+Our output: cpcb
+Their out : cpa,CB
+Line      : 20140
+Our output: jrnz,f8
+Their out : jrnz,6CF5
+Line      : 20141
+Our output: jr2e
+Their out : jr6D32
+Line      : 20144
+Our output: cp01
+Their out : cpa,01
+Line      : 20147
+Our output: jrz,21
+Their out : jrz,6D2D
+Line      : 20148
+Our output: cp02
+Their out : cpa,02
+Line      : 20149
+Our output: jrz,19
+Their out : jrz,6D29
+Line      : 20150
+Our output: cb7f
+Their out : bit7,a
+Line      : 20153
+Our output: jrnz,05
+Their out : jrnz,6D1E
+Line      : 20154
+Our output: jr15
+Their out : jr6D3E
+Line      : 20167
+Our output: jr05
+Their out : jr6D32
+Line      : 20169
+Our output: jrnz,4f
+Their out : jrnz,6D88
+Line      : 20178
+Our output: jrz,02
+Their out : jrz,6D47
+Line      : 20189
+Our output: cb7f
+Their out : bit7,a
+Line      : 20197
+Our output: jrnz,13
+Their out : jrnz,6D65
+Line      : 20198
+Our output: or80
+Their out : ora,80
+Line      : 20209
+Our output: or05
+Their out : ora,05
+Line      : 20212
+Our output: cb86
+Their out : res0,(hl)
+Line      : 20214
+Our output: cp04
+Their out : cpa,04
+Line      : 20222
+Our output: jrz,09
+Their out : jrz,6D7B
+Line      : 20223
+Our output: jrac
+Their out : jr6D3B
+Line      : 20240
+Our output: cb3f
+Their out : srla
+Line      : 20242
+Our output: and0f
+Their out : anda,0F
+Line      : 20253
+Our output: jrz,18
+Their out : jrz,6DBA
+Line      : 20254
+Our output: cp01
+Their out : cpa,01
+Line      : 20258
+Our output: jrz,0e
+Their out : jrz,6DBC
+Line      : 20259
+Our output: cp02
+Their out : cpa,02
+Line      : 20261
+Our output: jrz,08
+Their out : jrz,6DBC
+Line      : 20262
+Our output: cp03
+Their out : cpa,03
+Line      : 20264
+Our output: jrz,02
+Their out : jrz,6DBC
+Line      : 20265
+Our output: cp01
+Their out : cpa,01
+Line      : 20279
+Our output: jr09
+Their out : jr6DD7
+Line      : 20280
+Our output: cp03
+Their out : cpa,03
+Line      : 20281
+Our output: jr00
+Their out : jr6DD2
+Line      : 20282
+Our output: jr1c
+Their out : jr6DF3
+Line      : 20284
+Our output: cb40
+Their out : bit0,b
+Line      : 20287
+Our output: jrnz,02
+Their out : jrnz,6DE3
+Line      : 20288
+Our output: cb33
+Their out : swape
+Line      : 20289
+Our output: and0f
+Their out : anda,0F
+Line      : 20291
+Our output: cb5f
+Their out : bit3,a
+Line      : 20292
+Our output: jrz,06
+Their out : jrz,6DF0
+Line      : 20293
+Our output: orf0
+Their out : ora,F0
+Line      : 20295
+Our output: jr02
+Their out : jr6DF2
+Line      : 20296
+Our output: jrbe
+Their out : jr6DBA
+Line      : 20306
+Our output: stop
+Their out : <corruptedstop>
+Line      : 20320
+Our output: adda,e
+Their out : adde
+Line      : 20367
+Our output: adc05
+Their out : adca,05
+Line      : 20381
+Our output: unknown
+Their out : -
+Line      : 20382
+Our output: adda,e
+Their out : adde
+Line      : 20418
+Our output: cb07
+Their out : rlca
+Line      : 20446
+Our output: adc07
+Their out : adca,07
+Line      : 20447
+Our output: unknown
+Their out : -
+Line      : 20454
+Our output: unknown
+Their out : -
+Line      : 20456
+Our output: sbcfe
+Their out : sbca,FE
+Line      : 20485
+Our output: stop
+Their out : <corruptedstop>
+Line      : 20517
+Our output: adda,d
+Their out : addd
+Line      : 20518
+Our output: stop
+Their out : <corruptedstop>
+Line      : 20530
+Our output: cpc9
+Their out : cpa,C9
+Line      : 20540
+Our output: adda,l
+Their out : addl
+Line      : 20541
+Our output: jr30
+Their out : jr6F63
+Line      : 20548
+Our output: jrz,50
+Their out : jrz,6F8C
+Line      : 20554
+Our output: jr30
+Their out : jr6F74
+Line      : 20559
+Our output: jrc,70
+Their out : jrc,6FC0
+Line      : 20567
+Our output: adda,b
+Their out : addb
+Line      : 20574
+Our output: jr30
+Their out : jr6F8B
+Line      : 20575
+Our output: jr04
+Their out : jr6F6C
+Line      : 20586
+Our output: jrz,50
+Their out : jrz,6FBC
+Line      : 20589
+Our output: unknown
+Their out : -
+Line      : 20596
+Our output: unknown
+Their out : -
+Line      : 20628
+Our output: unknown
+Their out : -
+Line      : 20652
+Our output: adda,c
+Their out : addc
+Line      : 20745
+Our output: jrnc,22
+Their out : jrnc,70CB
+Line      : 20879
+Our output: jrnc,a2
+Their out : jrnc,7051
+Line      : 20883
+Our output: jrnc,2c
+Their out : jrnc,70E0
+Line      : 20886
+Our output: jrnc,22
+Their out : jrnc,70DD
+Line      : 20891
+Our output: jrnc,3a
+Their out : jrnc,7166
+Line      : 21001
+Our output: jrnc,3a
+Their out : jrnc,7172
+Line      : 21012
+Our output: jrc,32
+Their out : jrc,7177
+Line      : 21023
+Our output: jrc,2a
+Their out : jrc,7171
+Line      : 21024
+Our output: jrc,32
+Their out : jrc,717B
+Line      : 21025
+Our output: jrc,a3
+Their out : jrc,70EE
+Line      : 21026
+Our output: jrnc,3a
+Their out : jrnc,718F
+Line      : 21035
+Our output: jrnc,a2
+Their out : jrnc,7100
+Line      : 21040
+Our output: jrc,2a
+Their out : jrc,718B
+Line      : 21042
+Our output: jrc,32
+Their out : jrc,7195
+Line      : 21043
+Our output: jrc,a8
+Their out : jrc,710D
+Line      : 21044
+Our output: jrnz,24
+Their out : jrnz,7191
+Line      : 21051
+Our output: jrnc,34
+Their out : jrnc,71A4
+Line      : 21053
+Our output: sub71
+Their out : suba,71
+Line      : 21058
+Our output: sub71
+Their out : suba,71
+Line      : 21061
+Our output: sub71
+Their out : suba,71
+Line      : 21066
+Our output: sub71
+Their out : suba,71
+Line      : 21071
+Our output: xor71
+Their out : xora,71
+Line      : 21082
+Our output: xor71
+Their out : xora,71
+Line      : 21087
+Our output: unknown
+Their out : -
+Line      : 21100
+Our output: unknown
+Their out : -
+Line      : 21104
+Our output: unknown
+Their out : -
+Line      : 21110
+Our output: unknown
+Their out : -
+Line      : 21116
+Our output: adda,h
+Their out : addh
+Line      : 21131
+Our output: adda,b
+Their out : addb
+Line      : 21133
+Our output: adda,b
+Their out : addb
+Line      : 21138
+Our output: adda,b
+Their out : addb
+Line      : 21316
+Our output: adda,b
+Their out : addb
+Line      : 21321
+Our output: unknown
+Their out : -
+Line      : 21402
+Our output: adda,b
+Their out : addb
+Line      : 21408
+Our output: jrnc,30
+Their out : jrnc,7342
+Line      : 21415
+Our output: jrnc,30
+Their out : jrnc,7349
+Line      : 21421
+Our output: jrnc,30
+Their out : jrnc,7356
+Line      : 21433
+Our output: jrnc,30
+Their out : jrnc,735D
+Line      : 21439
+Our output: adda,b
+Their out : addb
+Line      : 21451
+Our output: jrnc,30
+Their out : jrnc,7376
+Line      : 21458
+Our output: jrnc,30
+Their out : jrnc,737D
+Line      : 21464
+Our output: jrnc,30
+Their out : jrnc,738A
+Line      : 21476
+Our output: jrnc,30
+Their out : jrnc,7391
+Line      : 21482
+Our output: adda,d
+Their out : addd
+Line      : 21485
+Our output: adda,b
+Their out : addb
+Line      : 21487
+Our output: jrnc,32
+Their out : jrnc,73B5
+Line      : 21513
+Our output: jrc,3a
+Their out : jrc,73BF
+Line      : 21514
+Our output: jrnc,32
+Their out : jrnc,73B9
+Line      : 21515
+Our output: jrnc,40
+Their out : jrnc,73D0
+Line      : 21522
+Our output: jrc,3a
+Their out : jrc,73D7
+Line      : 21532
+Our output: jrc,30
+Their out : jrc,73D7
+Line      : 21539
+Our output: jrnc,28
+Their out : jrnc,73D1
+Line      : 21540
+Our output: jrnc,28
+Their out : jrnc,73D5
+Line      : 21543
+Our output: jrc,00
+Their out : jrc,73B0
+Line      : 21545
+Our output: jrnc,30
+Their out : jrnc,73EC
+Line      : 21556
+Our output: jrnc,30
+Their out : jrnc,73F3
+Line      : 21562
+Our output: jrnc,a2
+Their out : jrnc,73EB
+Line      : 21680
+Our output: jrnc,30
+Their out : jrnc,747B
+Line      : 21681
+Our output: jrnc,a3
+Their out : jrnc,73F1
+Line      : 21683
+Our output: jrnc,a1
+Their out : jrnc,743B
+Line      : 21741
+Our output: jrnc,30
+Their out : jrnc,74CC
+Line      : 21742
+Our output: jrnc,a3
+Their out : jrnc,7442
+Line      : 21744
+Our output: jrnc,a1
+Their out : jrnc,7442
+Line      : 21745
+Our output: jrnc,34
+Their out : jrnc,74D7
+Line      : 21746
+Our output: jrnc,28
+Their out : jrnc,74CE
+Line      : 21748
+Our output: jrc,30
+Their out : jrc,74FA
+Line      : 21774
+Our output: jrz,a1
+Their out : jrz,747D
+Line      : 21790
+Our output: jrz,a2
+Their out : jrz,7481
+Line      : 21792
+Our output: jrz,a1
+Their out : jrz,7484
+Line      : 21794
+Our output: jrz,a2
+Their out : jrz,7488
+Line      : 21796
+Our output: jrz,a1
+Their out : jrz,748D
+Line      : 21800
+Our output: jrz,a2
+Their out : jrz,7491
+Line      : 21802
+Our output: jrz,a1
+Their out : jrz,7494
+Line      : 21804
+Our output: jrz,a2
+Their out : jrz,7498
+Line      : 21806
+Our output: jrz,a1
+Their out : jrz,74A4
+Line      : 21815
+Our output: jrz,a2
+Their out : jrz,74A8
+Line      : 21817
+Our output: jrz,40
+Their out : jrz,7548
+Line      : 21818
+Our output: jrnz,00
+Their out : jrnz,7555
+Line      : 21881
+Our output: adda,c
+Their out : addc
+Line      : 21882
+Our output: adda,c
+Their out : addc
+Line      : 21887
+Our output: jrc,42
+Their out : jrc,75A4
+Line      : 21891
+Our output: jrc,42
+Their out : jrc,75AB
+Line      : 21897
+Our output: jrnz,00
+Their out : jrnz,759F
+Line      : 21947
+Our output: adda,c
+Their out : addc
+Line      : 21948
+Our output: adda,c
+Their out : addc
+Line      : 21953
+Our output: jrc,3e
+Their out : jrc,7632
+Line      : 22019
+Our output: adda,b
+Their out : addb
+Line      : 22033
+Our output: adda,b
+Their out : addb
+Line      : 22049
+Our output: jrnz,a2
+Their out : jrnz,75C5
+Line      : 22064
+Our output: and77
+Their out : anda,77
+Line      : 22090
+Our output: and77
+Their out : anda,77
+Line      : 22091
+Our output: and77
+Their out : anda,77
+Line      : 22093
+Our output: and77
+Their out : anda,77
+Line      : 22094
+Our output: and77
+Their out : anda,77
+Line      : 22098
+Our output: and77
+Their out : anda,77
+Line      : 22099
+Our output: and77
+Their out : anda,77
+Line      : 22110
+Our output: jrc,a3
+Their out : jrc,7634
+Line      : 22146
+Our output: adda,b
+Their out : addb
+Line      : 22175
+Our output: jrc,36
+Their out : jrc,7701
+Line      : 22182
+Our output: jrc,2e
+Their out : jrc,76FB
+Line      : 22183
+Our output: jrnc,a3
+Their out : jrnc,7681
+Line      : 22192
+Our output: jrc,3c
+Their out : jrc,771F
+Line      : 22195
+Our output: jrc,3c
+Their out : jrc,7721
+Line      : 22196
+Our output: jrc,3c
+Their out : jrc,772A
+Line      : 22201
+Our output: jrnz,a2
+Their out : jrnz,76AE
+Line      : 22219
+Our output: jrc,a3
+Their out : jrc,76F5
+Line      : 22266
+Our output: adda,b
+Their out : addb
+Line      : 22280
+Our output: jrc,a4
+Their out : jrc,773D
+Line      : 22316
+Our output: adda,h
+Their out : addh
+Line      : 22325
+Our output: jrnc,a4
+Their out : jrnc,7786
+Line      : 22366
+Our output: jrc,38
+Their out : jrc,7821
+Line      : 22369
+Our output: jrc,01
+Their out : jrc,77EF
+Line      : 22371
+Our output: jrc,00
+Their out : jrc,77F0
+Line      : 22372
+Our output: jrc,38
+Their out : jrc,783D
+Line      : 22383
+Our output: adda,c
+Their out : addc
+Line      : 22412
+Our output: adda,b
+Their out : addb
+Line      : 22488
+Our output: adda,b
+Their out : addb
+Line      : 22519
+Our output: jrnz,a2
+Their out : jrnz,7877
+Line      : 22555
+Our output: jrnz,a2
+Their out : jrnz,79ED
+Line      : 22888
+Our output: jrnz,a2
+Their out : jrnz,7A56
+Line      : 22980
+Our output: unknown
+Their out : -
+Line      : 23017
+Our output: jrnz,7b
+Their out : jrnz,7B5D
+Line      : 23023
+Our output: adda,b
+Their out : addb
+Line      : 23056
+Our output: jrnz,a2
+Their out : jrnz,7AC7
+Line      : 23083
+Our output: unknown
+Their out : -
+Line      : 23142
+Our output: unknown
+Their out : -
+Line      : 23146
+Our output: adda,b
+Their out : addb
+Line      : 23155
+Our output: adda,b
+Their out : addb
+Line      : 23286
+Our output: jrc,a6
+Their out : jrc,7C1B
+Line      : 23351
+Our output: jrc,a6
+Their out : jrc,7C1F
+Line      : 23354
+Our output: jrc,a6
+Their out : jrc,7C29
+Line      : 23361
+Our output: unknown
+Their out : -
+Line      : 23457
+Our output: jrnc,7d
+Their out : jrnc,7D7B
+Line      : 23461
+Our output: cp7c
+Their out : cpa,7C
+Line      : 23474
+Our output: adda,c
+Their out : addc
+Line      : 23499
+Our output: jrnz,00
+Their out : jrnz,7D2C
+Line      : 23502
+Our output: adda,c
+Their out : addc
+Line      : 23503
+Our output: jrc,3c
+Their out : jrc,7E39
+Line      : 23687
+Our output: adda,b
+Their out : addb
+Line      : 23763
+Our output: adda,b
+Their out : addb
+Line      : 23777
+Our output: jrnz,a7
+Their out : jrnz,7E14
+Line      : 23790
+Our output: or7e
+Their out : ora,7E
+Line      : 23832
+Our output: or7e
+Their out : ora,7E
+Line      : 23835
+Our output: adda,d
+Their out : addd
+Line      : 23849
+Our output: adda,b
+Their out : addb
+Line      : 23851
+Our output: adda,b
+Their out : addb
+Line      : 23893
+Our output: jrnz,a2
+Their out : jrnz,7E9D
+Line      : 23907
