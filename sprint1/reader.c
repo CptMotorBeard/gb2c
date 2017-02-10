@@ -282,7 +282,6 @@ int main ( int argc, char *argv[] ) {
 				if (pc == 256) { meta = 1; }
 				if (pc == 336) { meta = 0; }
 				if (meta==1) {
-					printf("Header\n");
 				} else {
 					operands=instructions[x].operands;
 					if (operands == 1) {
