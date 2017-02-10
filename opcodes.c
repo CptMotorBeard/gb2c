@@ -27,6 +27,15 @@ void clearFlag(BYTE flag) {
 	registerAF.lo &= ~flag;
 }
 
+void flipFlag(BYTE flag) {
+	registerAF.lo ^= flag;
+}
+
+int flagSet(BYTE flag) {
+	if (registerAF.lo & flag){return 1;}
+	else{return 0;}
+}
+
 // Functions for all of the opcodes
 void NOP() {}
 void LD_BC(WORD operand) {LD_16(registerBC, operand);}
@@ -52,7 +61,7 @@ void INC_D() {}
 void DEC_D() {}
 void LD_D(BYTE operand) {LD(registerDE, operand, 1);}
 void RLA() {}
-void JR(BYTE operand) {}
+void JR(BYTE operand) {JP(PC.pair + (SIGNED_BYTE)operand);}
 void ADD_HL_DE() {}
 void LD_A_DE() {LD(registerAF, cpu[registerDE.pair], 1);}
 void DEC_DE() {}
@@ -60,7 +69,7 @@ void INC_E() {}
 void DEC_E() {}
 void LD_E(BYTE operand) {LD(registerDE, operand, 0);}
 void RRA() {}
-void JR_NZ(BYTE operand) {}
+void JR_NZ(BYTE operand) {if (!flagSet(flag_Z)){JR(operand);}}
 void LD_HL_WORD(WORD operand) {LD_16(registerHL, operand);}
 void LDI_HL_A() {LD_HL_A; INC_HL;}
 void INC_HL() {}
@@ -68,28 +77,40 @@ void INC_H() {}
 void DEC_H() {}
 void LD_H(BYTE operand) {LD(registerHL, operand, 1);}
 void DAA() {}
-void JR_Z(BYTE operand) {}
+void JR_Z(BYTE operand) {if (flagSet(flag_Z)){JR(operand);}}
 void ADD_HL_HL() {}
 void LDI_A_HL() {LD_A_HL; INC_HL;}
 void DEC_HL() {}
 void INC_L() {}
 void DEC_L() {}
 void LD_L(BYTE operand) {LD(registerHL, operand, 0);}
-void CPL() {}
-void JR_NC(BYTE operand) {}
+void CPL() {
+	setFlag(flag_N);
+	setFlag(flag_H);
+	registerAF.hi = ~registerAF.hi
+}
+void JR_NC(BYTE operand) {if (!flagSet(flag_C)){JR(operand);}}
 void LD_SP(WORD operand) {LD_16(SP, operand);}
 void LDD_HL_A() {LD_HL_A; DEC_HL;}
 void INC_SP() {}
 void LD_HL_BYTE(BYTE operand) {}
-void SCF() {}
-void JR_C(BYTE operand) {}
+void SCF() {
+	clearFlag(flag_N);
+	clearFlag(flag_H);
+	setFlag(flag_C);
+}
+void JR_C(BYTE operand) {if (flagSet(flag_C)){JR(operand);}}
 void ADD_HL_SP() {}
 void LDD_A_HL() {LD_A_HL; DEC_HL;}
 void DEC_SP() {}
 void INC_A() {}
 void DEC_A() {}
 void LD_A_BYTE(BYTE operand) {LD(registerAF, operand, 1);}
-void CCF() {}
+void CCF() {
+	clearFlag(flag_N);
+	clearFlag(flag_H);
+	flipFlag(flag_C);
+}
 void LD_B_B() {LD(registerBC, registerBC.hi, 1);}
 void LD_B_C() {LD(registerBC, registerBC.lo, 1);}
 void LD_B_D() {LD(registerBC, registerDE.hi, 1);}
@@ -218,14 +239,14 @@ void CP_H() {}
 void CP_L() {}
 void CP_HL() {}
 void CP_A() {}
-void RET_NZ() {}
+void RET_NZ() {if (!flagSet(flag_Z)){RET();}}
 void POP_BC() {
 	LD_16(registerBC, cpu[SP.pair]);
 	SP.pair++;SP.pair++;
 }
-void JP_NZ(WORD operand) {}
-void JP(WORD operand) {PC = operand;}
-void CALL_NZ(WORD operand) {}
+void JP_NZ(WORD operand) {if (!flagSet(flag_Z)){JP(operand);}}
+void JP(WORD operand) {PC.pair = operand;}
+void CALL_NZ(WORD operand) {if (!flagSet(flag_Z)){CALL(operand);}}
 void PUSH_BC() {
 	SP.pair--;
 	writeMemory(SP.pair, registerBC.lo);
@@ -233,22 +254,44 @@ void PUSH_BC() {
 	writeMemory(SP.pair, registerBC.hi);
 }
 void ADD_A_BYTE(BYTE operand) {}
-void RST_00() {}
-void RET_Z() {}
-void RET() {}
-void JP_Z(WORD operand) {}
+void RST_00() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0000);
+}
+void RET_Z() {if (flagSet(flag_Z)){RET();}}
+void RET() {
+	WORD loc = cpu[SP.pair];
+	SP.pair++;SP.pair++;
+	JP(loc);
+}
+void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
 void CB(BYTE operand) {}
-void CALL_Z(WORD operand) {}
-void CALL(WORD operand) {}
+void CALL_Z(WORD operand) {if (flagSet(flag_Z)){CALL(operand);}}
+void CALL(WORD operand) {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(operand);
+}
 void ADC(BYTE operand) {}
-void RST_08() {}
-void RET_NC() {}
+void RST_08() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0008);
+}
+void RET_NC() {if (!flagSet(flag_C)){RET();}}
 void POP_DE() {
 	LD_16(registerDE, cpu[SP.pair]);
 	SP.pair++;SP.pair++;
 }
-void JP_NC(WORD operand) {}
-void CALL_NC(WORD operand) {}
+void JP_NC(WORD operand) {if (!flagSet(flag_C)){JP(operand);}}
+void CALL_NC(WORD operand) {if (!flagSet(flag_C)){CALL(operand);}}
 void PUSH_DE() {
 	SP.pair--;
 	writeMemory(SP.pair, registerDE.lo);
@@ -256,13 +299,25 @@ void PUSH_DE() {
 	writeMemory(SP.pair, registerDE.hi);
 }
 void SUB(BYTE operand) {}
-void RST_10() {}
-void RET_C() {}
+void RST_10() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0010);
+}
+void RET_C() {if (flagSet(flag_C)){RET();}}
 void RETI() {}
-void JP_C(WORD operand) {}
-void CALL_C(WORD operand) {}
+void JP_C(WORD operand) {if (flagSet(flag_C)){JP(operand);}}
+void CALL_C(WORD operand) {if (flagSet(flag_C)){CALL(operand);}}
 void SBC(BYTE operand) {}
-void RST_18() {}
+void RST_18() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0018);
+}
 void LD_FF02X_A(BYTE operand) {writeMemory(0xFF00 + operand, registerAF.hi);}
 void POP_HL() {
 	LD_16(registerHL, cpu[SP.pair]);
@@ -276,12 +331,24 @@ void PUSH_HL() {
 	writeMemory(SP.pair, registerHL.hi);
 }
 void AND(BYTE operand) {}
-void RST_20() {}
+void RST_20() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0020);
+}
 void ADD_SP(BYTE operand) {}
-void JP_HL() {}
+void JP_HL() {JP(registerHL.pair);}
 void LD_04X_A(WORD operand) {writeMemory(operand, registerAF.hi);}
 void XOR(BYTE operand) {}
-void RST_28() {}
+void RST_28() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0028);
+}
 void LD_A_FF02X(BYTE operand) {LD(registerAF, cpu[0xFF00 + operand], 1);}
 void POP_AF() {
 	LD_16(registerAF, cpu[SP.pair]);
@@ -296,14 +363,20 @@ void PUSH_AF() {
 	writeMemory(SP.pair, registerAF.hi);
 }
 void OR(BYTE operand) {}
-void RST_30() {}
+void RST_30() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0030);
+}
 void LD_HL_SP02X(BYTE operand) {
 	clearFlag(flag_Z);
 	clearFlag(flag_N);
 	int result = SP.pair + operand;
 	if (result & 0xFFFF0000) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if (((SP.pair & 0xF) + (operand & 0xF)) > 0xF){setFlag(flag_H);}
+	if (((SP.pair & 0xF) + (operand & 0xF)) >> 0xF){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	LD_16(registerHL, (WORD)(result & 0xFFFF));
 }
@@ -311,4 +384,10 @@ void LD_SP_HL() {LD_16(SP, registerHL.pair);}
 void LD_A_WORD(WORD operand) {LD(registerAF, cpu[operand], 1);}
 void EI() {}
 void CP(BYTE operand) {}
-void RST_38() {}
+void RST_38() {
+	SP.pair--;
+	writeMemory(SP.pair, PC.lo);
+	SP.pair--;
+	writeMemory(SP.pair, PC.hi);
+	JP(0x0038);
+}

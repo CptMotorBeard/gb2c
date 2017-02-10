@@ -3,7 +3,7 @@
 
 // Initial values at bootup for the hardware
 void initialize() {
-	PC = 0x100;
+	PC.pair = 0x100;
 	SP.pair = 0xFFFE;
 	registerAF.pair = 0x01B0;
 	registerBC.pair = 0x0013;
@@ -65,6 +65,6 @@ void printRegisters() {
 	printf("\t\t\t\t\t\tRegister DE : %04X", registerDE.pair);
 	printf("\tRegister HL : %04X\n", registerHL.pair);
 	
-	printf("\t\t\t\t\t\tPC : %04X", PC);
+	printf("\t\t\t\t\t\tPC : %04X", PC.pair);
 	printf("\t\t\tSP : %04X\n", SP.pair);
 }

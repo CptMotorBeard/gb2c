@@ -1,5 +1,6 @@
 // Defining the types based off of GB types and data sizes
 typedef unsigned char BYTE;
+typedef signed char SIGNED_BYTE;
 typedef unsigned short WORD;
 
 // Registers can work either as a single 8 bit register or a pair to make a 16 bit register.
@@ -26,8 +27,8 @@ Register registerBC;
 Register registerDE;
 Register registerHL;
 
-// program counter is 16 bits, or a word
-WORD PC;
+// program counter is 16 bits, or a word. Using a register because high and low bits are used
+Register PC;
 
 // stack pointer is 16 bits, but some opcodes use the high and low bits so declare it as a register
 Register SP;
