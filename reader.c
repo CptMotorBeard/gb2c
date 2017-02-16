@@ -64,8 +64,8 @@ struct opcode opcodes[256] = {
 	{ "LD SP, 0x%04X", 2, LD_SP },            // 0x31
 	{ "LDD (HL), A", 0, LDD_HL_A },             // 0x32
 	{ "INC SP", 0, INC_SP },                     // 0x33
-	{ "INC (HL)", 0, INC_HL },                  // 0x34
-	{ "DEC (HL)", 0, DEC_HL },                  // 0x35
+	{ "INC (HL)", 0, INC_HL_P },                  // 0x34
+	{ "DEC (HL)", 0, DEC_HL_P },                  // 0x35
 	{ "LD (HL), 0x%02X", 1, LD_HL_BYTE },          // 0x36
 	{ "SCF", 0, SCF },                           // 0x37
 	{ "JR C, 0x%02X", 1, JR_C },               // 0x38
@@ -281,40 +281,27 @@ void read (char* input) {
 }
 
 int scanner () {
-	unsigned short pc = 0;
-	unsigned short meta = 0;
 	int operands;
 	int oppc;
-	char* inst;
-	while (pc <= romSize) {
-		if (pc == 0x100) { meta = 1; }
-		if (pc == 0x150) { meta = 0; }
-		if (meta==1) {
-		} else {
-			printf("PC : %04X\t", pc);
-			operands=opcodes[cpu[pc]].operands;
-			inst = opcodes[cpu[pc]].inst;
-			oppc = pc;
-			if (operands == 1) {				
-				pc++;					
-				printf(inst,cpu[pc]);
-				((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[pc]);
-			}
-			else if (operands == 2) {
-				pc+=1;
-				int op;	
-				op = (cpu[pc]);
-				pc+=1;
-				op = op | (cpu[pc]<<8);
-				printf(inst,op);
-				((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
-			} else {
-				printf("%s", opcodes[cpu[pc]].inst);
-				((void (*)(void))opcodes[cpu[oppc]].function)();
-			}
-			printRegisters();
+	while (1) {
+		operands=opcodes[cpu[PC.pair]].operands;
+		oppc = PC.pair;
+		if (operands == 1) {				
+			PC.pair++;					
+			((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
 		}
-		pc ++;								
+		else if (operands == 2) {
+			PC.pair++;
+			int op;
+			op = (cpu[PC.pair]);
+			PC.pair++;
+			op = op | (cpu[PC.pair]<<8);
+			((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
+		} else {
+			((void (*)(void))opcodes[cpu[oppc]].function)();
+		}
+		printRegisters();
+		PC.pair++;
 	}
 	return 0;
 }

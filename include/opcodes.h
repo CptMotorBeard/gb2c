@@ -243,3 +243,5 @@ void LD_A_WORD(WORD operand);
 void EI(void);
 void CP(BYTE operand);
 void RST_38(void);
+void INC_HL_P(void);
+void DEC_HL_P(void);
