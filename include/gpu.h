@@ -13,7 +13,7 @@
 #include "display.h"
 #endif // DISPLAY_H_INCLUDED
 
-#include <GL/gl.h>
+#include "gl.h"
 
 void gpuStep();
 void cleanLine();
