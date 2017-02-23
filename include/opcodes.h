@@ -1,3 +1,10 @@
+// opcodes consist of the instruction, the amount of arguments and the command to be executed
+struct opcode {
+	char inst[30]; 
+	int operands;
+	void *function;
+};
+
 // initialize the opcodes
 
 void NOP(void);

@@ -1,3 +1,6 @@
+#include "display.h"
+#include "opcodes.h"
+#include "hardware.h"
 #include "gpu.h"
 
 
