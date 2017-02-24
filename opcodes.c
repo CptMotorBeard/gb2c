@@ -416,7 +416,7 @@ void RET_Z() {if (flagSet(flag_Z)){RET();}}
 void RET() {
 	WORD loc = cpu[SP.pair];
 	SP.pair++;SP.pair++;
-	JP(loc);
+	JP(loc+1);
 }
 void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
 
@@ -1621,7 +1621,7 @@ void RETI() {
 	WORD operand;	
 	operand = (cpu[SP.pair]); SP.pair++;
 	operand = operand | (cpu[SP.pair]<<8); SP.pair++;
-	JP(operand);
+	JP(operand+1);
 	EI();
 }
 void JP_C(WORD operand) {if (flagSet(flag_C)){JP(operand);}}
