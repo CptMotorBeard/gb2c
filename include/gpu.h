@@ -1,5 +1,5 @@
 
-#include <GL/gl.h>
+#include "gl.h"
 
 void gpuStep();
 void cleanLine();
