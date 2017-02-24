@@ -414,8 +414,8 @@ void RST_00() {
 }
 void RET_Z() {if (flagSet(flag_Z)){RET();}}
 void RET() {
-	WORD loc = cpu[SP.pair];
-	SP.pair++;SP.pair++;
+	WORD loc = cpu[SP.pair];SP.pair++;
+	loc |= (cpu[SP.pair]<<8)SP.pair++;
 	JP(loc+1);
 }
 void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
