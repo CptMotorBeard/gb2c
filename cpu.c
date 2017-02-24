@@ -265,25 +265,23 @@ struct opcode opcodes[256] = {
 int cpuStep () {
 	int operands;
 	int oppc;
-	while (1) {
-		operands=opcodes[cpu[PC.pair]].operands;
-		oppc = PC.pair;
-		if (operands == 1) {				
-			PC.pair++;					
-			((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
-		}
-		else if (operands == 2) {
-			PC.pair++;
-			int op;
-			op = (cpu[PC.pair]);
-			PC.pair++;
-			op = op | (cpu[PC.pair]<<8);
-			((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
-		} else {
-			((void (*)(void))opcodes[cpu[oppc]].function)();
-		}
-		printRegisters();
-		PC.pair++;
+	operands=opcodes[cpu[PC.pair]].operands;
+	oppc = PC.pair;
+	if (operands == 1) {				
+		PC.pair++;					
+		((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
 	}
+	else if (operands == 2) {
+		PC.pair++;
+		int op;
+		op = (cpu[PC.pair]);
+		PC.pair++;
+		op = op | (cpu[PC.pair]<<8);
+		((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
+	} else {
+		((void (*)(void))opcodes[cpu[oppc]].function)();
+	}
+	printRegisters();
+	PC.pair++;
 	return 0;
 }
