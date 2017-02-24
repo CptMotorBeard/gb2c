@@ -1,13 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "hardware.h"
+#include "gpu.h"
+#include "cpu.h"
 #include "display.h"
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
+
+void read (char* input) {
+	FILE *rom = fopen(input, "r");
+	if ( rom == 0) {
+			printf( "Could not open file\n" );
+	} else {
+		fread(cpu, 1, romSize, rom);
+		fclose(rom);
+	}
+}
 
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
+	initialize();
+	read(lpCmdLine);
+	
     WNDCLASSEX wcex;
     HWND hwnd;
     HDC hDC;
@@ -49,11 +67,11 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
     ShowWindow(hwnd, nCmdShow);
     int x;
-    for(x = 0;x<160; x++){
+    for(x = 0; x<144; x++){
         int i;
-        for(i= 0;i<144;i++){
+        for(i= 0;i<160;i++){
             vertices[(x*160 + i)*2] = -1.0f + ((float)i/80.0f);
-            vertices[(x*160 + i)*2 + 1] = (float)x/80.0f - 1.0f;
+            vertices[(x*160 + i)*2 + 1] = (float)x/72.0f - 1.0f;
             colors[(x*160 + i)*3] = 1.0f;
             colors[(x*160 + i)*3 + 1] = 1.0f;
             colors[(x*160 + i)*3 + 2] = 1.0f;
@@ -63,9 +81,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
     int frames = 0;
-    /* program main loop */
     while (!bQuit)
     {
+		cpuStep();
+		gpuStep();
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
@@ -76,15 +95,14 @@ int WINAPI WinMain(HINSTANCE hInstance,
             }
             else
             {
-                printf("%d\n",msg.message);
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
             }
         }
         else
-        {
-            /* OpenGL animation code goes here */
-
+        {            
+			/* OpenGL animation code goes here */
+			
 
 
             frames++;
@@ -97,7 +115,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
             glColorPointer(3, GL_FLOAT, 0, colors);
             glVertexPointer(2, GL_FLOAT, 0, vertices);
-            glDrawArrays(GL_POINTS, 0, 256*256);
+            glDrawArrays(GL_POINTS, 0, 160*144);
 
             glDisableClientState(GL_VERTEX_ARRAY);
             glDisableClientState(GL_COLOR_ARRAY);
@@ -105,7 +123,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
             SwapBuffers(hDC);
         }
     }
-    printf("%d",frames);
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
 
@@ -190,6 +207,4 @@ void scanLine(GLfloat lineColors[3*160], int thisline){
     for(i = 0; i<160*3; i++){
         colors[160*(thisline)*3 + i] = lineColors[i];
     }
-
-
 }
