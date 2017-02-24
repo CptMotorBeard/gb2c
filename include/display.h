@@ -3,7 +3,7 @@
 #include "gpu.h"
 #endif // GPU_H_INCLUDED
 #include <windows.h>
-#include <gl/gl.h>
+#include <GL/gl.h>
 #include <stdio.h>
 
 

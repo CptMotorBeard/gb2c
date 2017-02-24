@@ -1,13 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "hardware.h"
+#include "gpu.h"
+#include "cpu.h"
 #include "display.h"
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
+
+void read (char* input) {
+	FILE *rom = fopen(input, "r");
+	if ( rom == 0) {
+			printf( "Could not open file\n" );
+	} else {
+		fread(cpu, 1, romSize, rom);
+		fclose(rom);
+	}
+}
 
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
+	initialize();
+	read(lpCmdLine);
+	
     WNDCLASSEX wcex;
     HWND hwnd;
     HDC hDC;
@@ -65,6 +83,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
     int frames = 0;
     while (!bQuit)
     {
+		cpuStep();
+		gpuStep();
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
@@ -80,9 +100,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
             }
         }
         else
-        {
-            /* OpenGL animation code goes here */
-
+        {            
+			/* OpenGL animation code goes here */
+			
 
 
             frames++;
