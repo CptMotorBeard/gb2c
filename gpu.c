@@ -63,26 +63,28 @@ void gpuStep(){
     switch(mode){
         case 0:
             if(clock >= 204){
+            	clock = 0;
                 line = line + 1 % 144;
-                mode = OAMLOAD;
                 cleanLine();
-                clock = 0;
-                break;
+                mode = OAMLOAD;
             }
+            clock++;
+            break;
         case 1:
             if(clock >= 4560){
                 mode = OAMLOAD;
-                cleanLine();
                 clock = 0;
-                break;
             }
+            clock++;
+            break;
         case 2:
             if(clock >= 80){
                 mode = LCD;
-                processLine();
                 clock = 0;
-                break;
+                processLine();
             }
+            clock++;
+            break;
         case 3:
             if(clock >= 172){
                 updateLine();
@@ -92,9 +94,10 @@ void gpuStep(){
                     mode = HBLANK;
                 }
                 clock = 0;
-                break;
             }
-        clock++;
+            clock++;
+            break;
+
 
     }
 }
@@ -108,7 +111,6 @@ void processLine(){
     LCDC = cpu[0xFF40];
     scrollX = cpu[0xFF43];
     scrollY = cpu[0xFF42];
-
     //apply the background layer to curLine-----------------------------------
     WORD bgTileMapAddress = 0x9800 + ((LCDC >> 3) & 1)*0X0400;
     //(line/8)*32 adjusts for the y and scrollX/8 adjusts for X
@@ -164,6 +166,7 @@ void processLine(){
             currentSprite.xCoord = cpu[0xFE01 + i*4];
             currentSprite.tileNumber = cpu[0xFE02 + i*4];
             currentSprite.options = cpu[0xFE03 + i*4];
+            //printf("Sprint: %d X: %d Y: %d tileNumber: %d\n", i, currentSprite.yCoord, currentSprite.xCoord, currentSprite.tileNumber);
             //check if line intersects the sprite
             if((currentSprite.yCoord - 16 > line )& (currentSprite.yCoord - 16 - spriteY < line)){
                 //draw it on the line
