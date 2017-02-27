@@ -17,7 +17,7 @@ void read (char* input) {
 		fclose(rom);
 	}
 }
-
+HDC hDC;
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
@@ -28,7 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	
     WNDCLASSEX wcex;
     HWND hwnd;
-    HDC hDC;
+
     HGLRC hRC;
     MSG msg;
     BOOL bQuit = FALSE;
@@ -80,7 +80,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
     }
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
-    int frames = 0;
     while (!bQuit)
     {
 		cpuStep();
@@ -103,24 +102,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
         {            
 			/* OpenGL animation code goes here */
 			
-
-
-            frames++;
-            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-            glPointSize(1.0f);
-
-            glEnableClientState(GL_VERTEX_ARRAY);
-            glEnableClientState(GL_COLOR_ARRAY);
-
-            glColorPointer(3, GL_FLOAT, 0, colors);
-            glVertexPointer(2, GL_FLOAT, 0, vertices);
-            glDrawArrays(GL_POINTS, 0, 160*144);
-
-            glDisableClientState(GL_VERTEX_ARRAY);
-            glDisableClientState(GL_COLOR_ARRAY);
-
-            SwapBuffers(hDC);
         }
     }
     /* shutdown OpenGL */
@@ -207,4 +188,19 @@ void scanLine(GLfloat lineColors[3*160], int thisline){
     for(i = 0; i<160*3; i++){
         colors[160*(thisline)*3 + i] = lineColors[i];
     }
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glPointSize(1.0f);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+
+    glColorPointer(3, GL_FLOAT, 0, colors);
+    glVertexPointer(2, GL_FLOAT, 0, vertices);
+    glDrawArrays(GL_POINTS, 0, 160*144);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+
+    SwapBuffers(hDC);
 }

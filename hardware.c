@@ -59,7 +59,7 @@ void writeMemory(WORD address, BYTE data) {
 }
 
 void printRegisters() {
-	printf("\rRegister AF : %04X", registerAF.pair);
+	printf("Register AF : %04X", registerAF.pair);
 	printf("  Register BC : %04X", registerBC.pair);
 	printf("  Register DE : %04X", registerDE.pair);
 	printf("  Register HL : %04X", registerHL.pair);
