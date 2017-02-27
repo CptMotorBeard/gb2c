@@ -58,42 +58,49 @@ struct spriteOAM{
     char tileNumber;
     char options;
 };
+int vblankNum = 0;
 //Need to store the current line
-void gpuStep(){
+void gpuStep(int ticks){
+	clock += ticks;
     switch(mode){
         case 0:
             if(clock >= 204){
-            	clock = 0;
+            	clock -= 204;
                 line = line + 1 % 144;
+				cpu[0xFF44] = cpu[0xFF44] + 1 % 144;
                 cleanLine();
                 mode = OAMLOAD;
             }
             clock++;
             break;
         case 1:
-            if(clock >= 4560){
-                mode = OAMLOAD;
-                clock = 0;
+            if(clock >= 456){
+				vblankNum++;
+				cpu[0xFF44] = cpu[0xFF44] + 1 % 154;
+				if(vblankNum == 9){
+					mode = OAMLOAD;
+				}
+                clock -= 456;
             }
             clock++;
             break;
         case 2:
             if(clock >= 80){
                 mode = LCD;
-                clock = 0;
+                clock -= 80;
                 processLine();
             }
-            clock++;
             break;
         case 3:
             if(clock >= 172){
                 updateLine();
                 if(line >= 144){
                     mode = VBLANK;
+					vblankNum = 0;
                 }else{
                     mode = HBLANK;
                 }
-                clock = 0;
+                clock -= 172;
             }
             clock++;
             break;

@@ -9,7 +9,7 @@ GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
 
 void read (char* input) {
-	FILE *rom = fopen(input, "r");
+	FILE *rom = fopen(input, "rb");
 	if ( rom == 0) {
 			printf( "Could not open file\n" );
 	} else {
@@ -80,10 +80,11 @@ int WINAPI WinMain(HINSTANCE hInstance,
     }
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
+	int ticks;
     while (!bQuit)
     {
-		cpuStep();
-		gpuStep();
+		ticks = cpuStep();
+		gpuStep(ticks);
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {

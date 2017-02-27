@@ -66,4 +66,7 @@ void printRegisters() {
 	
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
+	
+	//printf("  FF44 : %02X", cpu[0xFF44]);
+	printf("\n");
 }

@@ -199,7 +199,7 @@ void RLA() {
 	if (registerAF.hi) {clearFlag(flag_Z);}
 	else {setFlag(flag_Z);}
 }
-void JR(BYTE operand) {JP(PC.pair + (SIGNED_BYTE)operand);}
+void JR(BYTE operand) {JP(PC.pair + (SIGNED_BYTE)operand+1);}
 void ADD_HL_DE() {ADD_16(registerDE.pair);}
 void LD_A_DE() {LD(&registerAF, cpu[registerDE.pair], 2);}
 void DEC_DE() {registerDE.pair--;}

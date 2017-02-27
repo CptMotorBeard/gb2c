@@ -1,10 +1,11 @@
+#include <stdio.h>
 #include "hardware.h"
 #include "opcodes.h"
 #include "cpu.h"
 
 // There are 256 opcodes for GB
 struct opcode opcodes[256] = {
-	{ "NOP\t\t", 0, NOP },                           // 0x00
+	{ "NOP", 0, NOP },                           // 0x00
 	{ "LD BC, 0x%04X", 2, LD_BC },            // 0x01
 	{ "LD (BC), A", 0, LD_BC_A },               // 0x02
 	{ "INC BC", 0, INC_BC },                     // 0x03
@@ -39,7 +40,7 @@ struct opcode opcodes[256] = {
 	{ "JR NZ, 0x%02X", 1, JR_NZ },             // 0x20
 	{ "LD HL, 0x%04X", 2, LD_HL_WORD },            // 0x21
 	{ "LDI (HL), A", 0, LDI_HL_A },             // 0x22
-	{ "INC HL\t", 0, INC_HL },                     // 0x23
+	{ "INC HL", 0, INC_HL },                     // 0x23
 	{ "INC H", 0, INC_H },                       // 0x24
 	{ "DEC H", 0, DEC_H },                       // 0x25
 	{ "LD H, 0x%02X", 1, LD_H },               // 0x26
@@ -99,7 +100,7 @@ struct opcode opcodes[256] = {
 	{ "LD E, H", 0, LD_E_H },                    // 0x5c
 	{ "LD E, L", 0, LD_E_L },                    // 0x5d
 	{ "LD E, (HL)", 0, LD_E_HL },               // 0x5e
-	{ "LD E, A\t", 0, LD_E_A },                    // 0x5f
+	{ "LD E, A", 0, LD_E_A },                    // 0x5f
 	{ "LD H, B", 0, LD_H_B },                    // 0x60
 	{ "LD H, C", 0, LD_H_C },                    // 0x61
 	{ "LD H, D", 0, LD_H_D },                    // 0x62
@@ -139,7 +140,7 @@ struct opcode opcodes[256] = {
 	{ "ADD A, H", 0, ADD_A_H },                  // 0x84
 	{ "ADD A, L", 0, ADD_A_L },                  // 0x85
 	{ "ADD A, (HL)", 0, ADD_A_HL },             // 0x86
-	{ "ADD A\t", 0, ADD_A },                     // 0x87
+	{ "ADD A", 0, ADD_A },                     // 0x87
 	{ "ADC B", 0, ADC_B },                       // 0x88
 	{ "ADC C", 0, ADC_C },                       // 0x89
 	{ "ADC D", 0, ADC_D },                       // 0x8a
@@ -217,7 +218,7 @@ struct opcode opcodes[256] = {
 	{ "JP NC, 0x%04X", 2, JP_NC },            // 0xd2
 	{ "UNKNOWN", 0, NOP },                 // 0xd3
 	{ "CALL NC, 0x%04X", 2, CALL_NC },        // 0xd4
-	{ "PUSH DE\t", 0, PUSH_DE },                   // 0xd5
+	{ "PUSH DE", 0, PUSH_DE },                   // 0xd5
 	{ "SUB 0x%02X", 1, SUB },                  // 0xd6
 	{ "RST 0x10", 0, RST_10 },                   // 0xd7
 	{ "RET C", 0, RET_C },                       // 0xd8
@@ -229,7 +230,7 @@ struct opcode opcodes[256] = {
 	{ "SBC 0x%02X", 1, SBC },                  // 0xde
 	{ "RST 0x18", 0, RST_18 },                   // 0xdf
 	{ "LD (0xFF00 + 0x%02X), A", 1, LD_FF02X_A },// 0xe0
-	{ "POP HL\t", 0, POP_HL },                     // 0xe1
+	{ "POP HL", 0, POP_HL },                     // 0xe1
 	{ "LD (0xFF00 + C), A", 0, LD_FFC_A },      // 0xe2
 	{ "UNKNOWN", 0, NOP },                 // 0xe3
 	{ "UNKNOWN", 0, NOP },                 // 0xe4
@@ -237,7 +238,7 @@ struct opcode opcodes[256] = {
 	{ "AND 0x%02X", 1, AND },                  // 0xe6
 	{ "RST 0x20", 0, RST_20 },                   // 0xe7
 	{ "ADD SP,0x%02X", 1, ADD_SP },            // 0xe8
-	{ "JP HL\t", 0, JP_HL },                       // 0xe9
+	{ "JP HL", 0, JP_HL },                       // 0xe9
 	{ "LD (0x%04X), A", 2, LD_04X_A },           // 0xea
 	{ "UNKNOWN", 0, NOP },                 // 0xeb
 	{ "UNKNOWN", 0, NOP },                 // 0xec
@@ -262,13 +263,56 @@ struct opcode opcodes[256] = {
 	{ "RST 0x38", 0, RST_38 },                   // 0xff
 };
 
+int instructionTicks[256] = {
+	2, 6, 4, 4, 2, 2, 4, 4, 10, 4, 4, 4, 2, 2, 4, 4, // 0x0_
+	2, 6, 4, 4, 2, 2, 4, 4,  4, 4, 4, 4, 2, 2, 4, 4, // 0x1_
+	0, 6, 4, 4, 2, 2, 4, 2,  0, 4, 4, 4, 2, 2, 4, 2, // 0x2_
+	4, 6, 4, 4, 6, 6, 6, 2,  0, 4, 4, 4, 2, 2, 4, 2, // 0x3_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0x4_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0x5_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0x6_
+	4, 4, 4, 4, 4, 4, 2, 4,  2, 2, 2, 2, 2, 2, 4, 2, // 0x7_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0x8_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0x9_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0xa_
+	2, 2, 2, 2, 2, 2, 4, 2,  2, 2, 2, 2, 2, 2, 4, 2, // 0xb_
+	0, 6, 0, 6, 0, 8, 4, 8,  0, 2, 0, 0, 0, 6, 4, 8, // 0xc_
+	0, 6, 0, 0, 0, 8, 4, 8,  0, 8, 0, 0, 0, 0, 4, 8, // 0xd_
+	6, 6, 4, 0, 0, 8, 4, 8,  8, 2, 8, 0, 0, 0, 4, 8, // 0xe_
+	6, 6, 4, 2, 0, 8, 4, 8,  6, 4, 8, 2, 0, 0, 4, 8  // 0xf_
+};
+
+int extendedInstructionTicks[256] = {
+	8, 8, 8, 8, 8,  8, 16, 8,  8, 8, 8, 8, 8, 8, 16, 8, // 0x0_
+	8, 8, 8, 8, 8,  8, 16, 8,  8, 8, 8, 8, 8, 8, 16, 8, // 0x1_
+	8, 8, 8, 8, 8,  8, 16, 8,  8, 8, 8, 8, 8, 8, 16, 8, // 0x2_
+	8, 8, 8, 8, 8,  8, 16, 8,  8, 8, 8, 8, 8, 8, 16, 8, // 0x3_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x4_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x5_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x6_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x7_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x8_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0x9_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0xa_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0xb_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0xc_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0xd_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8, // 0xe_
+	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8  // 0xf_
+};
+
 int cpuStep () {
 	int operands;
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;
 	oppc = PC.pair;
+	///// DEBUG
+	char *inst = opcodes[cpu[PC.pair]].inst;
+	
 	if (operands == 1) {				
-		PC.pair++;					
+		PC.pair++;
+		///// DEBUG
+		printf(inst, cpu[PC.pair]);
 		((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
 	}
 	else if (operands == 2) {
@@ -277,11 +321,28 @@ int cpuStep () {
 		op = (cpu[PC.pair]);
 		PC.pair++;
 		op = op | (cpu[PC.pair]<<8);
+		///// DEBUG
+		printf(inst, op);
+		
 		((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
 	} else {
+		///// DEBUG
+		printf(inst);
+		
 		((void (*)(void))opcodes[cpu[oppc]].function)();
 	}
-	printRegisters();
+
+	int ticks;
+	if (cpu[oppc] == 0xCB) {ticks = extendedInstructionTicks[cpu[PC.pair]];}
+	else {ticks = instructionTicks[cpu[oppc]];}
+	
 	PC.pair++;
-	return 0;
+	
+	///// DEBUG
+	printf("  ");
+	if (!(PC.pair >= 0x036C && PC.pair <= 0x036F)){
+		printRegisters();
+	}
+	
+	return ticks;
 }
