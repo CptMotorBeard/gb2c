@@ -3,6 +3,9 @@ typedef unsigned char BYTE;
 typedef signed char SIGNED_BYTE;
 typedef unsigned short WORD;
 
+// clock
+int clock;
+
 // Registers can work either as a single 8 bit register or a pair to make a 16 bit register.
 typedef union {
 	struct {

@@ -301,18 +301,18 @@ int extendedInstructionTicks[256] = {
 	8, 8, 8, 8, 8,  8, 12, 8,  8, 8, 8, 8, 8, 8, 12, 8  // 0xf_
 };
 
-int cpuStep () {
+void cpuStep () {
 	int operands;
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;
 	oppc = PC.pair;
 	///// DEBUG
-	char *inst = opcodes[cpu[PC.pair]].inst;
+	//char *inst = opcodes[cpu[PC.pair]].inst;
 	
 	if (operands == 1) {				
 		PC.pair++;
 		///// DEBUG
-		printf(inst, cpu[PC.pair]);
+		//printf(inst, cpu[PC.pair]);
 		((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
 	}
 	else if (operands == 2) {
@@ -322,12 +322,12 @@ int cpuStep () {
 		PC.pair++;
 		op = op | (cpu[PC.pair]<<8);
 		///// DEBUG
-		printf(inst, op);
+		//printf(inst, op);
 		
 		((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
 	} else {
 		///// DEBUG
-		printf(inst);
+		//printf(inst);
 		
 		((void (*)(void))opcodes[cpu[oppc]].function)();
 	}
@@ -339,10 +339,7 @@ int cpuStep () {
 	PC.pair++;
 	
 	///// DEBUG
-	printf("  ");
-	if (!(PC.pair >= 0x036C && PC.pair <= 0x036F)){
-		printRegisters();
-	}
+	//printf("  ");
 	
-	return ticks;
+	clock += ticks;
 }

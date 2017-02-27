@@ -2,6 +2,8 @@
 #include "opcodes.h"
 #include "hardware.h"
 #include "gpu.h"
+#include "interrupts.h"
+#include <stdio.h>
 
 
 //GPU has 4 possible modes
@@ -11,7 +13,6 @@ int mode = 0;
 int line = 0;
 
 //drawing a frame takes 456 cycles (steps)
-int clock = 0;
 
 BYTE scrollX = 0;
 BYTE scrollY = 0;
@@ -58,31 +59,27 @@ struct spriteOAM{
     char tileNumber;
     char options;
 };
-int vblankNum = 0;
 //Need to store the current line
-void gpuStep(int ticks){
-	clock += ticks;
+void gpuStep(){
     switch(mode){
         case 0:
             if(clock >= 204){
             	clock -= 204;
-                line = line + 1 % 144;
-				cpu[0xFF44] = cpu[0xFF44] + 1 % 144;
+                line = (line + 1) % 144;
                 cleanLine();
-                mode = OAMLOAD;
-            }
-            clock++;
+				if (line == 143) {
+					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
+					mode=VBLANK;
+				} else {mode = OAMLOAD;}
+                
+            }            
             break;
         case 1:
             if(clock >= 456){
-				vblankNum++;
-				cpu[0xFF44] = cpu[0xFF44] + 1 % 154;
-				if(vblankNum == 9){
-					mode = OAMLOAD;
-				}
+				mode = OAMLOAD;
                 clock -= 456;
             }
-            clock++;
+            
             break;
         case 2:
             if(clock >= 80){
@@ -94,18 +91,10 @@ void gpuStep(int ticks){
         case 3:
             if(clock >= 172){
                 updateLine();
-                if(line >= 144){
-                    mode = VBLANK;
-					vblankNum = 0;
-                }else{
-                    mode = HBLANK;
-                }
+                mode = HBLANK;                
                 clock -= 172;
             }
-            clock++;
             break;
-
-
     }
 }
 /*Access memory, go pixel by pixel to produce the correct line
@@ -246,5 +235,5 @@ void cleanLine(){
      }
 }
 void updateLine(){
-    scanLine(currLine, line);
+	scanLine(currLine, line);
 }

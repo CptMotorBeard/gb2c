@@ -3,6 +3,7 @@
 #include "hardware.h"
 #include "gpu.h"
 #include "cpu.h"
+#include "interrupts.h"
 #include "display.h"
 
 GLfloat vertices[2*160*144];
@@ -80,11 +81,13 @@ int WINAPI WinMain(HINSTANCE hInstance,
     }
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
-	int ticks;
     while (!bQuit)
     {
-		ticks = cpuStep();
-		gpuStep(ticks);
+		cpuStep();
+		gpuStep();
+		interruptStep();
+		//printRegisters();
+		
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {

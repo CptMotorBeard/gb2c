@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "hardware.h"
+#include "interrupts.h"
 
 // Initial values at bootup for the hardware
 void initialize() {
@@ -40,6 +41,12 @@ void initialize() {
 	cpu[0xFF4A] = 0x00;
 	cpu[0xFF4B] = 0x00;
 	cpu[0xFFFF] = 0x00;
+	
+	clock = 0;
+	
+	interrupt.master = 1;
+	interrupt.enable = 0;
+	interrupt.flags = 0;
 }
 
 void writeMemory(WORD address, BYTE data) {
@@ -54,11 +61,15 @@ void writeMemory(WORD address, BYTE data) {
 	}
 	// More read only areas
 	else if ((address >= 0xFEA0) && (address < 0xFEFF)) {} // don't write anything
+	// Interrupts
+	else if (address == 0xFF0F) {interrupt.flags = data;}
+	else if (address == 0xFFFF) {interrupt.enable = data;}
 	// No other special areas, just write the data
 	else { cpu[address] = data; }
 }
 
 void printRegisters() {
+	printf("\r");
 	printf("Register AF : %04X", registerAF.pair);
 	printf("  Register BC : %04X", registerBC.pair);
 	printf("  Register DE : %04X", registerDE.pair);
@@ -67,6 +78,6 @@ void printRegisters() {
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
 	
-	//printf("  FF44 : %02X", cpu[0xFF44]);
-	printf("\n");
+	printf("  FFFF : %02X", interrupt.enable);
+	//printf("\n");
 }
