@@ -263,6 +263,7 @@ struct opcode opcodes[256] = {
 };
 
 int cpuStep () {
+	int toggle = 0;
 	int operands;
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;
@@ -281,7 +282,13 @@ int cpuStep () {
 	} else {
 		((void (*)(void))opcodes[cpu[oppc]].function)();
 	}
-	printRegisters();
+	if (cpu[PC.pair] == 0xcd) {
+		toggle = 100;
+	}
+	if (toggle) {
+		printRegisters();
+		toggle--;
+	}
 	PC.pair++;
 	return 0;
 }

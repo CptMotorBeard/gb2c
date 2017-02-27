@@ -407,16 +407,16 @@ void PUSH_BC() {
 void ADD_A_BYTE(BYTE operand) {ADD(operand);}
 void RST_00() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0000);
 }
 void RET_Z() {if (flagSet(flag_Z)){RET();}}
 void RET() {
-	WORD loc = cpu[SP.pair];SP.pair++;
-	loc |= (cpu[SP.pair]<<8)SP.pair++;
-	JP(loc+1);
+	WORD loc = (cpu[SP.pair]<<8);SP.pair++;
+	loc |= cpu[SP.pair];SP.pair++;
+	JP(loc);
 }
 void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
 
@@ -1584,14 +1584,14 @@ void CB(BYTE operand) {
 void CALL_Z(WORD operand) {if (flagSet(flag_Z)){CALL(operand);}}
 void CALL(WORD operand) {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(operand);
 }
 void RST_08() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0008);
@@ -1611,24 +1611,23 @@ void PUSH_DE() {
 }
 void RST_10() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0010);
 }
 void RET_C() {if (flagSet(flag_C)){RET();}}
 void RETI() {
-	WORD operand;	
-	operand = (cpu[SP.pair]); SP.pair++;
-	operand = operand | (cpu[SP.pair]<<8); SP.pair++;
-	JP(operand+1);
+	WORD operand = (cpu[SP.pair]<<8); SP.pair++;
+	operand |= (cpu[SP.pair]); SP.pair++;
+	JP(operand);
 	EI();
 }
 void JP_C(WORD operand) {if (flagSet(flag_C)){JP(operand);}}
 void CALL_C(WORD operand) {if (flagSet(flag_C)){CALL(operand);}}
 void RST_18() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0018);
@@ -1647,7 +1646,7 @@ void PUSH_HL() {
 }
 void RST_20() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0020);
@@ -1666,7 +1665,7 @@ void JP_HL() {JP(registerHL.pair);}
 void LD_04X_A(WORD operand) {writeMemory(operand, registerAF.hi);}
 void RST_28() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0028);
@@ -1687,7 +1686,7 @@ void PUSH_AF() {
 
 void RST_30() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0030);
@@ -1707,7 +1706,7 @@ void LD_A_WORD(WORD operand) {LD(&registerAF, cpu[operand], 2);}
 void EI() {}
 void RST_38() {
 	SP.pair--;
-	writeMemory(SP.pair, PC.lo);
+	writeMemory(SP.pair, PC.lo+1);
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0038);
