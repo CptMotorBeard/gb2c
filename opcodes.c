@@ -123,8 +123,8 @@ void CP(BYTE r) {
 	if (registerAF.hi == r) {setFlag(flag_Z);}
 	else {clearFlag(flag_Z);}
 	setFlag(flag_N);
-	if (registerAF.hi < r) {setFlag(flag_Z);}
-	else {clearFlag(flag_Z);}
+	if (registerAF.hi < r) {setFlag(flag_C);}
+	else {clearFlag(flag_C);}
 	if ((registerAF.hi & 0xF) < (r & 0xF)) {setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 }
@@ -227,7 +227,24 @@ void INC_H() {registerHL.hi = INC(registerHL.hi);}
 void DEC_H() {registerHL.hi = DEC(registerHL.hi);}
 void LD_H(BYTE operand) {LD(&registerHL, operand, 2);}
 void DAA() {
-	////// DECIMAL ADJUST
+	WORD s = registerAF.hi;
+	
+	if(flagSet(flag_Z)) {
+		if(flagSet(flag_H)) {s = (s - 0x06)&0xFF;}
+		if(flagSet(flag_C)) {s -= 0x60;}
+	}
+	else {
+		if(flagSet(flag_H) || (s & 0xF) > 9) {s += 0x06;}
+		if(flagSet(flag_C) || s > 0x9F) {s += 0x60;}
+	}
+	
+	registerAF.hi = s;
+	clearFlag(flag_H);
+	
+	if(registerAF.hi == 0){flagSet(flag_Z);}
+	else {clearFlag(flag_Z);}
+	
+	if(s >= 0x100){flagSet(flag_C);}
 }
 void JR_Z(BYTE operand) {if (flagSet(flag_Z)){JR(operand);}}
 void ADD_HL_HL() {ADD_16(registerHL.pair);}

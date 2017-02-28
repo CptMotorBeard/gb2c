@@ -81,12 +81,38 @@ int WINAPI WinMain(HINSTANCE hInstance,
     }
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
+	int i = 0;
+	int count = -1;
     while (!bQuit)
     {
 		cpuStep();
 		gpuStep();
 		interruptStep();
-		//printRegisters();
+		//printRegisters();		
+		if (PC.pair == 0x2821) {
+			i++;
+			if (i >= 16) {
+				count++;
+				int x = 16;
+				WORD im[16];
+				while (x > 0) {					
+					im[x-1] = cpu[0x8000 + (16*count) + x-1];
+					x--;
+				}
+				BYTE y, z, index;
+				for (z = 0; z < 15; z+=2){
+					for (y = 0; y < 8; y++){
+						index = 1 << (7 - y);
+						int p = ((im[z] & index) ? 1 : 0) + ((im[z+1] & index) ? 2 : 0);
+						if (p == 0) {p = ' ';} else {p = 'x';}
+						printf("%c", p);
+					}
+					printf("\n");
+				}
+				if (count == 9) {bQuit = 1;}				
+				printf("\n");
+			}
+		}
 		
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))

@@ -62,8 +62,8 @@ void writeMemory(WORD address, BYTE data) {
 	// More read only areas
 	else if ((address >= 0xFEA0) && (address < 0xFEFF)) {} // don't write anything
 	// Interrupts
-	else if (address == 0xFF0F) {interrupt.flags = data;}
-	else if (address == 0xFFFF) {interrupt.enable = data;}
+	else if (address == 0xFF0F) {cpu[address] = data; interrupt.flags = data;}
+	else if (address == 0xFFFF) {cpu[address] = data; interrupt.enable = data;}
 	// No other special areas, just write the data
 	else { cpu[address] = data; }
 }
@@ -78,6 +78,6 @@ void printRegisters() {
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
 	
-	printf("  FFFF : %02X", interrupt.enable);
+	//printf("  FFFF : %02X", interrupt.enable);
 	//printf("\n");
 }

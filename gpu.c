@@ -9,9 +9,6 @@
 //GPU has 4 possible modes
 int mode = 0;
 
-//Need to keep track of whick line to draw
-int line = 0;
-
 //drawing a frame takes 456 cycles (steps)
 
 BYTE scrollX = 0;
@@ -65,9 +62,9 @@ void gpuStep(){
         case 0:
             if(clock >= 204){
             	clock -= 204;
-                line = (line + 1) % 144;
+				cpu[0xFF44]++;
                 cleanLine();
-				if (line == 143) {
+				if (cpu[0xFF44] == 143) {
 					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
 					mode=VBLANK;
 				} else {mode = OAMLOAD;}
@@ -76,7 +73,12 @@ void gpuStep(){
             break;
         case 1:
             if(clock >= 456){
-				mode = OAMLOAD;
+				cpu[0xFF44]++;				
+				if (cpu[0xFF44] > 153) {
+					cpu[0xFF44] = 0;
+					mode = OAMLOAD;
+				}
+				
                 clock -= 456;
             }
             
@@ -107,6 +109,7 @@ void processLine(){
     LCDC = cpu[0xFF40];
     scrollX = cpu[0xFF43];
     scrollY = cpu[0xFF42];
+	int line = cpu[0xFF44];
     //apply the background layer to curLine-----------------------------------
     WORD bgTileMapAddress = 0x9800 + ((LCDC >> 3) & 1)*0X0400;
     //(line/8)*32 adjusts for the y and scrollX/8 adjusts for X
@@ -116,7 +119,7 @@ void processLine(){
     char curX = (scrollX % 8);
     char curY = ((scrollY + line) % 8) ;
     //check if background is enabled and line is not done
-    while((LCDC & 1) & (written < 160)){
+    while(/*(LCDC & 1) & */ (written < 160)){
         //get tile from tileset
         char tileAddr = cpu[bgTileMapAddress] ;
         //2 bytes is 1 row for a tile
@@ -235,5 +238,5 @@ void cleanLine(){
      }
 }
 void updateLine(){
-	scanLine(currLine, line);
+	scanLine(currLine, cpu[0xFF44]);
 }
