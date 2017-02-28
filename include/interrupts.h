@@ -8,6 +8,7 @@ typedef struct {
 	unsigned char master;
 	unsigned char enable;
 	unsigned char flags;
+	unsigned char timer;
 } interruptStruct;
 
 interruptStruct interrupt;

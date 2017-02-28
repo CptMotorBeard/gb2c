@@ -1,7 +1,6 @@
 #include "hardware.h"
 #include "opcodes.h"
 #include "interrupts.h"
-#include <stdio.h>
 
 // Helper functions for opcodes
 // 8-bit loads
@@ -1639,7 +1638,7 @@ void RETI() {
 	WORD operand = (cpu[SP.pair]<<8); SP.pair++;
 	operand |= (cpu[SP.pair]); SP.pair++;
 	JP(operand);
-	EI();
+	interrupt.master = 1;
 }
 void JP_C(WORD operand) {if (flagSet(flag_C)){JP(operand);}}
 void CALL_C(WORD operand) {if (flagSet(flag_C)){CALL(operand);}}
@@ -1694,7 +1693,7 @@ void POP_AF() {
 	LD(&registerAF, cpu[SP.pair], 1);SP.pair++;
 }
 void LD_A_FFC() {LD(&registerAF, cpu[0xFF00 + registerBC.lo], 2);}
-void DI() {interrupt.master = 0;}
+void DI() {interrupt.timer = 0x00;}
 void PUSH_AF() {
 	SP.pair--;
 	writeMemory(SP.pair, registerAF.lo);
@@ -1721,7 +1720,7 @@ void LD_HL_SP02X(BYTE operand) {
 }
 void LD_SP_HL() {LD_16(&SP, registerHL.pair);}
 void LD_A_WORD(WORD operand) {LD(&registerAF, cpu[operand], 2);}
-void EI() {interrupt.master = 1;}
+void EI() {interrupt.timer = 0x01;}
 void RST_38() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.lo+1);

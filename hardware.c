@@ -47,6 +47,7 @@ void initialize() {
 	interrupt.master = 1;
 	interrupt.enable = 0;
 	interrupt.flags = 0;
+	interrupt.timer = 0xFF;
 }
 
 void writeMemory(WORD address, BYTE data) {
@@ -77,7 +78,7 @@ void printRegisters() {
 	
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
-	
-	//printf("  FFFF : %02X", interrupt.enable);
+		
+	printf("  FF40 : %02X", cpu[0xFF40]);
 	//printf("\n");
 }
