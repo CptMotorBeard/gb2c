@@ -283,7 +283,7 @@ int CBcycles[256] = {
 		8, 8, 8, 8, 8, 8, 16, 8, 8, 8, 8, 8, 8, 8, 16, 8	//	F
 };
 
-void cpuStep () {
+int cpuStep () {
 	int operands;
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;
@@ -323,5 +323,5 @@ void cpuStep () {
 	///// DEBUG
 	//printf("  ");
 	
-	clock += cycles;
+	return cycles;
 }

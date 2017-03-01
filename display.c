@@ -84,12 +84,14 @@ int WINAPI WinMain(HINSTANCE hInstance,
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
-    int i = 0;
+    //int i = 0;
+	
+	int c;
 	
 	while (!bQuit)
     {
-		cpuStep();
-		gpuStep();
+		c = cpuStep();
+		gpuStep(c);
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle

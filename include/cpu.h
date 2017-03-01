@@ -1,1 +1,1 @@
-void cpuStep();
+int cpuStep();

@@ -42,8 +42,6 @@ void initialize() {
 	cpu[0xFF4B] = 0x00;
 	cpu[0xFFFF] = 0x00;
 	
-	clock = 0;
-	
 	interrupt.master = 1;
 	interrupt.enable = 0;
 	interrupt.flags = 0;

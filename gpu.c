@@ -5,11 +5,21 @@
 #include "interrupts.h"
 #include <stdio.h>
 
+//GPU modes
+//Send head to first row (204 cycles)
+#define HBLANK 0
+//Send head to first column (4560 cycles)
+#define VBLANK 1
+//This time is used to fetch data from the Object Attribute Memory
+//(80 cycles)
+#define OAMLOAD 2
+//Takes loaded line and draws it on screen (172 cycles)
+#define LCD 3
 
-//GPU has 4 possible modes
 int mode = 0;
 
-//drawing a frame takes 456 cycles (steps)
+//drawing a frame takes 456 cycles (steps) need to keep track
+int gpu_clock = 0;
 
 BYTE scrollX = 0;
 BYTE scrollY = 0;
@@ -22,16 +32,6 @@ float colorPalette[4][3] = {
     {0.33f,0.33f,0.33f},
     {0.0f,0.0f,0.0f}
 };
-//GPU modes
-//Send head to first row (204 cycles)
-int HBLANK = 0;
-//Send head to first column (4560 cycles)
-int VBLANK = 1;
-//This time is used to fetch data from the Object Attribute Memory
-//(80 cycles)
-int OAMLOAD = 2;
-//Takes loaded line and draws it on screen (172 cycles)
-int LCD = 3;
 
 //NOTE: 1 Frame takes 70224 cycles
 //Tile map is simply 32*32 bytes refering to a certain tile in the tileset (results to a 256*256 display)
@@ -49,58 +49,67 @@ int LCD = 3;
 //8000-87FF Tile Set #0 (0-127)
 //-------------------------------
 //LCDC keeps track of the Display operation, tile maps, tile sets, and sprite/tile size
-char LCDC;
+BYTE LCDC;
 struct spriteOAM{
     char yCoord;
     char xCoord;
     char tileNumber;
     char options;
 };
-//Need to store the current line
-void gpuStep(){
 
+//Need to store the current line
+int cur_line = 0;
+
+void gpuStep(int c){
+	
+	gpu_clock += c;
+	
     switch(mode){
-        case 0:
-            if(clock >= 204){
-            	clock -= 204;
+		
+		case OAMLOAD:
+			if(gpu_clock >= 80){
+				mode = LCD;
+				processLine();
+				gpu_clock = 0;
+			}
+			break;
+			
+		case LCD:
+			if(gpu_clock >= 172){
+				mode = HBLANK;                
+				gpu_clock = 0;
+				if (cpu[0xFF40] & 128) {
+					updateLine();
+				}				
+			}
+			break;
+		
+        case HBLANK:
+            if(gpu_clock >= 204){
+            	gpu_clock = 0;
 				cpu[0xFF44]++;
                 cleanLine();
 				if (cpu[0xFF44] == 143) {
+					// VBLANK
 					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
 					mode=VBLANK;
 				} else {mode = OAMLOAD;}
                 
             }            
             break;
-        case 1:
-            if(clock >= 456){
-				cpu[0xFF44]++;				
+			
+        case VBLANK:
+            if(gpu_clock >= 456){
+				gpu_clock = 0;
+				cpu[0xFF44]++;
+				
 				if (cpu[0xFF44] > 153) {
+					// Restart
 					cpu[0xFF44] = 0;
 					mode = OAMLOAD;
 				}
-				
-                clock -= 456;
-            }
-            
-            break;
-        case 2:
-            if(clock >= 80){
-                mode = LCD;
-                clock -= 80;
-                processLine();
-            }
-            break;
-        case 3:
-            if(clock >= 172){
-            	BYTE LCDC = cpu[0xFF40];
-            	if(LCDC & 128){
-            		updateLine();
-            	}
-                mode = HBLANK;                
-                clock -= 172;
-            }
-            break;
+            }        
+            break;					
     }
 }
 /*Access memory, go pixel by pixel to produce the correct line
