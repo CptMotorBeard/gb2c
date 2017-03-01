@@ -58,6 +58,7 @@ struct spriteOAM{
 };
 //Need to store the current line
 void gpuStep(){
+
     switch(mode){
         case 0:
             if(clock >= 204){
@@ -92,7 +93,10 @@ void gpuStep(){
             break;
         case 3:
             if(clock >= 172){
-                updateLine();
+            	BYTE LCDC = cpu[0xFF40];
+            	if(LCDC & 128){
+            		updateLine();
+            	}
                 mode = HBLANK;                
                 clock -= 172;
             }
@@ -113,29 +117,40 @@ void processLine(){
     //apply the background layer to curLine-----------------------------------
     WORD bgTileMapAddress = 0x9800 + ((LCDC >> 3) & 1)*0X0400;
     //(line/8)*32 adjusts for the y and scrollX/8 adjusts for X
-    bgTileMapAddress += (line+ scrollY)*4 + (scrollX/8);
+    bgTileMapAddress += ((scrollY + line)/8) * 32;
+
     int written = 0;
     char spriteY = 8 + (LCDC & 4)*8;
-    char curX = (scrollX % 8);
+    char curX = 7 - (scrollX % 8);
     char curY = ((scrollY + line) % 8) ;
+    printf("%04X %d %d ", bgTileMapAddress, curX, curY);
+    printf("%02X ",cpu[bgTileMapAddress]);
     //check if background is enabled and line is not done
     while(/*(LCDC & 1) & */ (written < 160)){
         //get tile from tileset
-        char tileAddr = cpu[bgTileMapAddress] ;
+        BYTE tileAddr = cpu[bgTileMapAddress];
+
         //2 bytes is 1 row for a tile
-        short tile = cpu[(tileAddr + curY*2)];
+        short tile = (cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2] << 8) + cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2 + 1];
+        //printf("%02X",tile);
+        //printTileSet(0);
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
-        while(curX > 0){
-            int pixel = (((tile >> curX)  & 1) + 8)*2 + (tile >> (curX) & 1);
+        while(curX > -1){
+            int pixel = (((tile >> (8 + curX))  & 1))*2 + (tile >> (curX) & 1);
             currLine[written*3] = colorPalette[pixel][0];
             currLine[written*3 + 1] = colorPalette[pixel][1];
             currLine[written*3 + 2] = colorPalette[pixel][2];
             written++;
             curX--;
         }
+        //printf("\n");
         curX = 7;
+        bgTileMapAddress++;
+        printf("%02X ",cpu[bgTileMapAddress]);
     }
+    printf("\n");
+    /*
     //apply the window layer to curline---------------------------------------
     written = 0;
     WORD wndTileMapAddress = 0x9800 + ((LCDC >> 6) & 1)*0X0400;
@@ -225,18 +240,30 @@ void processLine(){
             }
         }
     }
-
+*/
 
 
 }
 void cleanLine(){
      int i;
      for(i = 0; i <160; i++){
-        currLine[i*3] = 0.0f;
-        currLine[i*3 + 1] = 0.0f;
-        currLine[i*3 + 2] = 0.0f;
+        currLine[i*3] = 1.0f;
+        currLine[i*3 + 1] = 1.0f;
+        currLine[i*3 + 2] = 1.0f;
      }
 }
 void updateLine(){
-	scanLine(currLine, cpu[0xFF44]);
+	scanLine(currLine, 143- cpu[0xFF44]);
+}
+void printTileSet(int i){
+	WORD tileSet = 0x8000 + i*(0x1000);
+	int j;
+	for(j = 0; j < 255; j++){
+		int k;
+		for(k = 0; k < 16; k++){
+			printf("%02X",cpu[tileSet]);
+			tileSet ++;
+		}
+		printf("\n");
+	}
 }
