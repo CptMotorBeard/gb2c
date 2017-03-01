@@ -3,6 +3,7 @@ struct opcode {
 	char inst[30]; 
 	int operands;
 	void *function;
+	int cycles;
 };
 
 // initialize the opcodes

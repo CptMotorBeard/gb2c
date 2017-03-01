@@ -5,9 +5,8 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define LINE_BREAK 0x6553
-
-//PROBLEM 6580 - 65A3
+#define LINE_BREAK 0x0355
+//////// 0x0355 /////////
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
