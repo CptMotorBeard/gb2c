@@ -39,7 +39,7 @@ void vblank() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	PC.pair = 0x40;
-	
+	drawScreen();
 	clock += 12;
 }
 

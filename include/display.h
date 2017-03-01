@@ -6,7 +6,7 @@
 #include <GL/gl.h>
 #include <stdio.h>
 
-
+void drawScreen();
 void scanLine(GLfloat[], int);
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);

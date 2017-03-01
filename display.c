@@ -5,7 +5,7 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define LINE_BREAK 0x029A
+#define LINE_BREAK 0x0350
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
@@ -83,9 +83,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
-	int i = 0;
-	int count = -1;
-    
+    int i = 0;
 	while (!bQuit)
     {
 		cpuStep();
@@ -95,7 +93,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
 		//printRegisters();
 		//if (cpu[0xFF80] != 0x00) {bQuit=1;}
-		if (PC.pair == LINE_BREAK) {i++; if (i == 1){bQuit=1;}}
+		//if (PC.pair == LINE_BREAK) {i++; if (i == 1){bQuit=1;}}
 		
 		/*if (PC.pair == 0x2834) {			
 			while (count <= 256) {
@@ -184,7 +182,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
-
     /* destroy the window explicitly */
     DestroyWindow(hwnd);
 
@@ -266,6 +263,22 @@ void scanLine(GLfloat lineColors[3*160], int thisline){
     for(i = 0; i<160*3; i++){
         colors[160*(thisline)*3 + i] = lineColors[i];
     }
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glPointSize(1.0f);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+
+    glColorPointer(3, GL_FLOAT, 0, colors);
+    glVertexPointer(2, GL_FLOAT, 0, vertices);
+    glDrawArrays(GL_POINTS, 0, 160*144);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+}
+
+void drawScreen(){
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glPointSize(1.0f);
