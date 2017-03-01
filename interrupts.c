@@ -1,5 +1,6 @@
 #include "interrupts.h"
 #include "hardware.h"
+#include "display.h"
 
 void interruptStep() {
 	if(interrupt.master && interrupt.enable && interrupt.flags) {

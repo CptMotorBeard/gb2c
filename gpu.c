@@ -123,10 +123,14 @@ void processLine(){
     char spriteY = 8 + (LCDC & 4)*8;
     char curX = 7 - (scrollX % 8);
     char curY = ((scrollY + line) % 8) ;
-    printf("%04X %d %d ", bgTileMapAddress, curX, curY);
-    printf("%02X ",cpu[bgTileMapAddress]);
-    //check if background is enabled and line is not done
-    while(/*(LCDC & 1) & */ (written < 160)){
+    
+	
+	//printf("%04X, %04X %d %d ", PC.pair, bgTileMapAddress, curX, curY);
+    //printf("%02X ",cpu[bgTileMapAddress]);
+    
+	
+	//check if background is enabled and line is not done
+    while(/*(LCDC & 1) & */(written < 160)){
         //get tile from tileset
         BYTE tileAddr = cpu[bgTileMapAddress];
 
@@ -136,6 +140,7 @@ void processLine(){
         //printTileSet(0);
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
+		
         while(curX > -1){
             int pixel = (((tile >> (8 + curX))  & 1))*2 + (tile >> (curX) & 1);
             currLine[written*3] = colorPalette[pixel][0];
@@ -144,13 +149,23 @@ void processLine(){
             written++;
             curX--;
         }
-        //printf("\n");
-        curX = 7;
+        
+		
+		//printf("\n");
+        
+		
+		curX = 7;
         bgTileMapAddress++;
-        printf("%02X ",cpu[bgTileMapAddress]);
+        
+		
+		//printf("%02X ",cpu[bgTileMapAddress]);
     }
-    printf("\n");
-    /*
+    
+	
+	//printf("\n");
+    
+	
+	/*
     //apply the window layer to curline---------------------------------------
     written = 0;
     WORD wndTileMapAddress = 0x9800 + ((LCDC >> 6) & 1)*0X0400;

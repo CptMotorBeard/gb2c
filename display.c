@@ -5,7 +5,9 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define LINE_BREAK 0x0350
+#define LINE_BREAK 0x6553
+
+//PROBLEM 6580 - 65A3
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
@@ -84,6 +86,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
     int i = 0;
+	
 	while (!bQuit)
     {
 		cpuStep();
@@ -91,9 +94,12 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
-		//printRegisters();
-		//if (cpu[0xFF80] != 0x00) {bQuit=1;}
-		//if (PC.pair == LINE_BREAK) {i++; if (i == 1){bQuit=1;}}
+		printRegisters();
+		//BYTE old;
+		//if (cpu[0xFFE1] != old) {bQuit=1;}
+		//old = cpu[0xFFE1]
+		//if (PC.pair == LINE_BREAK) {i++; if(i==1){bQuit=1;}}
+		if (PC.pair == LINE_BREAK) {bQuit=1;}
 		
 		/*if (PC.pair == 0x2834) {			
 			while (count <= 256) {
@@ -143,7 +149,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
         }
     }
 	bQuit = 0;
-	printRegisters();
+	//printRegisters();
 	/*while (i < 0x400) {		
 		BYTE loc = cpu[0x9800 + i];
 		printf("%02X\n", loc);
@@ -167,16 +173,41 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		i++;
 		//if (i % 32 == 0) {printf("\n");}
 	}*/
-	
-	/*while(!bQuit){
+	BYTE old = cpu[0xFFE1];
+	while(!bQuit){
 		getchar();
+		//if (PC.pair == LINE_BREAK) {getchar();}
+		
+		//if (cpu[0xFFE1] != old) {getchar();}
+		//old = cpu[0xFFE1];
+		//if (cpu[0xFF40]&1 && cpu[0xFF40]>>8&1 && cpu[0xFF40]!=0x91){getchar();}
 		cpuStep();
 		gpuStep();
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
-		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
+		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle		
 		printRegisters();
-	}*/
+		
+		/* check for messages */
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+        {
+            /* handle or dispatch messages */
+            if (msg.message == WM_QUIT)
+            {
+                bQuit = TRUE;
+            }
+            else
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {            
+			/* OpenGL animation code goes here */
+			
+        }
+	}
 	
 	
 	

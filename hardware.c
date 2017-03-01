@@ -79,6 +79,9 @@ void printRegisters() {
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
 		
-	printf("  FF40 : %02X", cpu[0xFF40]);
+	printf("  RET : %02X%02X", cpu[SP.pair], cpu[SP.pair+1]);
+	printf("  RET2 : %02X%02X", cpu[SP.pair+2], cpu[SP.pair+3]);
+	printf("  RET3 : %02X%02X", cpu[SP.pair+4], cpu[SP.pair+5]);
+	printf("  FFE1 : %02X", cpu[0xFFE1]);
 	//printf("\n");
 }
