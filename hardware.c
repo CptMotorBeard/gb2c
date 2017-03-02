@@ -60,6 +60,8 @@ void writeMemory(WORD address, BYTE data) {
 	}
 	// More read only areas
 	else if ((address >= 0xFEA0) && (address < 0xFEFF)) {} // don't write anything
+	// Scanline resets if written to
+	else if (address == 0xFF44) {cpu[address] = 0;}
 	// Interrupts
 	else if (address == 0xFF0F) {cpu[address] = data; interrupt.flags = data;}
 	else if (address == 0xFFFF) {cpu[address] = data; interrupt.enable = data;}
@@ -80,7 +82,7 @@ void printRegisters() {
 	printf("  RET : %02X%02X", cpu[SP.pair], cpu[SP.pair+1]);
 	printf("  RET2 : %02X%02X", cpu[SP.pair+2], cpu[SP.pair+3]);
 	printf("  RET3 : %02X%02X", cpu[SP.pair+4], cpu[SP.pair+5]);
-	printf("  RET3 : %02X%02X", cpu[SP.pair+6], cpu[SP.pair+7]);
-	printf("  FFE1 : %02X", cpu[0xFFE1]);
+	printf("  RET4 : %02X%02X", cpu[SP.pair+6], cpu[SP.pair+7]);
+	printf("  FF80 : %02X", cpu[0xFF80]);
 	//printf("\n");
 }

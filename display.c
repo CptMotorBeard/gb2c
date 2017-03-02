@@ -5,19 +5,33 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define LINE_BREAK 0x0355
+#define BREAK 0x28
 //////// 0x0355 /////////
+
+int debug = 0;
+
+void printBGMAP(){
+	int i = 0;
+	while (i < 0x400) {
+		BYTE loc = cpu[0x9800 + i];
+		printf("%02X ", loc);
+		i++;
+		if (i%32 == 0) printf("\n");
+	}
+}
 
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
 
-void read (char* input) {
+int read (char* input) {
 	FILE *rom = fopen(input, "rb");
 	if ( rom == 0) {
 			printf( "Could not open file\n" );
+			return 0;
 	} else {
 		fread(cpu, 1, romSize, rom);
 		fclose(rom);
+		return 1;
 	}
 }
 HDC hDC;
@@ -27,7 +41,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
                    int nCmdShow)
 {
 	initialize();
-	read(lpCmdLine);
+	if (!read(lpCmdLine)) {exit(1);}
 	
     WNDCLASSEX wcex;
     HWND hwnd;
@@ -84,9 +98,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
-    //int i = 0;
+	/////////////// MAIN PROGRAM LOOP ///////////////
 	
-	int c;
+	int c;	
+	int i = 0;
 	
 	while (!bQuit)
     {
@@ -95,39 +110,11 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
-		printRegisters();
-		//BYTE old;
-		//if (cpu[0xFFE1] != old) {bQuit=1;}
-		//old = cpu[0xFFE1]
-		//if (PC.pair == LINE_BREAK) {i++; if(i==1){bQuit=1;}}
-		if (PC.pair == LINE_BREAK) {bQuit=1;}
+		cpu[0xFF80] = 0x00;
+		//if (PC.pair == BREAK) {if (i == 1){debug = 1;} i++;}
+		if (debug) printRegisters();
+		if (debug) getchar();
 		
-		/*if (PC.pair == 0x2834) {			
-			while (count <= 256) {
-				i++;
-				if (i >= 16) {
-					count++;
-					printf("%d\n",count);
-					int x = 16;
-					WORD im[16];
-					while (x > 0) {					
-						im[x-1] = cpu[0x8000 + (16*count) + x-1];
-						x--;
-					}
-					BYTE y, z, index;
-					for (z = 0; z < 15; z+=2){
-						for (y = 0; y < 8; y++){
-							index = 1 << (7 - y);
-							int p = ((im[z] & index) ? 1 : 0) + ((im[z+1] & index) ? 2 : 0);
-							if (p == 0) {p = ' ';} else if (p == 1) {p = 'o';} else {p = 'x';}
-							printf("%c", p);
-						}
-						printf("\n");
-					}
-				}
-			}
-			bQuit = 1;
-		}*/
 		
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -143,74 +130,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
-        else
-        {            
-			/* OpenGL animation code goes here */
-			
-        }
     }
-	bQuit = 0;
-	//printRegisters();
-	/*while (i < 0x400) {		
-		BYTE loc = cpu[0x9800 + i];
-		printf("%02X\n", loc);
-		
-		WORD im[16];
-		int x = 0;
-		while (x < 16) {
-			im[x] = cpu[0x8000 + (16*loc) + x];
-			x++;
-		}
-		BYTE y, z, index;
-		for (z = 0; z < 15; z+=2){
-			for (y = 0; y < 8; y++){
-				index = 1 << (7 - y);
-				int p = ((im[z] & index) ? 1 : 0) + ((im[z+1] & index) ? 2 : 0);
-				if (p == 0) {p = ' ';} else if (p == 1) {p = 'o';} else {p = 'x';}
-				printf("%c", p);
-			}
-			printf("\n");
-		}
-		i++;
-		//if (i % 32 == 0) {printf("\n");}
-	}*/
-	BYTE old = cpu[0xFFE1];
-	while(!bQuit){
-		getchar();
-		//if (PC.pair == LINE_BREAK) {getchar();}
-		
-		//if (cpu[0xFFE1] != old) {getchar();}
-		//old = cpu[0xFFE1];
-		//if (cpu[0xFF40]&1 && cpu[0xFF40]>>8&1 && cpu[0xFF40]!=0x91){getchar();}
-		cpuStep();
-		gpuStep();
-		interruptStep();
-		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
-		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle		
-		printRegisters();
-		
-		/* check for messages */
-        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-        {
-            /* handle or dispatch messages */
-            if (msg.message == WM_QUIT)
-            {
-                bQuit = TRUE;
-            }
-            else
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
-        }
-        else
-        {            
-			/* OpenGL animation code goes here */
-			
-        }
-	}
 	
-	
+	/////////////// END OF MAIN PROGRAM LOOP ///////////////
 	
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
@@ -220,6 +142,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     return msg.wParam;
 }
 
+
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
@@ -227,28 +150,22 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         case WM_CLOSE:
             PostQuitMessage(0);
         break;
-
         case WM_DESTROY:
             return 0;
-
         case WM_KEYDOWN:
         {
-
             switch (wParam)
             {
                 case VK_ESCAPE:
                     PostQuitMessage(0);
                 case VK_DOWN:
-
                 break;
             }
         }
         break;
-
         default:
             return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
-
     return 0;
 }
 

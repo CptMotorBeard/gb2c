@@ -85,10 +85,10 @@ void gpuStep(int c){
 			break;
 		
         case HBLANK:
-            if(gpu_clock >= 204){
-            	gpu_clock = 0;
-				cpu[0xFF44]++;
+            if(gpu_clock >= 204){            			
                 cleanLine();
+				gpu_clock = 0;
+				cpu[0xFF44]++;
 				if (cpu[0xFF44] == 143) {
 					// VBLANK
 					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
@@ -277,7 +277,7 @@ void cleanLine(){
      }
 }
 void updateLine(){
-	scanLine(currLine, 143- cpu[0xFF44]);
+	scanLine(currLine, 142 - cpu[0xFF44]);
 }
 void printTileSet(int i){
 	WORD tileSet = 0x8000 + i*(0x1000);
