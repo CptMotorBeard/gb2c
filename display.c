@@ -5,8 +5,7 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define BREAK 0x29FA
-//////// 0x0355 /////////
+#define BREAK 0x468
 
 int debug = 0;
 
@@ -22,10 +21,10 @@ void printBGMAP(){
 
 void setJoypad() {
 	if (cpu[0xFF00] & 0x20){
-		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x20);
+		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x10);
 	}
 	else if (cpu[0xFF00] & 0x10){
-		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x10);
+		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x20);
 	}
 	else if (cpu[0xFF00] & 0x30) {cpu[0xFF00] = 0xFF;}
 	else cpu[0xFF00] = 0xCF;
@@ -170,7 +169,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		
 		// JOYPAD CONTROLS
         case WM_KEYDOWN:
-			printf("keydown");
             switch (wParam) {
 				// Right joypad down
                 case VK_RIGHT:
@@ -223,7 +221,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return 0;
 		
 		case WM_KEYUP:
-		printf("keyup");
             switch (wParam) {
 				// Right joypad up
                 case VK_RIGHT:

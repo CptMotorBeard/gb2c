@@ -139,7 +139,7 @@ void processLine(){
     
 	
 	//check if background is enabled and line is not done
-    while(/*(LCDC & 1) & */(written < 160)){
+    while((LCDC & 1) && (written < 160)){
         //get tile from tileset
         BYTE tileAddr = cpu[bgTileMapAddress];
 
