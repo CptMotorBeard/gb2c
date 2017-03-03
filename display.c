@@ -5,7 +5,7 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define BREAK 0x28
+#define BREAK 0x29FA
 //////// 0x0355 /////////
 
 int debug = 0;
@@ -18,6 +18,17 @@ void printBGMAP(){
 		i++;
 		if (i%32 == 0) printf("\n");
 	}
+}
+
+void setJoypad() {
+	if (cpu[0xFF00] & 0x20){
+		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x20);
+	}
+	else if (cpu[0xFF00] & 0x10){
+		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x10);
+	}
+	else if (cpu[0xFF00] & 0x30) {cpu[0xFF00] = 0xFF;}
+	else cpu[0xFF00] = 0xCF;
 }
 
 GLfloat vertices[2*160*144];
@@ -105,16 +116,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	
 	while (!bQuit)
     {
+		setJoypad();
 		c = cpuStep();
 		gpuStep(c);
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
-		cpu[0xFF80] = 0x00;
-		//if (PC.pair == BREAK) {if (i == 1){debug = 1;} i++;}
+		//if (cpu[0xFF00] != 0xCF) {debug = 1;}
+		//if (PC.pair == BREAK) {debug = 1;}
 		if (debug) printRegisters();
 		if (debug) getchar();
-		
 		
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -147,26 +158,126 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg)
     {
+		case WM_CREATE:
+			return 0;
+			
         case WM_CLOSE:
             PostQuitMessage(0);
-        break;
+			return 0;
+
         case WM_DESTROY:
             return 0;
+		
+		// JOYPAD CONTROLS
         case WM_KEYDOWN:
-        {
-            switch (wParam)
-            {
-                case VK_ESCAPE:
-                    PostQuitMessage(0);
-                case VK_DOWN:
-                break;
+			printf("keydown");
+            switch (wParam) {
+				// Right joypad down
+                case VK_RIGHT:
+					keys.keys2.right = 0;
+					stopped = 0;
+					break;
+				
+				// Left joypad down
+				case VK_LEFT:
+					keys.keys2.left = 0;
+					stopped = 0;
+					break;
+				
+				// Up joypad down
+				case VK_UP:
+					keys.keys2.up = 0;
+					stopped = 0;
+					break;
+					
+				// Down joypad down
+				case VK_DOWN:
+					keys.keys2.down = 0;
+					stopped = 0;
+					break;
+					
+				// A joypad down
+				case 'X':
+					keys.keys1.a = 0;
+					stopped = 0;
+					break;
+				
+				// B joypad down
+				case 'Z':
+					keys.keys1.b = 0;
+					stopped = 0;
+					break;
+					
+				// Select joypad down
+				case VK_BACK:
+					keys.keys1.select = 0;
+					stopped = 0;
+					break;
+				
+				// Start joypad down
+				case VK_RETURN:
+					keys.keys1.start = 0;
+					stopped = 0;
+					break;
             }
-        }
-        break;
+			return 0;
+		
+		case WM_KEYUP:
+		printf("keyup");
+            switch (wParam) {
+				// Right joypad up
+                case VK_RIGHT:
+					keys.keys2.right = 1;
+					stopped = 0;
+					break;
+				
+				// Left joypad up
+				case VK_LEFT:
+					keys.keys2.left = 1;
+					stopped = 0;
+					break;
+				
+				// Up joypad up
+				case VK_UP:
+					keys.keys2.up = 1;
+					stopped = 0;
+					break;
+					
+				// Down joypad up
+				case VK_DOWN:
+					keys.keys2.down = 1;
+					stopped = 0;
+					break;
+					
+				// A joypad up
+				case 'X':
+					keys.keys1.a = 1;
+					stopped = 0;
+					break;
+				
+				// B joypad up
+				case 'Z':
+					keys.keys1.b = 1;
+					stopped = 0;
+					break;
+					
+				// Select joypad up
+				case VK_BACK:
+					keys.keys1.select = 1;
+					stopped = 0;
+					break;
+				
+				// Start joypad up
+				case VK_RETURN:
+					keys.keys1.start = 1;
+					stopped = 0;
+					break;
+            }
+			return 0;
+		
         default:
             return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
-    return 0;
 }
 
 void EnableOpenGL(HWND hwnd, HDC* hDC, HGLRC* hRC)

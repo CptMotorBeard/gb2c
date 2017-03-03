@@ -178,7 +178,7 @@ void RRCA() {
 	if (registerAF.hi) {clearFlag(flag_Z);}
 	else {setFlag(flag_Z);}
 }
-void STOP(BYTE operand) {}
+void STOP(BYTE operand) {stopped = 1;}
 void LD_DE(WORD operand) {LD_16(&registerDE, operand);}
 void LD_DE_A() {writeMemory(registerDE.pair, registerAF.hi);}
 void INC_DE() {registerDE.pair++;}

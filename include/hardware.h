@@ -3,6 +3,9 @@ typedef unsigned char BYTE;
 typedef signed char SIGNED_BYTE;
 typedef unsigned short WORD;
 
+// is cpu stopped?
+int stopped;
+
 // clock
 int clock;
 
@@ -29,6 +32,25 @@ Register registerAF;
 Register registerBC;
 Register registerDE;
 Register registerHL;
+
+// Our joypad
+typedef struct {
+	struct {
+		BYTE a;
+		BYTE b;
+		BYTE select;
+		BYTE start;
+	}keys1;
+	
+	struct {
+		BYTE right;
+		BYTE left;
+		BYTE up;
+		BYTE down;
+	}keys2;
+} Keys;
+
+Keys keys;
 
 // program counter is 16 bits, or a word. Using a register because high and low bits are used
 Register PC;

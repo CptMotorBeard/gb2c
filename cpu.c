@@ -284,6 +284,8 @@ int CBcycles[256] = {
 };
 
 int cpuStep () {
+	if (stopped) {return 0;}
+	
 	int operands;
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;

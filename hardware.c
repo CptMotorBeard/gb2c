@@ -10,6 +10,7 @@ void initialize() {
 	registerBC.pair = 0x0013;
 	registerDE.pair = 0x00D8;
 	registerHL.pair = 0x014D;
+	cpu[0xFF00] = 0xCF;
 	cpu[0xFF05] = 0x00;
 	cpu[0xFF06] = 0x00;
 	cpu[0xFF07] = 0x00;
@@ -46,6 +47,18 @@ void initialize() {
 	interrupt.enable = 0;
 	interrupt.flags = 0;
 	interrupt.timer = 0xFF;
+	
+	stopped = 0;
+	
+	keys.keys1.a = 1;
+	keys.keys1.b = 1;
+	keys.keys1.start = 1;
+	keys.keys1.select = 1;
+	
+	keys.keys2.up = 1;
+	keys.keys2.down = 1;
+	keys.keys2.left = 1;
+	keys.keys2.right = 1;
 }
 
 void writeMemory(WORD address, BYTE data) {
@@ -79,10 +92,14 @@ void printRegisters() {
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
 		
-	printf("  RET : %02X%02X", cpu[SP.pair], cpu[SP.pair+1]);
-	printf("  RET2 : %02X%02X", cpu[SP.pair+2], cpu[SP.pair+3]);
-	printf("  RET3 : %02X%02X", cpu[SP.pair+4], cpu[SP.pair+5]);
-	printf("  RET4 : %02X%02X", cpu[SP.pair+6], cpu[SP.pair+7]);
-	printf("  FF80 : %02X", cpu[0xFF80]);
+	//printf("  RET : %02X%02X", cpu[SP.pair], cpu[SP.pair+1]);
+	//printf("  RET2 : %02X%02X", cpu[SP.pair+2], cpu[SP.pair+3]);
+	//printf("  RET3 : %02X%02X", cpu[SP.pair+4], cpu[SP.pair+5]);
+	//printf("  RET4 : %02X%02X", cpu[SP.pair+6], cpu[SP.pair+7]);
+	
+	printf("  keys1 : %1X%1X%1X%1X", keys.keys1.start, keys.keys1.select, keys.keys1.b, keys.keys1.a);
+	printf("  keys1 : %1X%1X%1X%1X", keys.keys2.down, keys.keys2.up, keys.keys2.left, keys.keys2.right);
+	
+	printf("  FF00 : %02X", cpu[0xFF00]);
 	//printf("\n");
 }
