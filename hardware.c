@@ -75,6 +75,14 @@ void writeMemory(WORD address, BYTE data) {
 	else if ((address >= 0xFEA0) && (address < 0xFEFF)) {} // don't write anything
 	// Scanline resets if written to
 	else if (address == 0xFF44) {cpu[address] = 0;}
+	else if(address == 0xFF46){
+		WORD from = data << 8;
+		int i;
+		for(i = 0; i < 160; i++){
+			cpu[0xFE00 + i] = cpu[from];
+			from++;
+		}
+	}
 	// Interrupts
 	else if (address == 0xFF0F) {cpu[address] = data; interrupt.flags = data;}
 	else if (address == 0xFFFF) {cpu[address] = data; interrupt.enable = data;}

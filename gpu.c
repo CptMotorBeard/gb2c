@@ -51,10 +51,10 @@ float colorPalette[4][3] = {
 //LCDC keeps track of the Display operation, tile maps, tile sets, and sprite/tile size
 BYTE LCDC;
 struct spriteOAM{
-    char yCoord;
-    char xCoord;
-    char tileNumber;
-    char options;
+    BYTE yCoord;
+    BYTE xCoord;
+    BYTE tileNumber;
+    BYTE options;
 };
 
 //Need to store the current line
@@ -80,7 +80,7 @@ void gpuStep(int c){
 				gpu_clock = 0;
 				if (cpu[0xFF40] & 128) {
 					updateLine();
-				}				
+				}
 			}
 			break;
 		
@@ -132,19 +132,14 @@ void processLine(){
     char spriteY = 8 + (LCDC & 4)*8;
     char curX = 7 - (scrollX % 8);
     char curY = ((scrollY + line) % 8) ;
-    
-	
-	//printf("%04X, %04X %d %d ", PC.pair, bgTileMapAddress, curX, curY);
-    //printf("%02X ",cpu[bgTileMapAddress]);
-    
 	
 	//check if background is enabled and line is not done
-    while((LCDC & 1) && (written < 160)){
+    while((LCDC & 1) & (written < 160)){
         //get tile from tileset
         BYTE tileAddr = cpu[bgTileMapAddress];
 
         //2 bytes is 1 row for a tile
-        short tile = (cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2] << 8) + cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2 + 1];
+        WORD tile = (cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2] << 8) + cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2 + 1];
         //printf("%02X",tile);
         //printTileSet(0);
         //write all the pixels for this line from that tile
@@ -158,7 +153,6 @@ void processLine(){
             written++;
             curX--;
         }
-        
 		
 		//printf("\n");
         
@@ -169,7 +163,6 @@ void processLine(){
 		
 		//printf("%02X ",cpu[bgTileMapAddress]);
     }
-    
 	
 	//printf("\n");
     
@@ -195,36 +188,37 @@ void processLine(){
         }
         curX = 7;
     }
+    */
     //apply the sprite layer to curLine---------------------------------------
     if(LCDC & 2){
         int i;
         struct spriteOAM currentSprite ;
-        for(i =0; i< 40; i++){
+        for(i = 0; i< 40; i++){
             currentSprite.yCoord = cpu[0xFE00 + i*4];
             currentSprite.xCoord = cpu[0xFE01 + i*4];
             currentSprite.tileNumber = cpu[0xFE02 + i*4];
             currentSprite.options = cpu[0xFE03 + i*4];
-            //printf("Sprint: %d X: %d Y: %d tileNumber: %d\n", i, currentSprite.yCoord, currentSprite.xCoord, currentSprite.tileNumber);
             //check if line intersects the sprite
-            if((currentSprite.yCoord - 16 > line )& (currentSprite.yCoord - 16 - spriteY < line)){
+            if((currentSprite.yCoord - 8 > line )& (currentSprite.yCoord - 8 - spriteY < line)){
                 //draw it on the line
-                char tileAddr = cpu[0x8000 + currentSprite.tileNumber];
-                short tile;
-                char spriteX = currentSprite.xCoord - 8;
-                char spriteY = currentSprite.yCoord - 16;
-                int priority = currentSprite.options >> 7 & 1;
+                WORD tileAddr = 0x8000 + ((0x10)*currentSprite.tileNumber);
+                WORD tile;
+                BYTE spriteX = currentSprite.xCoord - 8;
+                BYTE spriteY = currentSprite.yCoord - 16;
+                int priority = (currentSprite.options >> 7) & 1;
                 //check for y flip
-                if(currentSprite.options >> 6 & 1){
-                    tile = cpu[tileAddr + (7 - (line % 8))];
+                if((currentSprite.options >> 6) & 1){
+                    tile = (cpu[tileAddr + (7 - (line % 8))] << 8) + cpu[tileAddr + (7 - (line % 8))+ 1] ;
                 }else{
-                    tile = cpu[tileAddr + (line % 8)];
+                    tile = (cpu[tileAddr + (line % 8)*2] <<8) +  cpu[tileAddr + (line % 8)*2+1];
                 }
                 //check for x flip
                 if(currentSprite.options >> 5 & 1){
                     int j;
                     for(j = 0;j < 8;j++){
                         if(priority == 0){
-                            int pixel = (((((tile >> j)  & 1)+ 8)*2) + (tile >> j & 1));
+                            int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
+
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + j)*3] = colorPalette[pixel][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[pixel][1];
@@ -232,7 +226,8 @@ void processLine(){
                             }
                         }
                         else{
-                            int pixel = (((tile >> j)  & 1) + 8)*2 + (tile >> j & 1);
+                        	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
+
                             if((currLine[(spriteX + j)*3] == 0) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + j)*3] = colorPalette[pixel][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[pixel][1];
@@ -242,9 +237,11 @@ void processLine(){
                     }
                 }else{
                     int j;
+
+                    //printf("Drawing sprite pos %04X Tile num : %04X Y: %04X X: %04X\n", i, tileAddr + (line % 8)*2, currentSprite.yCoord, currentSprite.xCoord);
                     for(j = 7;j > -1;j--){
                         if(priority == 0){
-                            int pixel = ((((tile >> j)  & 1) + 8)*2) + (tile >> j & 1);
+                        	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[pixel][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[pixel][1];
@@ -252,8 +249,9 @@ void processLine(){
                             }
                         }
                         else{
-                            int pixel = ((((tile >> j)  & 1)+ 8)*2) + (tile >> j & 1);
-                            if((currLine[(spriteX + 7 -j)*3] == 0) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
+                        	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
+                        	printf("%f %d %d\n",currLine[(spriteX + 7 -j)*3], spriteX, spriteY);
+                            if((currLine[(spriteX + 7 -j)*3] == 1.0f) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[pixel][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[pixel][1];
                                 currLine[(spriteX + 7 -j)*3 + 2] = colorPalette[pixel][2];
@@ -264,8 +262,6 @@ void processLine(){
             }
         }
     }
-*/
-
 
 }
 void cleanLine(){
@@ -277,7 +273,7 @@ void cleanLine(){
      }
 }
 void updateLine(){
-	scanLine(currLine, 142 - cpu[0xFF44]);
+	scanLine(currLine, 143 - cpu[0xFF44]);
 }
 void printTileSet(int i){
 	WORD tileSet = 0x8000 + i*(0x1000);
@@ -287,6 +283,19 @@ void printTileSet(int i){
 		for(k = 0; k < 16; k++){
 			printf("%02X",cpu[tileSet]);
 			tileSet ++;
+		}
+		printf("\n");
+	}
+}
+void printOAM(){
+	WORD sprite = 0xFE00;
+	int i;
+	for(i = 0; i<40; i++){
+		int j;
+		printf("%d ",i);
+		for(j=0;j<4;j++){
+			printf("%04X %04X ", sprite,cpu[sprite]);
+			sprite++;
 		}
 		printf("\n");
 	}

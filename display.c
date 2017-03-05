@@ -5,7 +5,8 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define BREAK 0x468
+#define BREAK 0x29FA
+//////// 0x0355 /////////
 
 int debug = 0;
 
@@ -85,8 +86,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
                           WS_OVERLAPPEDWINDOW,
                           CW_USEDEFAULT,
                           CW_USEDEFAULT,
-                          160,
-                          144,
+                          320,
+                          288,
                           NULL,
                           NULL,
                           hInstance,
@@ -320,25 +321,12 @@ void scanLine(GLfloat lineColors[3*160], int thisline){
     for(i = 0; i<160*3; i++){
         colors[160*(thisline)*3 + i] = lineColors[i];
     }
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glPointSize(1.0f);
-
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-
-    glColorPointer(3, GL_FLOAT, 0, colors);
-    glVertexPointer(2, GL_FLOAT, 0, vertices);
-    glDrawArrays(GL_POINTS, 0, 160*144);
-
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
 }
 
 void drawScreen(){
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    glPointSize(1.0f);
+    glPointSize(2.0f);
 
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);

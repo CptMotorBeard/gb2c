@@ -1,7 +1,6 @@
 #include "hardware.h"
 #include "opcodes.h"
 #include "interrupts.h"
-
 // Helper functions for opcodes
 // 8-bit loads
 void LD(Register* r, BYTE immediate, int type) {
@@ -1649,7 +1648,8 @@ void RST_18() {
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0018);
 }
-void LD_FF02X_A(BYTE operand) {writeMemory(0xFF00 + operand, registerAF.hi);}
+void LD_FF02X_A(BYTE operand) {
+	writeMemory(0xFF00 + operand, registerAF.hi);}
 void POP_HL() {
 	LD(&registerHL, cpu[SP.pair], 2);SP.pair++;
 	LD(&registerHL, cpu[SP.pair], 1);SP.pair++;
