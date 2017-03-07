@@ -79,10 +79,10 @@ void writeMemory(WORD address, BYTE data) {
 		WORD from = data << 8;
 		int i;
 		for(i = 0; i < 160; i++){
-			cpu[0xFE00 + i] = cpu[from];
-			from++;
+			cpu[0xFE00 + i] = cpu[from + i];
 		}
 	}
+		
 	// Interrupts
 	else if (address == 0xFF0F) {cpu[address] = data; interrupt.flags = data;}
 	else if (address == 0xFFFF) {cpu[address] = data; interrupt.enable = data;}
@@ -99,15 +99,4 @@ void printRegisters() {
 	
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
-		
-	//printf("  RET : %02X%02X", cpu[SP.pair], cpu[SP.pair+1]);
-	//printf("  RET2 : %02X%02X", cpu[SP.pair+2], cpu[SP.pair+3]);
-	//printf("  RET3 : %02X%02X", cpu[SP.pair+4], cpu[SP.pair+5]);
-	//printf("  RET4 : %02X%02X", cpu[SP.pair+6], cpu[SP.pair+7]);
-	
-	printf("  keys1 : %1X%1X%1X%1X", keys.keys1.start, keys.keys1.select, keys.keys1.b, keys.keys1.a);
-	printf("  keys1 : %1X%1X%1X%1X", keys.keys2.down, keys.keys2.up, keys.keys2.left, keys.keys2.right);
-	
-	printf("  FF00 : %02X", cpu[0xFF00]);
-	//printf("\n");
 }

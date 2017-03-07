@@ -290,13 +290,9 @@ int cpuStep () {
 	int oppc;
 	operands=opcodes[cpu[PC.pair]].operands;
 	oppc = PC.pair;
-	///// DEBUG
-	//char *inst = opcodes[cpu[PC.pair]].inst;
 	
 	if (operands == 1) {				
 		PC.pair++;
-		///// DEBUG
-		//printf(inst, cpu[PC.pair]);
 		((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
 	}
 	else if (operands == 2) {
@@ -305,14 +301,9 @@ int cpuStep () {
 		op = (cpu[PC.pair]);
 		PC.pair++;
 		op = op | (cpu[PC.pair]<<8);
-		///// DEBUG
-		//printf(inst, op);
 		
 		((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
-	} else {
-		///// DEBUG
-		//printf(inst);
-		
+	} else {	
 		((void (*)(void))opcodes[cpu[oppc]].function)();
 	}
 
@@ -321,9 +312,6 @@ int cpuStep () {
 	else {cycles = opcodes[cpu[oppc]].cycles;}
 	
 	PC.pair++;
-	
-	///// DEBUG
-	//printf("  ");
 	
 	return cycles;
 }

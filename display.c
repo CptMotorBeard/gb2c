@@ -5,10 +5,6 @@
 #include "cpu.h"
 #include "interrupts.h"
 #include "display.h"
-#define BREAK 0x29FA
-//////// 0x0355 /////////
-
-int debug = 0;
 
 void printBGMAP(){
 	int i = 0;
@@ -21,13 +17,13 @@ void printBGMAP(){
 }
 
 void setJoypad() {
-	if (cpu[0xFF00] & 0x20){
+	if (!(cpu[0xFF00] & 0x20)){
 		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x10);
 	}
-	else if (cpu[0xFF00] & 0x10){
+	else if (!(cpu[0xFF00] & 0x10)){
 		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x20);
 	}
-	else if (cpu[0xFF00] & 0x30) {cpu[0xFF00] = 0xFF;}
+	else if (!(cpu[0xFF00] & 0x30)) {cpu[0xFF00] = 0xFF;}
 	else cpu[0xFF00] = 0xCF;
 }
 
@@ -112,20 +108,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	/////////////// MAIN PROGRAM LOOP ///////////////
 	
 	int c;	
-	int i = 0;
 	
 	while (!bQuit)
     {
+		cpu[0xFF04] = (BYTE)rand();		///// This is the timer, for now a random number works
 		setJoypad();
 		c = cpuStep();
 		gpuStep(c);
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
-		//if (cpu[0xFF00] != 0xCF) {debug = 1;}
-		//if (PC.pair == BREAK) {debug = 1;}
-		if (debug) printRegisters();
-		if (debug) getchar();
 		
         /* check for messages */
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))

@@ -140,8 +140,6 @@ void processLine(){
 
         //2 bytes is 1 row for a tile
         WORD tile = (cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2] << 8) + cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2 + 1];
-        //printf("%02X",tile);
-        //printTileSet(0);
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
 		
@@ -154,18 +152,9 @@ void processLine(){
             curX--;
         }
 		
-		//printf("\n");
-        
-		
 		curX = 7;
         bgTileMapAddress++;
-        
-		
-		//printf("%02X ",cpu[bgTileMapAddress]);
     }
-	
-	//printf("\n");
-    
 	
 	/*
     //apply the window layer to curline---------------------------------------
@@ -207,8 +196,8 @@ void processLine(){
                 BYTE spriteY = currentSprite.yCoord - 16;
                 int priority = (currentSprite.options >> 7) & 1;
                 //check for y flip
-                if((currentSprite.options >> 6) & 1){
-                    tile = (cpu[tileAddr + (7 - (line % 8))] << 8) + cpu[tileAddr + (7 - (line % 8))+ 1] ;
+                if((currentSprite.options >> 6) & 1){                    
+					tile = (cpu[tileAddr + (7 - (line % 8))] << 8) + cpu[tileAddr + (7 - (line % 8))+ 1] ;
                 }else{
                     tile = (cpu[tileAddr + (line % 8)*2] <<8) +  cpu[tileAddr + (line % 8)*2+1];
                 }
@@ -237,8 +226,7 @@ void processLine(){
                     }
                 }else{
                     int j;
-
-                    //printf("Drawing sprite pos %04X Tile num : %04X Y: %04X X: %04X\n", i, tileAddr + (line % 8)*2, currentSprite.yCoord, currentSprite.xCoord);
+					
                     for(j = 7;j > -1;j--){
                         if(priority == 0){
                         	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
@@ -249,8 +237,7 @@ void processLine(){
                             }
                         }
                         else{
-                        	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);
-                        	printf("%f %d %d\n",currLine[(spriteX + 7 -j)*3], spriteX, spriteY);
+                        	int pixel = (((tile >> (8 + j))  & 1))*2 + (tile >> j & 1);                     
                             if((currLine[(spriteX + 7 -j)*3] == 1.0f) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[pixel][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[pixel][1];
