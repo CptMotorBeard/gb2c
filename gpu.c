@@ -124,7 +124,7 @@ void processLine(){
     scrollY = cpu[0xFF42];
 	int line = cpu[0xFF44];
     //apply the background layer to curLine-----------------------------------
-    WORD bgTileMapAddress = 0x9800 + ((LCDC >> 3) & 1)*0X0400;
+    WORD bgTileMapAddress = 0x9800 + (((LCDC >> 3) & 1)*0x400);
     //(line/8)*32 adjusts for the y and scrollX/8 adjusts for X
     bgTileMapAddress += ((scrollY + line)/8) * 32;
 
@@ -139,7 +139,12 @@ void processLine(){
         BYTE tileAddr = cpu[bgTileMapAddress];
 
         //2 bytes is 1 row for a tile
-        WORD tile = (cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2] << 8) + cpu[0x8000 + (tileAddr*(0x10)) + (curY)*2 + 1];
+        WORD tile;		
+		if ((LCDC >> 4) & 0x1) {
+			tile = (cpu[0x8000 + (tileAddr * 0x10) + (curY * 2)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + (curY * 2) + 1];			
+		} else {
+			tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2) + 1];
+		}
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
 		
