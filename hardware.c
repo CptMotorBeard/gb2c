@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "hardware.h"
 #include "interrupts.h"
+#include "timers.h"
 
 // Initial values at bootup for the hardware
 void initialize() {
@@ -82,7 +83,16 @@ void writeMemory(WORD address, BYTE data) {
 			cpu[0xFE00 + i] = cpu[from + i];
 		}
 	}
-		
+	// Timers
+	else if (address == 0xFF04) {cpu[address] = 0;}
+	else if (address == 0xFF07) {
+		BYTE curFreq = getFrequency();
+		cpu[address] = data;
+		BYTE newFreq = getFrequency();
+		if (curFreq != newFreq) {
+			setFrequency();
+		}
+	}
 	// Interrupts
 	else if (address == 0xFF0F) {cpu[address] = data; interrupt.flags = data;}
 	else if (address == 0xFFFF) {cpu[address] = data; interrupt.enable = data;}

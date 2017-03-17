@@ -3,6 +3,7 @@
 #include "hardware.h"
 #include "gpu.h"
 #include "cpu.h"
+#include "timers.h"
 #include "interrupts.h"
 #include "display.h"
 
@@ -111,10 +112,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	
 	while (!bQuit)
     {
-		cpu[0xFF04] = (BYTE)rand();		///// This is the timer, for now a random number works
 		setJoypad();
 		c = cpuStep();
 		gpuStep(c);
+		timerStep(c);
 		interruptStep();
 		if (interrupt.timer == 0x01) {interrupt.timer = 0xFF; interrupt.master = 1;}	// EI after one more cycle
 		else if (interrupt.timer == 0x00) {interrupt.timer = 0xFF; interrupt.master = 0;} // DI after one more cycle
