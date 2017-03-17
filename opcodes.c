@@ -156,8 +156,7 @@ void RLCA() {
 	registerAF.hi <<= 1;
 	registerAF.hi += carry;
 	
-	if (registerAF.hi) {clearFlag(flag_Z);}
-	else {setFlag(flag_Z);}
+	clearFlag(flag_Z);
 }
 void LD_04X_SP(WORD operand) {LD_16(&SP, operand);}
 void ADD_HL_BC() {ADD_16(registerBC.pair);}
@@ -174,8 +173,7 @@ void RRCA() {
 	clearFlag(flag_N);
 	clearFlag(flag_H);
 	
-	if (registerAF.hi) {clearFlag(flag_Z);}
-	else {setFlag(flag_Z);}
+	clearFlag(flag_Z);
 }
 void STOP(BYTE operand) {stopped = 1;}
 void LD_DE(WORD operand) {LD_16(&registerDE, operand);}
@@ -195,8 +193,7 @@ void RLA() {
 	registerAF.hi <<= 1;
 	registerAF.hi += carry;
 	
-	if (registerAF.hi) {clearFlag(flag_Z);}
-	else {setFlag(flag_Z);}
+	clearFlag(flag_Z);
 }
 void JR(BYTE operand) {JP(PC.pair + (SIGNED_BYTE)operand+1);}
 void ADD_HL_DE() {ADD_16(registerDE.pair);}
@@ -214,8 +211,7 @@ void RRA() {
 	clearFlag(flag_N);
 	clearFlag(flag_H);
 	
-	if (registerAF.hi) {clearFlag(flag_Z);}
-	else {setFlag(flag_Z);}
+	clearFlag(flag_Z);
 }
 void JR_NZ(BYTE operand) {if (!flagSet(flag_Z)){JR(operand);}}
 void LD_HL_WORD(WORD operand) {LD_16(&registerHL, operand);}
