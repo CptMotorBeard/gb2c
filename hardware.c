@@ -44,6 +44,7 @@ void initialize() {
 	cpu[0xFF4B] = 0x00;
 	cpu[0xFFFF] = 0x00;
 	
+	memset(&ramBanks,0,0x8000);
 	interrupt.master = 1;
 	interrupt.enable = 0;
 	interrupt.flags = 0;
@@ -61,10 +62,51 @@ void initialize() {
 	keys.keys2.left = 1;
 	keys.keys2.right = 1;
 }
-
+BYTE readMemory(WORD address){
+	if(address >= 0x4000 && address <= 0x7FFF){
+		return cartridge[address - 0x4000 + m.romBank*0x4000];
+	}
+	else if(address >= 0xA000 && address <= 0xBFFF){
+		return ramBanks[address - 0xA000 + m.ramBank*0x2000];
+	}else{
+		return cpu[address];
+	}
+}
 void writeMemory(WORD address, BYTE data) {
 	// 0x0000 - 0x8000 is read only
-	if (address < 0x8000) {} // don't write anything
+	if (address < 0x8000) {
+		if(address <= 0x1FFF){
+			BYTE isA = (data & 0xF);
+			if(isA == 0xA){
+				m.ramEnable = 1;
+			}else if(isA == 0x0){
+				m.ramEnable = 0;
+			}
+		}
+		else if(address <= 0x3FFF){
+			BYTE lower5 = data & 0x1F;
+			m.romBank &= 0xE0; // set lower 5 to 0
+			m.romBank |= lower5; //
+			if(lower5 == 0){
+				m.romBank++;
+			}
+		}
+		else if(address <= 0x5FFF){
+			BYTE lower2 = data & 3;
+			if(m.select == 1){
+				m.ramBank = lower2;
+			}else if(m.select == 0){
+				m.romBank |= lower2 << 5;
+			}
+		}else if(address <= 0x7FFF){
+			m.select = data & 1;
+		}
+	} // don't write anything
+	else if(address >= 0xA000 && address <= 0xBFFF){
+		if(m.ramEnable){
+			ramBanks[address - 0xA000 + m.ramBank*0x2000] = data;
+		}
+	}
 	// 0xE000 - 0xFE00 also writes to RAM
 	else if ((address >= 0xE000) && (address < 0xFE00)) {
 		// Write to memory
