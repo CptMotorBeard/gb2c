@@ -113,7 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	while (!bQuit)
     {
 		setJoypad();
-		if (halt != 1) {c = cpuStep();}		
+		if (halt != 1) {c = cpuStep(); c /= 4;}		
 		gpuStep(c);
 		timerStep(c);
 		interruptStep();
