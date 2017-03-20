@@ -5,6 +5,8 @@ typedef unsigned short WORD;
 
 // is cpu stopped?
 int stopped;
+// is cpu halted?
+int halt;
 
 // clock
 int clock;

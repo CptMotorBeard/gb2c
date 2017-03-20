@@ -5,7 +5,13 @@
 void interruptStep() {
 	if(interrupt.master && interrupt.enable && interrupt.flags) {
 		BYTE fire = interrupt.enable & interrupt.flags;
-		
+		if (  (interrupt.flags & INTERRUPTS_VBLANK)
+			| (interrupt.flags & INTERRUPTS_LCDSTAT)
+			| (interrupt.flags & INTERRUPTS_TIMER)
+			| (interrupt.flags & INTERRUPTS_SERIAL)
+			| (interrupt.flags & INTERRUPTS_JOYPAD)) {
+			halt = 0;
+		}
 		if(fire & INTERRUPTS_VBLANK) {
 			interrupt.flags &= ~INTERRUPTS_VBLANK;
 			vblank();
