@@ -1,6 +1,8 @@
 #include "hardware.h"
 #include "opcodes.h"
 #include "interrupts.h"
+#include <stdio.h>
+
 // Helper functions for opcodes
 // 8-bit loads
 void LD(Register* r, BYTE immediate, int type) {
@@ -133,7 +135,7 @@ void ADD_16(WORD r) {
 	unsigned long result = registerHL.pair + r;
 	if (result & 0xFFFF0000) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if (((registerHL.pair & 0xF) + (r & 0xF)) >> 0xF){setFlag(flag_H);}
+	if ((((registerHL.pair & 0xF) + (r & 0xF)) &0x10) == 0x10){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	registerHL.pair = (WORD)(result & 0xFFFF);
 }
@@ -221,24 +223,37 @@ void INC_H() {registerHL.hi = INC(registerHL.hi);}
 void DEC_H() {registerHL.hi = DEC(registerHL.hi);}
 void LD_H(BYTE operand) {LD(&registerHL, operand, 2);}
 void DAA() {
-	WORD s = registerAF.hi;
+	BYTE s = registerAF.hi;
 	
-	if(flagSet(flag_Z)) {
-		if(flagSet(flag_H)) {s = (s - 0x06)&0xFF;}
-		if(flagSet(flag_C)) {s -= 0x60;}
+	int i;
+	BYTE ones = 0x00;
+	BYTE tens = 0x00;
+	BYTE hundreds = 0x00;
+	for (i = 0; i < 8; i++) {	
+		hundreds <<= 1;
+		hundreds |= ((tens & 0x8) >> 3);
+		hundreds &= 0xF;
+		if ((hundreds >= 5) && (i != 7)) {hundreds += 3;}
+		
+		tens <<= 1;
+		tens |= ((ones & 0x8) >> 3);
+		tens &= 0xF;
+		if ((tens >= 5) && (i != 7)) {tens += 3;}
+		
+		ones <<= 1;
+		ones |= ((s >> (7 - i)) & 0x1);
+		ones &= 0xF;
+		if ((ones >= 5) && (i != 7)) {ones += 3;}
 	}
-	else {
-		if(flagSet(flag_H) || (s & 0xF) > 9) {s += 0x06;}
-		if(flagSet(flag_C) || s > 0x9F) {s += 0x60;}
-	}
+	
+	s = ones | tens << 4;
 	
 	registerAF.hi = s;
 	clearFlag(flag_H);
 	
-	if(registerAF.hi == 0){flagSet(flag_Z);}
+	if(registerAF.hi == 0){setFlag(flag_Z);}
 	else {clearFlag(flag_Z);}
-	
-	if(s >= 0x100){flagSet(flag_C);}
+	if(hundreds != 0){setFlag(flag_C);}
 }
 void JR_Z(BYTE operand) {if (flagSet(flag_Z)){JR(operand);}}
 void ADD_HL_HL() {ADD_16(registerHL.pair);}
@@ -1728,4 +1743,4 @@ void RST_38() {
 	JP(0x0038);
 }
 void INC_HL_P() {writeMemory(registerHL.pair, INC(cpu[registerHL.pair]));}
-void DEC_HL_P() {writeMemory(registerHL.pair, INC(cpu[registerHL.pair]));}
+void DEC_HL_P() {writeMemory(registerHL.pair, DEC(cpu[registerHL.pair]));}
