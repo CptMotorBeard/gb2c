@@ -6,7 +6,6 @@
 #include <GL/gl.h>
 #include <stdio.h>
 
-int loadToMem();
 void drawScreen();
 void scanLine(GLfloat[], int);
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);

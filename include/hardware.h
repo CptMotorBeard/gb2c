@@ -1,4 +1,3 @@
-#include <string.h>
 // Defining the types based off of GB types and data sizes
 typedef unsigned char BYTE;
 typedef signed char SIGNED_BYTE;
@@ -26,7 +25,7 @@ typedef union {
 #define flag_C (1 << 4)
 
 // This is the size of a regular GB rom
-#define romSize 0x8000
+#define romSize 0x7FFF
 
 // We have our register pairs defined below.
 Register registerAF;
@@ -80,18 +79,7 @@ BYTE screen[160][144][3];
 //
 // So total memory for the CPU is 0x10000 values
 BYTE cpu[0x10000];
-BYTE cartridge[0x200000];
-BYTE ramBanks[0x8000];
 
-struct MemCont{
-	int mode;
-	int select;
-	int ramEnable;
-	int romBank;
-	int ramMode;
-	int ramBank;
-};
-struct MemCont m;
 // functions
 
 void initialize(void);

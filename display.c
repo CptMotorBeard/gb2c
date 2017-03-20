@@ -37,38 +37,11 @@ int read (char* input) {
 			printf( "Could not open file\n" );
 			return 0;
 	} else {
-		fread(cartridge, 1, 0x200000, rom);
+		fread(cpu, 1, romSize, rom);
 		fclose(rom);
-		int loaded = loadToMem();
-		if(!loaded){
-			printf("Rom Type not supported");
-		}
 		return 1;
 	}
 }
-int loadToMem(){
-	BYTE cartType = cartridge[0x147];
-	switch (cartType){
-		case 0:
-			memcpy(cpu, cartridge, 0x8000);
-			m.mode = 0;
-			m.ramEnable = 0;
-			m.romBank = 0;
-			m.ramBank = 0;
-			m.select = 0;
-			break;
-		case 1:
-			memcpy(cpu, cartridge, 0x8000);
-			m.mode = 1;
-			m.ramEnable = 0;
-			m.romBank = 0;
-			m.ramBank = 0;
-			break;
-		return 0;
-	}
-	return 1;
-}
-
 HDC hDC;
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
