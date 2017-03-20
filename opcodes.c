@@ -147,7 +147,7 @@ void INC_B() {registerBC.hi = INC(registerBC.hi);}
 void DEC_B() {registerBC.hi = DEC(registerBC.hi);}
 void LD_B(BYTE operand) {LD(&registerBC, operand, 2);}
 void RLCA() {
-	BYTE carry = (registerAF.hi & 80) >> 7;
+	BYTE carry = (registerAF.hi & 0x80) >> 7;
 	if (carry) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
@@ -185,7 +185,7 @@ void LD_D(BYTE operand) {LD(&registerDE, operand, 2);}
 void RLA() {
 	BYTE carry = flagSet(flag_C);
 	
-	if ((registerAF.hi & 80) >> 7) {setFlag(flag_C);}
+	if ((registerAF.hi & 0x80) >> 7) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
 	clearFlag(flag_H);
@@ -328,7 +328,10 @@ void LD_HL_D() {writeMemory(registerHL.pair, registerDE.hi);}
 void LD_HL_E() {writeMemory(registerHL.pair, registerDE.lo);}
 void LD_HL_H() {writeMemory(registerHL.pair, registerHL.hi);}
 void LD_HL_L() {writeMemory(registerHL.pair, registerHL.lo);}
-void HALT() {}
+void HALT() {
+	if(interrupt.master) {halt = 1;}
+	else {PC.pair++;}
+}
 void LD_HL_A() {writeMemory(registerHL.pair, registerAF.hi);}
 void LD_A_B() {LD(&registerAF, registerBC.hi, 2);}
 void LD_A_C() {LD(&registerAF, registerBC.lo, 2);}
@@ -435,7 +438,7 @@ void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
 // CB helpers
 // Rotates
 BYTE RLC(BYTE r) {
-	BYTE carry = (r & 80) >> 7;
+	BYTE carry = (r & 0x80) >> 7;
 	if (carry) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
@@ -465,7 +468,7 @@ BYTE RRC (BYTE r){
 BYTE RL(BYTE r){
 	BYTE carry = flagSet(flag_C);
 	
-	if ((r & 80) >> 7) {setFlag(flag_C);}
+	if ((r & 0x80) >> 7) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
 	clearFlag(flag_H);
@@ -494,7 +497,7 @@ BYTE RR(BYTE r){
 }
 // Shifts
 BYTE SLA(BYTE r) {
-	if ((r & 80) >> 7) {setFlag(flag_C);}
+	if ((r & 0x80) >> 7) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	
 	r <<= 1;
