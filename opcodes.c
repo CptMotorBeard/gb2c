@@ -66,7 +66,7 @@ void ADD(BYTE r) {
 	int result = registerAF.hi + r;
 	if (result & 0xFF00) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if (((registerAF.hi & 0xF) + (r & 0xF)) >> 0xF){setFlag(flag_H);}
+	if ((((registerAF.hi & 0xF) + (r & 0xF)) & 0x10) == 0x10){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	registerAF.hi = (BYTE)(result & 0xFF);
 	if (registerAF.hi == 0){setFlag(flag_Z);}
@@ -135,7 +135,7 @@ void ADD_16(WORD r) {
 	unsigned long result = registerHL.pair + r;
 	if (result & 0xFFFF0000) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if ((((registerHL.pair & 0xF) + (r & 0xF)) &0x10) == 0x10){setFlag(flag_H);}
+	if ((((registerHL.pair & 0xF) + (r & 0xF)) & 0x10) == 0x10){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	registerHL.pair = (WORD)(result & 0xFFFF);
 }
@@ -1688,7 +1688,7 @@ void ADD_SP(BYTE operand) {
 	int result = SP.pair + operand;
 	if (result & 0xFFFF0000) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if (((SP.pair & 0xF) + (operand & 0xF)) >> 0xF){setFlag(flag_H);}
+	if ((((SP.pair & 0xF) + (operand & 0xF)) & 0x10) == 0x10){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	SP.pair = (WORD)(result & 0xFFFF);
 }
@@ -1728,7 +1728,7 @@ void LD_HL_SP02X(BYTE operand) {
 	int result = SP.pair + operand;
 	if (result & 0xFFFF0000) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
-	if (((SP.pair & 0xF) + (operand & 0xF)) >> 0xF){setFlag(flag_H);}
+	if ((((SP.pair & 0xF) + (operand & 0xF)) & 0x10) == 0x10){setFlag(flag_H);}
 	else {clearFlag(flag_H);}
 	LD_16(&registerHL, (WORD)(result & 0xFFFF));
 }

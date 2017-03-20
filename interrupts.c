@@ -57,7 +57,6 @@ void lcdStat() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	PC.pair = 0x48;
-	
 	clock += 12;
 }
 
@@ -68,7 +67,6 @@ void timer() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	PC.pair = 0x50;
-	
 	clock += 12;
 }
 
@@ -79,7 +77,6 @@ void serial() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	PC.pair = 0x58;
-	
 	clock += 12;
 }
 
@@ -90,6 +87,5 @@ void joypad() {
 	SP.pair--;
 	writeMemory(SP.pair, PC.hi);
 	PC.pair = 0x60;
-	
 	clock += 12;
 }
