@@ -149,11 +149,11 @@ void processLine(){
         //NOTE: I propably printed all of these backwards;
 		
         while(curX > -1){
-            int pixel = (((tile >> (curX))  & 1))*2 + (tile >> (8+curX) & 1);	
-			int palette = (cpu[0xFF47] >> (pixel * 2)) & 0x3;
+            int pixel = (tile >> (curX) & 1)*2 + (((tile >> (8 + curX))  & 1));
+            BYTE palette = (cpu[0xFF47] >> (pixel)*2) & 3;
             currLine[written*3] = colorPalette[palette][0];
-            currLine[written*3 + 1] = colorPalette[palette][1];
-            currLine[written*3 + 2] = colorPalette[palette][2];
+            currLine[written*3 + 1] =colorPalette[palette][1];
+            currLine[written*3 + 2] =colorPalette[palette][2];
             written++;
             curX--;
         }
@@ -194,7 +194,7 @@ void processLine(){
             currentSprite.tileNumber = cpu[0xFE02 + i*4];
             currentSprite.options = cpu[0xFE03 + i*4];
             //check if line intersects the sprite
-            if((currentSprite.yCoord - 8 > line )& (currentSprite.yCoord - 8 - spriteY < line)){
+            if((currentSprite.yCoord - 8 > line )& (currentSprite.yCoord - 8 - spriteY <= line)){
                 //draw it on the line
                 WORD tileAddr = 0x8000 + ((0x10)*currentSprite.tileNumber);
                 WORD tile;
@@ -212,20 +212,20 @@ void processLine(){
                     int j;
                     for(j = 0;j < 8;j++){
                         if(priority == 0){
-                            int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1) * 2;
-
+                            int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
+                            int objP = (currentSprite.options >> 4) & 1;
+                            BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
-								int palette = (cpu[0xFF47] >> (pixel * 2)) & 0x3;
                                 currLine[(spriteX + j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[palette][1];
                                 currLine[(spriteX + j)*3 + 2] = colorPalette[palette][2];
                             }
                         }
                         else{
-                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1) * 2;
-
+                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
+                        	int objP = (currentSprite.options >> 4) & 1;
+                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
                             if((currLine[(spriteX + j)*3] == 0) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
-								int palette = (cpu[0xFF47] >> (pixel * 2)) & 0x3;
                                 currLine[(spriteX + j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[palette][1];
                                 currLine[(spriteX + j)*3 + 2] = colorPalette[palette][2];
@@ -237,18 +237,20 @@ void processLine(){
 					
                     for(j = 7;j > -1;j--){
                         if(priority == 0){
-                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1) * 2;
+                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
+                        	int objP = (currentSprite.options >> 4) & 1;
+                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
-								int palette = (cpu[0xFF47] >> (pixel * 2)) & 0x3;
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[palette][1];
                                 currLine[(spriteX + 7 -j)*3 + 2] = colorPalette[palette][2];
                             }
                         }
                         else{
-                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1) * 2;                     
+                        	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
+                        	int objP = (currentSprite.options >> 4) & 1;
+                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
                             if((currLine[(spriteX + 7 -j)*3] == 1.0f) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
-								int palette = (cpu[0xFF47] >> (pixel * 2)) & 0x3;
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[palette][1];
                                 currLine[(spriteX + 7 -j)*3 + 2] = colorPalette[palette][2];
