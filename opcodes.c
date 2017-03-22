@@ -205,10 +205,11 @@ void INC_E() {registerDE.lo = INC(registerDE.lo);}
 void DEC_E() {registerDE.lo = DEC(registerDE.lo);}
 void LD_E(BYTE operand) {LD(&registerDE, operand, 1);}
 void RRA() {
+	BYTE carry = registerAF.hi & 0x1;
 	registerAF.hi >>= 1;
 
-	if (flagSet(flag_C)) {registerAF.hi |= 0x80;}
-	if (registerAF.hi & 0x1) {setFlag(flag_C);}
+	if (flagSet(flag_C)) {registerAF.hi |= 0x80;}	
+	if (carry) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
 	clearFlag(flag_H);
@@ -229,7 +230,7 @@ void DAA() {
 	BYTE ones = 0x00;
 	BYTE tens = 0x00;
 	BYTE hundreds = 0x00;
-	for (i = 0; i < 8; i++) {	
+	for (i = 0; i < 8; i++) {
 		hundreds <<= 1;
 		hundreds |= ((tens & 0x8) >> 3);
 		hundreds &= 0xF;
@@ -497,10 +498,11 @@ BYTE RL(BYTE r){
 	return r;
 }
 BYTE RR(BYTE r){
+	BYTE carry = r & 0x1;
 	r >>= 1;
 
 	if (flagSet(flag_C)) {r |= 0x80;}
-	if (r & 0x1) {setFlag(flag_C);}
+	if (carry) {setFlag(flag_C);}
 	else {clearFlag(flag_C);}
 	clearFlag(flag_N);
 	clearFlag(flag_H);
