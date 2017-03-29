@@ -155,6 +155,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return 0;
 			
         case WM_CLOSE:
+        	takeScreenShot();
             PostQuitMessage(0);
 			return 0;
 
@@ -211,6 +212,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					keys.keys1.start = 0;
 					stopped = 0;
 					break;
+				case VK_TAB:
+					showLayers();
             }
 			return 0;
 		
@@ -332,4 +335,97 @@ void drawScreen(){
     glDisableClientState(GL_COLOR_ARRAY);
 
     SwapBuffers(hDC);
+}
+
+void showLayers(){
+	char parent[20];
+	sprintf(parent, "capture");
+	takeScreenShot(parent);
+	backgroundBitmap(parent);
+	char OAM[50];
+	sprintf(OAM, "%s/OAM",parent);
+	fillOAMFolder(OAM);
+	char tile[50];
+	sprintf(tile, "%s/tile",parent);
+	fillTileSetFolder(tile);
+
+}
+void takeScreenShot(char folder[]){
+	int data[160*144*3];
+	int i;
+	for(i=0;i<(160*144*3);i++){
+		data[i] = (int)(colors[i]*255);
+	}
+	char filename[50];
+	sprintf(filename, "%s/screenshot.bmp", folder);
+	makeBitmap(filename,160,144,data);
+}
+/*
+ * data is an array of rgb floats(0-255) from top-left to bottom-right
+ */
+void makeBitmap(char filename[], unsigned int width, unsigned int height, int data[]){
+
+		unsigned int padSize = width*3 % 4;
+		unsigned int lineSize = width*3 + padSize;
+		// Create new file
+		FILE *fp;
+		fp = fopen(filename, "wb");
+
+		// Setup the file header
+		fileheader fh;
+		fh.signature[0] = 'B';
+		fh.signature[1] = 'M';
+		fh.filesize = 54 + (lineSize)*height;
+		fh.reserves[0] = 0;
+		fh.reserves[1] = 0;
+		fh.bfoffset = 0x36;
+
+		// Write out the file header
+	    fwrite(&fh.signature, 1, 2 * sizeof(char),fp);
+	    fwrite(&fh.filesize, 1, sizeof(unsigned int),fp);
+		fwrite(&fh.reserves, 1, 2 * sizeof(short),fp);
+		fwrite(&fh.bfoffset, 1, sizeof(unsigned int),fp);
+
+		// Set out the bitmap header
+		bitmapheader bmh;
+	    bmh.biSize = 0x28;
+	    bmh.biWidth = width;
+	    bmh.biHeight = height;
+	    bmh.biPlanes = 0x01;
+		bmh.biBitCount = 0x18;
+	    bmh.biCompression = 0;
+	    bmh.biSizeImage = 0x10;
+	    bmh.biXPelsPerMeter = 0x0b13;
+	    bmh.biYPelsPerMeter = 0x0b13;
+	    bmh.biClrUsed = 0;
+	    bmh.biClrImportant = 0;
+	    // Write out the bitmap header
+	    fwrite(&bmh.biSize , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biWidth , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biHeight , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biPlanes , 1, sizeof(short),fp);
+		fwrite(&bmh.biBitCount , 1, sizeof(short),fp);
+		fwrite(&bmh.biCompression , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biSizeImage , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biXPelsPerMeter , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biYPelsPerMeter , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biClrUsed , 1, sizeof(unsigned int),fp);
+		fwrite(&bmh.biClrImportant , 1, sizeof(unsigned int),fp);
+		// Content of image
+	    char padding[padSize];
+	    memset(&padding,0,padSize);
+	    pixel current;
+	    int i;
+	    int j;
+	    for(i=0;i<height;i++){
+	    	for(j=0;j<width;j++){
+	    		current.r = data[(i*width +j)*3];
+	    		current.g = data[(i*width +j)*3 + 1];
+	    		current.b = data[(i*width +j)*3 + 2];
+	    		fwrite(&current,1,sizeof(pixel), fp);
+	    	}
+	    	fwrite(&padding ,1,padSize, fp);
+	    }
+		// Close and return
+		fclose(fp);
 }

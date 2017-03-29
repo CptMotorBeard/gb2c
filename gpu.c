@@ -299,3 +299,111 @@ void printOAM(){
 		printf("\n");
 	}
 }
+//recalculate all of the background map and outputs a .bmp file
+void backgroundBitmap(char foldername[]){
+	int data[256*256*3];
+    scrollX = cpu[0xFF43];
+    scrollY = cpu[0xFF42];
+    LCDC = cpu[0xFF40];
+    WORD bgTileMapAddress = 0x9800 + (((LCDC >> 3) & 1)*0x400);
+    BYTE tileAddr;
+    WORD tile;
+
+    int i;
+    int j;
+    int k;
+    int l;
+    int pixel;
+    int offset;
+    //apply the background map to the data array
+    for(i = 0; i < 32; i++){
+    	for(j = 0; j < 32; j++){
+
+    		tileAddr = cpu[bgTileMapAddress];
+    		//get this tile
+    		if ((LCDC >> 4) & 0x1) {
+    			tile = (cpu[0x8000 + (tileAddr * 0x10)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + 1];
+    		} else {
+    			tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + 1];
+    		}
+    		//apply the tile to data row by row
+    		for(k = 0; k < 8; k++){
+    			for(l=0;l < 8;l++){
+					pixel = (tile >> (l) & 1)*2 + (((tile >> (8 + l))  & 1));
+					offset = ((255-(k+i*8))*256 + j*8 + (7-l))*3;
+					data[offset] = (int)(colorPalette[pixel][0]*255);
+					data[offset + 1] = (int)(colorPalette[pixel][1]*255);
+					data[offset + 2] = (int)(colorPalette[pixel][2]*255);
+    			}
+    			if ((LCDC >> 4) & 0x1) {
+    				tile = (cpu[0x8000 + (tileAddr * 0x10) + (k * 2)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + (k * 2) + 1];
+    			} else {
+    				tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k* 2)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k * 2) + 1];
+    			}
+
+    		}
+    		bgTileMapAddress++;
+    	}
+    }
+    char filename[50];
+    sprintf(filename, "%s/BG.bmp", foldername);
+    makeBitmap(filename, 256,256,data);
+}
+//Read OAM and export all tiles
+void fillOAMFolder(char foldername[]){
+	int i;
+	int data[8*8*3];
+	WORD tile;
+	struct spriteOAM currentSprite ;
+	int k;
+	int l;
+	int offset;
+	int pixel;
+	for(i = 0; i< 40; i++){
+		//find tile number
+	    currentSprite.tileNumber = cpu[0xFE02 + i*4];
+
+	    //send tile data to data
+		//get this tile
+		//apply the tile to data row by row
+		for(k = 0; k < 8; k++){
+			for(l=0;l < 8; l++){
+				tile = (cpu[0x8000 + (currentSprite.tileNumber * 0x10)+ (k* 2)] << 8) + cpu[0x8000 + (currentSprite.tileNumber * 0x10) + (k* 2)+ 1];
+				pixel = (tile >> (l) & 1)*2 + (((tile >> (8 + l))  & 1));
+				offset = (k*8 + l)*3;
+				data[offset] = (int)(colorPalette[pixel][0]*255);
+				data[offset + 1] = (int)(colorPalette[pixel][1]*255);
+				data[offset + 2] = (int)(colorPalette[pixel][2]*255);
+			}
+
+
+		}
+		char filename[50];
+		sprintf(filename, "%s/sprite %d.bmp",foldername, i);
+		makeBitmap(filename, 8,8,data);
+	}
+}
+void fillTileSetFolder(char foldername[]){
+	int data[8*8*3];
+	WORD tileAddr;
+	WORD tile;
+	int k;
+	int l;
+	int offset;
+	int pixel;
+	for(tileAddr = 0x8000; tileAddr < 0x9000;tileAddr +=0x10){
+		for(k = 0; k < 8; k++){
+			for(l=0;l < 8; l++){
+				tile = (cpu[tileAddr + (k* 2)] << 8) + cpu[tileAddr + (k* 2)+ 1];
+				pixel = (tile >> (l) & 1)*2 + (((tile >> (8 + l))  & 1));
+				offset = ((7-k)*8 + 7- l)*3;
+				data[offset] = (int)(colorPalette[pixel][0]*255);
+				data[offset + 1] = (int)(colorPalette[pixel][1]*255);
+				data[offset + 2] = (int)(colorPalette[pixel][2]*255);
+			}
+		}
+		char filename[50];
+		sprintf(filename, "%s/tile %d.bmp",foldername, tileAddr);
+		makeBitmap(filename, 8,8,data);
+	}
+}
