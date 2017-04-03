@@ -87,8 +87,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
 	/////////////// MAIN PROGRAM LOOP ///////////////
-	int c;
-
+	
+	int c;	
+	
 	while (!bQuit)
     {
 		if (halt != 1) {c = cpuStep(); c /= 4;}		
@@ -315,10 +316,16 @@ void drawScreen(){
 }
 
 void showLayers(){
-	char parent[20];
-	sprintf(parent, "capture");
-	takeScreenShot(parent);
-
+    char parent[40];
+    sprintf(parent, "capture");
+    takeScreenShot(parent);
+    backgroundBitmap(parent);
+    char OAM[50];
+    sprintf(OAM,"%s/OAM",parent);
+    fillOAMFolder(OAM);
+    char TILE[50];
+    sprintf(TILE,"%s/tile",parent);
+    fillTileSetFolder(TILE);
 }
 void takeScreenShot(char folder[]){
 	int data[160*144*3];
