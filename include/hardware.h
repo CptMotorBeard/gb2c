@@ -27,8 +27,19 @@ typedef union {
 #define flag_C (1 << 4)
 
 // This is the size of a regular GB rom
-#define romSize 0x7FFF
+#define romSize 0x8000
+BYTE cartridge[0x200000];
+BYTE ramBanks[0x8000];
 
+struct MemCont{
+	int mode;
+	int select;
+	int ramEnable;
+	int romBank;
+	int ramMode;
+	int ramBank;
+};
+struct MemCont m;
 // We have our register pairs defined below.
 Register registerAF;
 Register registerBC;
@@ -87,3 +98,4 @@ BYTE cpu[0x10000];
 void initialize(void);
 void writeMemory(WORD address, BYTE data);
 void printRegisters(void);
+BYTE readMemory(WORD address);

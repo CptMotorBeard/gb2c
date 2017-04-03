@@ -7,27 +7,6 @@
 #include "interrupts.h"
 #include "display.h"
 
-void printBGMAP(){
-	int i = 0;
-	while (i < 0x400) {
-		BYTE loc = cpu[0x9800 + i];
-		printf("%02X ", loc);
-		i++;
-		if (i%32 == 0) printf("\n");
-	}
-}
-
-void setJoypad() {
-	if (!(cpu[0xFF00] & 0x20)){
-		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x10);
-	}
-	else if (!(cpu[0xFF00] & 0x10)){
-		cpu[0xFF00] = (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x20);
-	}
-	else if (!(cpu[0xFF00] & 0x30)) {cpu[0xFF00] = 0xFF;}
-	else cpu[0xFF00] = 0xCF;
-}
-
 GLfloat vertices[2*160*144];
 GLfloat colors[3*160*144];
 
@@ -37,11 +16,12 @@ int read (char* input) {
 			printf( "Could not open file\n" );
 			return 0;
 	} else {
-		fread(cpu, 1, romSize, rom);
+		fread(cartridge, 1, 0x200000, rom);
 		fclose(rom);
 		return 1;
 	}
 }
+
 HDC hDC;
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
@@ -112,7 +92,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	
 	while (!bQuit)
     {
-		setJoypad();
 		if (halt != 1) {c = cpuStep(); c /= 4;}		
 		gpuStep(c);
 		timerStep(c);
@@ -155,7 +134,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return 0;
 			
         case WM_CLOSE:
-        	takeScreenShot();
             PostQuitMessage(0);
 			return 0;
 
@@ -341,13 +319,6 @@ void showLayers(){
 	char parent[20];
 	sprintf(parent, "capture");
 	takeScreenShot(parent);
-	backgroundBitmap(parent);
-	char OAM[50];
-	sprintf(OAM, "%s/OAM",parent);
-	fillOAMFolder(OAM);
-	char tile[50];
-	sprintf(tile, "%s/tile",parent);
-	fillTileSetFolder(tile);
 
 }
 void takeScreenShot(char folder[]){

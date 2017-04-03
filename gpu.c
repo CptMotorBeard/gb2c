@@ -78,7 +78,7 @@ void gpuStep(int c){
 			if(gpu_clock >= 172){
 				mode = HBLANK;                
 				gpu_clock = 0;
-				if (cpu[0xFF40] & 128) {
+				if (readMemory(0xFF40) & 128) {
 					updateLine();
 				}
 			}
@@ -88,8 +88,8 @@ void gpuStep(int c){
             if(gpu_clock >= 204){            			
                 cleanLine();
 				gpu_clock = 0;
-				cpu[0xFF44]++;
-				if (cpu[0xFF44] == 143) {
+				writeMemory(0xFF44, (readMemory(0xFF44)+1));
+				if (readMemory(0xFF44) == 143) {
 					// VBLANK
 					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
 					mode=VBLANK;
@@ -101,11 +101,11 @@ void gpuStep(int c){
         case VBLANK:
             if(gpu_clock >= 456){
 				gpu_clock = 0;
-				cpu[0xFF44]++;
+				writeMemory(0xFF44, (readMemory(0xFF44)+1));
 				
-				if (cpu[0xFF44] > 153) {
+				if (readMemory(0xFF44) > 153) {
 					// Restart
-					cpu[0xFF44] = 0;
+					writeMemory(0xFF44, 0);
 					mode = OAMLOAD;
 				}
             }        
@@ -119,10 +119,10 @@ void gpuStep(int c){
   as a result processing left to right is the correct order*/
 void processLine(){
     //LCD Control byte which includes window and sprite enables as well as the pointers
-    LCDC = cpu[0xFF40];
-    scrollX = cpu[0xFF43];
-    scrollY = cpu[0xFF42];
-	int line = cpu[0xFF44];
+    LCDC = readMemory(0xFF40);
+    scrollX = readMemory(0xFF43);
+    scrollY = readMemory(0xFF42);
+	int line = readMemory(0xFF44);
     //apply the background layer to curLine-----------------------------------
     WORD bgTileMapAddress = 0x9800 + (((LCDC >> 3) & 1)*0x400);
     //(line/8)*32 adjusts for the y and scrollX/8 adjusts for X
@@ -136,21 +136,21 @@ void processLine(){
 	//check if background is enabled and line is not done
     while((LCDC & 1) & (written < 160)){
         //get tile from tileset
-        BYTE tileAddr = cpu[bgTileMapAddress];
+        BYTE tileAddr = readMemory(bgTileMapAddress);
 
         //2 bytes is 1 row for a tile
         WORD tile;		
 		if ((LCDC >> 4) & 0x1) {
-			tile = (cpu[0x8000 + (tileAddr * 0x10) + (curY * 2)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + (curY * 2) + 1];			
+			tile = (readMemory(0x8000 + (tileAddr * 0x10) + (curY * 2)) << 8) + readMemory(0x8000 + (tileAddr * 0x10) + (curY * 2) + 1);			
 		} else {
-			tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2) + 1];
+			tile = (readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2)) << 8) + readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (curY * 2) + 1);
 		}
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
 		
         while(curX > -1){
             int pixel = (tile >> (curX) & 1)*2 + (((tile >> (8 + curX))  & 1));
-            BYTE palette = (cpu[0xFF47] >> (pixel)*2) & 3;
+            BYTE palette = (readMemory(0xFF47) >> (pixel)*2) & 3;
             currLine[written*3] = colorPalette[palette][0];
             currLine[written*3 + 1] =colorPalette[palette][1];
             currLine[written*3 + 2] =colorPalette[palette][2];
@@ -168,9 +168,9 @@ void processLine(){
     WORD wndTileMapAddress = 0x9800 + ((LCDC >> 6) & 1)*0X0400;
     while((LCDC & 16) & (written < 160)){
         //get tile from tileset
-        char tileAddr = cpu[wndTileMapAddress] ;
+        char tileAddr = readMemory(wndTileMapAddress) ;
         //2 bytes is 1 row for a tile
-        short tile = cpu[(tileAddr + curY*2)];
+        short tile = readMemory((tileAddr + curY*2));
         //write all the pixels for this line from that tile
         //NOTE: I propably printed all of these backwards;
         while(curX > 0){
@@ -189,10 +189,10 @@ void processLine(){
         int i;
         struct spriteOAM currentSprite ;
         for(i = 0; i< 40; i++){
-            currentSprite.yCoord = cpu[0xFE00 + i*4];
-            currentSprite.xCoord = cpu[0xFE01 + i*4];
-            currentSprite.tileNumber = cpu[0xFE02 + i*4];
-            currentSprite.options = cpu[0xFE03 + i*4];
+            currentSprite.yCoord = readMemory(0xFE00 + i*4);
+            currentSprite.xCoord = readMemory(0xFE01 + i*4);
+            currentSprite.tileNumber = readMemory(0xFE02 + i*4);
+            currentSprite.options = readMemory(0xFE03 + i*4);
             //check if line intersects the sprite
             if((currentSprite.yCoord - 8 > line )& (currentSprite.yCoord - 8 - spriteY <= line)){
                 //draw it on the line
@@ -203,9 +203,9 @@ void processLine(){
                 int priority = (currentSprite.options >> 7) & 1;
                 //check for y flip
                 if((currentSprite.options >> 6) & 1){                    
-					tile = (cpu[tileAddr + (7 - (line % 8))] << 8) + cpu[tileAddr + (7 - (line % 8))+ 1] ;
+					tile = (readMemory(tileAddr + (7 - (line % 8))) << 8) + readMemory(tileAddr + (7 - (line % 8))+ 1) ;
                 }else{
-                    tile = (cpu[tileAddr + (line % 8)*2] <<8) +  cpu[tileAddr + (line % 8)*2+1];
+                    tile = (readMemory(tileAddr + (line % 8)*2) <<8) +  readMemory(tileAddr + (line % 8)*2+1);
                 }
                 //check for x flip
                 if(currentSprite.options >> 5 & 1){
@@ -214,7 +214,7 @@ void processLine(){
                         if(priority == 0){
                             int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
                             int objP = (currentSprite.options >> 4) & 1;
-                            BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
+                            BYTE palette = (readMemory(0xFF48 + objP) >> (pixel*2)) & 3;
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[palette][1];
@@ -224,7 +224,7 @@ void processLine(){
                         else{
                         	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
                         	int objP = (currentSprite.options >> 4) & 1;
-                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
+                        	BYTE palette = (readMemory(0xFF48 + objP) >> (pixel*2)) & 3;
                             if((currLine[(spriteX + j)*3] == 0) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + j)*3 + 1] = colorPalette[palette][1];
@@ -239,7 +239,7 @@ void processLine(){
                         if(priority == 0){
                         	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
                         	int objP = (currentSprite.options >> 4) & 1;
-                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
+                        	BYTE palette = (readMemory(0xFF48 + objP) >> (pixel*2)) & 3;
                             if((spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[palette][1];
@@ -249,7 +249,7 @@ void processLine(){
                         else{
                         	int pixel = (((tile >> (8 + j))  & 1)) + (tile >> j & 1)*2;
                         	int objP = (currentSprite.options >> 4) & 1;
-                        	BYTE palette = (cpu[0xFF48 + objP] >> (pixel*2)) & 3;
+                        	BYTE palette = (readMemory(0xFF48 + objP) >> (pixel*2)) & 3;
                             if((currLine[(spriteX + 7 -j)*3] == 1.0f) & (spriteX >= 0) & (spriteX <= 160) & (spriteY > 0) & (spriteY < 144)){
                                 currLine[(spriteX + 7 -j)*3] = colorPalette[palette][0];
                                 currLine[(spriteX + 7 -j)*3 + 1] = colorPalette[palette][1];
@@ -272,39 +272,15 @@ void cleanLine(){
      }
 }
 void updateLine(){
-	scanLine(currLine, 143 - cpu[0xFF44]);
+	scanLine(currLine, 143 - readMemory(0xFF44));
 }
-void printTileSet(int i){
-	WORD tileSet = 0x8000 + i*(0x1000);
-	int j;
-	for(j = 0; j < 255; j++){
-		int k;
-		for(k = 0; k < 16; k++){
-			printf("%02X",cpu[tileSet]);
-			tileSet ++;
-		}
-		printf("\n");
-	}
-}
-void printOAM(){
-	WORD sprite = 0xFE00;
-	int i;
-	for(i = 0; i<40; i++){
-		int j;
-		printf("%d ",i);
-		for(j=0;j<4;j++){
-			printf("%04X %04X ", sprite,cpu[sprite]);
-			sprite++;
-		}
-		printf("\n");
-	}
-}
+
 //recalculate all of the background map and outputs a .bmp file
 void backgroundBitmap(char foldername[]){
 	int data[256*256*3];
-    scrollX = cpu[0xFF43];
-    scrollY = cpu[0xFF42];
-    LCDC = cpu[0xFF40];
+    scrollX = readMemory(0xFF43);
+    scrollY = readMemory(0xFF42);
+    LCDC = readMemory(0xFF40);
     WORD bgTileMapAddress = 0x9800 + (((LCDC >> 3) & 1)*0x400);
     BYTE tileAddr;
     WORD tile;
@@ -319,12 +295,12 @@ void backgroundBitmap(char foldername[]){
     for(i = 0; i < 32; i++){
     	for(j = 0; j < 32; j++){
 
-    		tileAddr = cpu[bgTileMapAddress];
+    		tileAddr = readMemory(bgTileMapAddress);
     		//get this tile
     		if ((LCDC >> 4) & 0x1) {
-    			tile = (cpu[0x8000 + (tileAddr * 0x10)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + 1];
+    			tile = (readMemory(0x8000 + (tileAddr * 0x10)) << 8) + readMemory(0x8000 + (tileAddr * 0x10) + 1);
     		} else {
-    			tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + 1];
+    			tile = (readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10)) << 8) + readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + 1);
     		}
     		//apply the tile to data row by row
     		for(k = 0; k < 8; k++){
@@ -336,9 +312,9 @@ void backgroundBitmap(char foldername[]){
 					data[offset + 2] = (int)(colorPalette[pixel][2]*255);
     			}
     			if ((LCDC >> 4) & 0x1) {
-    				tile = (cpu[0x8000 + (tileAddr * 0x10) + (k * 2)] << 8) + cpu[0x8000 + (tileAddr * 0x10) + (k * 2) + 1];
+    				tile = (readMemory(0x8000 + (tileAddr * 0x10) + (k * 2)) << 8) + readMemory(0x8000 + (tileAddr * 0x10) + (k * 2) + 1);
     			} else {
-    				tile = (cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k* 2)] << 8) + cpu[0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k * 2) + 1];
+    				tile = (readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k* 2)) << 8) + readMemory(0x9000 + (((SIGNED_BYTE)tileAddr) * 0x10) + (k * 2) + 1);
     			}
 
     		}
@@ -361,14 +337,14 @@ void fillOAMFolder(char foldername[]){
 	int pixel;
 	for(i = 0; i< 40; i++){
 		//find tile number
-	    currentSprite.tileNumber = cpu[0xFE02 + i*4];
+	    currentSprite.tileNumber = readMemory(0xFE02 + i*4);
 
 	    //send tile data to data
 		//get this tile
 		//apply the tile to data row by row
 		for(k = 0; k < 8; k++){
 			for(l=0;l < 8; l++){
-				tile = (cpu[0x8000 + (currentSprite.tileNumber * 0x10)+ (k* 2)] << 8) + cpu[0x8000 + (currentSprite.tileNumber * 0x10) + (k* 2)+ 1];
+				tile = (readMemory(0x8000 + (currentSprite.tileNumber * 0x10)+ (k* 2)) << 8) + readMemory(0x8000 + (currentSprite.tileNumber * 0x10) + (k* 2)+ 1);
 				pixel = (tile >> (l) & 1)*2 + (((tile >> (8 + l))  & 1));
 				offset = (k*8 + l)*3;
 				data[offset] = (int)(colorPalette[pixel][0]*255);
@@ -394,7 +370,7 @@ void fillTileSetFolder(char foldername[]){
 	for(tileAddr = 0x8000; tileAddr < 0x9000;tileAddr +=0x10){
 		for(k = 0; k < 8; k++){
 			for(l=0;l < 8; l++){
-				tile = (cpu[tileAddr + (k* 2)] << 8) + cpu[tileAddr + (k* 2)+ 1];
+				tile = (readMemory(tileAddr + (k* 2)) << 8) + readMemory(tileAddr + (k* 2)+ 1);
 				pixel = (tile >> (l) & 1)*2 + (((tile >> (8 + l))  & 1));
 				offset = ((7-k)*8 + 7- l)*3;
 				data[offset] = (int)(colorPalette[pixel][0]*255);

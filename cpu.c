@@ -288,28 +288,28 @@ int cpuStep () {
 	
 	int operands;
 	int oppc;
-	operands=opcodes[cpu[PC.pair]].operands;
+	operands=opcodes[readMemory(PC.pair)].operands;
 	oppc = PC.pair;
 	
 	if (operands == 1) {				
 		PC.pair++;
-		((void (*)(BYTE))opcodes[cpu[oppc]].function)(cpu[PC.pair]);
+		((void (*)(BYTE))opcodes[readMemory(oppc)].function)(readMemory(PC.pair));
 	}
 	else if (operands == 2) {
 		PC.pair++;
 		int op;
-		op = (cpu[PC.pair]);
+		op = readMemory(PC.pair);
 		PC.pair++;
-		op = op | (cpu[PC.pair]<<8);
+		op = op | (readMemory(PC.pair)<<8);
 		
-		((void (*)(WORD))opcodes[cpu[oppc]].function)(op);
+		((void (*)(WORD))opcodes[readMemory(oppc)].function)(op);
 	} else {	
-		((void (*)(void))opcodes[cpu[oppc]].function)();
+		((void (*)(void))opcodes[readMemory(oppc)].function)();
 	}
 
 	int cycles;
-	if (cpu[oppc] == 0xCB) {cycles = CBcycles[cpu[PC.pair]];}
-	else {cycles = opcodes[cpu[oppc]].cycles;}
+	if (readMemory(oppc) == 0xCB) {cycles = CBcycles[readMemory(PC.pair)];}
+	else {cycles = opcodes[readMemory(oppc)].cycles;}
 	
 	PC.pair++;
 	

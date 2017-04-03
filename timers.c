@@ -14,22 +14,22 @@ int timerCounter = CLOCKSPEED / 4096;
 
 void timerStep(int cycles) {
 	dividerRegister(cycles);
-	if ((cpu[TMC] >> 2) & 1) {
+	if ((readMemory(TMC) >> 2) & 1) {
 		timerCounter -= cycles;
 		if (timerCounter <= 0) {
 			setFrequency();
-			if (cpu[TIMA] == 255) {
-				writeMemory(TIMA, cpu[TMA]);
+			if (readMemory(TIMA) == 255) {
+				writeMemory(TIMA, readMemory(TMA));
 				if (interrupt.enable && INTERRUPTS_TIMER) {interrupt.flags |= INTERRUPTS_TIMER;}
 			} else {
-				cpu[TIMA]++;
+				writeMemory(TIMA, (readMemory(TIMA)+1));
 			}
 		}
 	}
 }
 
 BYTE getFrequency() {
-	return cpu[TMC] & 0x3;
+	return readMemory(TMC) & 0x3;
 }
 
 void setFrequency() {
@@ -48,6 +48,6 @@ void dividerRegister(int cycles) {
 	dividerCounter += cycles;
 	if (dividerCounter >= 255){
 		dividerCounter = 0;
-		cpu[0xFF04]++;
+		writeMemory(0xFF04, (readMemory(0xFF04) + 1));
 	}
 }

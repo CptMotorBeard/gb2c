@@ -162,7 +162,7 @@ void RLCA() {
 }
 void LD_04X_SP(WORD operand) {LD_16(&SP, operand);}
 void ADD_HL_BC() {ADD_16(registerBC.pair);}
-void LD_A_BC() {LD(&registerAF, cpu[registerBC.pair], 2);}
+void LD_A_BC() {LD(&registerAF, readMemory(registerBC.pair), 2);}
 void DEC_BC() {registerBC.pair--;}
 void INC_C() {registerBC.lo = INC(registerBC.lo);}
 void DEC_C() {registerBC.lo = DEC(registerBC.lo);}
@@ -199,7 +199,7 @@ void RLA() {
 }
 void JR(BYTE operand) {JP(PC.pair + (SIGNED_BYTE)operand+1);}
 void ADD_HL_DE() {ADD_16(registerDE.pair);}
-void LD_A_DE() {LD(&registerAF, cpu[registerDE.pair], 2);}
+void LD_A_DE() {LD(&registerAF, readMemory(registerDE.pair), 2);}
 void DEC_DE() {registerDE.pair--;}
 void INC_E() {registerDE.lo = INC(registerDE.lo);}
 void DEC_E() {registerDE.lo = DEC(registerDE.lo);}
@@ -296,7 +296,7 @@ void LD_B_D() {LD(&registerBC, registerDE.hi, 2);}
 void LD_B_E() {LD(&registerBC, registerDE.lo, 2);}
 void LD_B_H() {LD(&registerBC, registerHL.hi, 2);}
 void LD_B_L() {LD(&registerBC, registerHL.lo, 2);}
-void LD_B_HL() {LD(&registerBC, cpu[registerHL.pair], 2);}
+void LD_B_HL() {LD(&registerBC, readMemory(registerHL.pair), 2);}
 void LD_B_A() {LD(&registerBC, registerAF.hi, 2);}
 void LD_C_B() {LD(&registerBC, registerBC.hi, 1);}
 void LD_C_C() {LD(&registerBC, registerBC.lo, 1);}
@@ -304,7 +304,7 @@ void LD_C_D() {LD(&registerBC, registerDE.hi, 1);}
 void LD_C_E() {LD(&registerBC, registerDE.lo, 1);}
 void LD_C_H() {LD(&registerBC, registerHL.hi, 1);}
 void LD_C_L() {LD(&registerBC, registerHL.lo, 1);}
-void LD_C_HL() {LD(&registerBC, cpu[registerHL.pair], 1);}
+void LD_C_HL() {LD(&registerBC, readMemory(registerHL.pair), 1);}
 void LD_C_A() {LD(&registerBC, registerAF.hi, 1);}
 void LD_D_B() {LD(&registerDE, registerBC.hi, 2);}
 void LD_D_C() {LD(&registerDE, registerBC.lo, 2);}
@@ -312,7 +312,7 @@ void LD_D_D() {LD(&registerDE, registerDE.hi, 2);}
 void LD_D_E() {LD(&registerDE, registerDE.lo, 2);}
 void LD_D_H() {LD(&registerDE, registerHL.hi, 2);}
 void LD_D_L() {LD(&registerDE, registerHL.lo, 2);}
-void LD_D_HL() {LD(&registerDE, cpu[registerHL.pair], 2);}
+void LD_D_HL() {LD(&registerDE, readMemory(registerHL.pair), 2);}
 void LD_D_A() {LD(&registerDE, registerAF.hi, 2);}
 void LD_E_B() {LD(&registerDE, registerBC.hi, 1);}
 void LD_E_C() {LD(&registerDE, registerBC.lo, 1);}
@@ -320,7 +320,7 @@ void LD_E_D() {LD(&registerDE, registerDE.hi, 1);}
 void LD_E_E() {LD(&registerDE, registerDE.lo, 1);}
 void LD_E_H() {LD(&registerDE, registerHL.hi, 1);}
 void LD_E_L() {LD(&registerDE, registerHL.lo, 1);}
-void LD_E_HL() {LD(&registerDE, cpu[registerHL.pair], 1);}
+void LD_E_HL() {LD(&registerDE, readMemory(registerHL.pair), 1);}
 void LD_E_A() {LD(&registerDE, registerAF.hi, 1);}
 void LD_H_B() {LD(&registerHL, registerBC.hi, 2);}
 void LD_H_C() {LD(&registerHL, registerBC.lo, 2);}
@@ -328,7 +328,7 @@ void LD_H_D() {LD(&registerHL, registerDE.hi, 2);}
 void LD_H_E() {LD(&registerHL, registerDE.lo, 2);}
 void LD_H_H() {LD(&registerHL, registerHL.hi, 2);}
 void LD_H_L() {LD(&registerHL, registerHL.lo, 2);}
-void LD_H_HL() {LD(&registerHL, cpu[registerHL.pair], 2);}
+void LD_H_HL() {LD(&registerHL, readMemory(registerHL.pair), 2);}
 void LD_H_A() {LD(&registerHL, registerAF.hi, 2);}
 void LD_L_B() {LD(&registerHL, registerBC.hi, 1);}
 void LD_L_C() {LD(&registerHL, registerBC.lo, 1);}
@@ -336,7 +336,7 @@ void LD_L_D() {LD(&registerHL, registerDE.hi, 1);}
 void LD_L_E() {LD(&registerHL, registerDE.lo, 1);}
 void LD_L_H() {LD(&registerHL, registerHL.hi, 1);}
 void LD_L_L() {LD(&registerHL, registerHL.lo, 1);}
-void LD_L_HL() {LD(&registerHL, cpu[registerHL.pair], 1);}
+void LD_L_HL() {LD(&registerHL, readMemory(registerHL.pair), 1);}
 void LD_L_A() {LD(&registerHL, registerAF.hi, 1);}
 void LD_HL_B() {writeMemory(registerHL.pair, registerBC.hi);}
 void LD_HL_C() {writeMemory(registerHL.pair, registerBC.lo);}
@@ -355,7 +355,7 @@ void LD_A_D() {LD(&registerAF, registerDE.hi, 2);}
 void LD_A_E() {LD(&registerAF, registerDE.lo, 2);}
 void LD_A_H() {LD(&registerAF, registerHL.hi, 2);}
 void LD_A_L() {LD(&registerAF, registerHL.lo, 2);}
-void LD_A_HL() {LD(&registerAF, cpu[registerHL.pair], 2);}
+void LD_A_HL() {LD(&registerAF, readMemory(registerHL.pair), 2);}
 void LD_A_A() {LD(&registerAF, registerAF.hi, 2);}
 void ADD_A_B() {ADD(registerBC.hi);}
 void ADD_A_C() {ADD(registerBC.lo);}
@@ -363,7 +363,7 @@ void ADD_A_D() {ADD(registerDE.hi);}
 void ADD_A_E() {ADD(registerDE.lo);}
 void ADD_A_H() {ADD(registerHL.hi);}
 void ADD_A_L() {ADD(registerHL.lo);}
-void ADD_A_HL() {ADD(cpu[registerHL.pair]);}
+void ADD_A_HL() {ADD(readMemory(registerHL.pair));}
 void ADD_A() {ADD(registerAF.hi);}
 void ADC_B() {ADC(registerBC.hi);}
 void ADC_C() {ADC(registerBC.lo);}
@@ -371,7 +371,7 @@ void ADC_D() {ADC(registerDE.hi);}
 void ADC_E() {ADC(registerDE.lo);}
 void ADC_H() {ADC(registerHL.hi);}
 void ADC_L() {ADC(registerHL.lo);}
-void ADC_HL() {ADC(cpu[registerHL.pair]);}
+void ADC_HL() {ADC(readMemory(registerHL.pair));}
 void ADC_A() {ADC(registerAF.hi);}
 void SUB_B() {SUB(registerBC.hi);}
 void SUB_C() {SUB(registerBC.lo);}
@@ -379,7 +379,7 @@ void SUB_D() {SUB(registerDE.hi);}
 void SUB_E() {SUB(registerDE.lo);}
 void SUB_H() {SUB(registerHL.hi);}
 void SUB_L() {SUB(registerHL.lo);}
-void SUB_HL() {SUB(cpu[registerHL.pair]);}
+void SUB_HL() {SUB(readMemory(registerHL.pair));}
 void SUB_A() {SUB(registerAF.hi);}
 void SBC_B() {SBC(registerBC.hi);}
 void SBC_C() {SBC(registerBC.lo);}
@@ -387,7 +387,7 @@ void SBC_D() {SBC(registerDE.hi);}
 void SBC_E() {SBC(registerDE.lo);}
 void SBC_H() {SBC(registerHL.hi);}
 void SBC_L() {SBC(registerHL.lo);}
-void SBC_HL() {SBC(cpu[registerHL.pair]);}
+void SBC_HL() {SBC(readMemory(registerHL.pair));}
 void SBC_A() {SBC(registerAF.hi);}
 void AND_B() {AND(registerBC.hi);}
 void AND_C() {AND(registerBC.lo);}
@@ -395,7 +395,7 @@ void AND_D() {AND(registerDE.hi);}
 void AND_E() {AND(registerDE.lo);}
 void AND_H() {AND(registerHL.hi);}
 void AND_L() {AND(registerHL.lo);}
-void AND_HL() {AND(cpu[registerHL.pair]);}
+void AND_HL() {AND(readMemory(registerHL.pair));}
 void AND_A() {AND(registerAF.hi);}
 void XOR_B() {XOR(registerBC.hi);}
 void XOR_C() {XOR(registerBC.lo);}
@@ -403,7 +403,7 @@ void XOR_D() {XOR(registerDE.hi);}
 void XOR_E() {XOR(registerDE.lo);}
 void XOR_H() {XOR(registerHL.hi);}
 void XOR_L() {XOR(registerHL.lo);}
-void XOR_HL() {XOR(cpu[registerHL.pair]);}
+void XOR_HL() {XOR(readMemory(registerHL.pair));}
 void XOR_A() {XOR(registerAF.hi);}
 void OR_B() {OR(registerBC.hi);}
 void OR_C() {OR(registerBC.lo);}
@@ -411,7 +411,7 @@ void OR_D() {OR(registerDE.hi);}
 void OR_E() {OR(registerDE.lo);}
 void OR_H() {OR(registerHL.hi);}
 void OR_L() {OR(registerHL.lo);}
-void OR_HL() {OR(cpu[registerHL.pair]);}
+void OR_HL() {OR(readMemory(registerHL.pair));}
 void OR_A() {OR(registerAF.hi);}
 void CP_B() {CP(registerBC.hi);}
 void CP_C() {CP(registerBC.lo);}
@@ -419,12 +419,12 @@ void CP_D() {CP(registerDE.hi);}
 void CP_E() {CP(registerDE.lo);}
 void CP_H() {CP(registerHL.hi);}
 void CP_L() {CP(registerHL.lo);}
-void CP_HL() {CP(cpu[registerHL.pair]);}
+void CP_HL() {CP(readMemory(registerHL.pair));}
 void CP_A() {CP(registerAF.hi);}
 void RET_NZ() {if (!flagSet(flag_Z)){RET();}}
 void POP_BC() {
-	LD(&registerBC, cpu[SP.pair], 2);SP.pair++;
-	LD(&registerBC, cpu[SP.pair], 1);SP.pair++;
+	LD(&registerBC, readMemory(SP.pair), 2);SP.pair++;
+	LD(&registerBC, readMemory(SP.pair), 1);SP.pair++;
 }
 void JP_NZ(WORD operand) {if (!flagSet(flag_Z)){JP(operand);}}
 void JP(WORD operand) {PC.pair = operand-1;}
@@ -445,8 +445,8 @@ void RST_00() {
 }
 void RET_Z() {if (flagSet(flag_Z)){RET();}}
 void RET() {
-	WORD loc = (cpu[SP.pair]<<8);SP.pair++;
-	loc |= cpu[SP.pair];SP.pair++;
+	WORD loc = (readMemory(SP.pair)<<8);SP.pair++;
+	loc |= readMemory(SP.pair);SP.pair++;
 	JP(loc);
 }
 void JP_Z(WORD operand) {if (flagSet(flag_Z)){JP(operand);}}
@@ -613,7 +613,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x6:
 		// RLC (HL)
-			writeMemory(registerHL.pair, RLC(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RLC(readMemory(registerHL.pair)));
 			break;
 		case 0x7:
 		// RLC A
@@ -645,7 +645,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xe:
 		// RRC (HL)
-			writeMemory(registerHL.pair, RRC(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RRC(readMemory(registerHL.pair)));
 			break;
 		case 0xf:
 		// RRC A
@@ -677,7 +677,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x16:
 		// RL (HL)
-			writeMemory(registerHL.pair, RL(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RL(readMemory(registerHL.pair)));
 			break;
 		case 0x17:
 		// RL A
@@ -709,7 +709,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x1e:
 		// RR (HL)
-			writeMemory(registerHL.pair, RL(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RL(readMemory(registerHL.pair)));
 			break;
 		case 0x1f:
 		// RR A
@@ -741,7 +741,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x26:
 		// SLA (HL)
-			writeMemory(registerHL.pair, SLA(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SLA(readMemory(registerHL.pair)));
 			break;
 		case 0x27:
 		// SLA A
@@ -773,7 +773,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x2e:
 		// SRA (HL)
-			writeMemory(registerHL.pair, SRA(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SRA(readMemory(registerHL.pair)));
 			break;
 		case 0x2f:
 		// SRA A
@@ -805,7 +805,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x36:
 		// SWAP (HL)
-			writeMemory(registerHL.pair, SWAP(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SWAP(readMemory(registerHL.pair)));
 			break;
 		case 0x37:
 		// SWAP A
@@ -837,7 +837,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x3e:
 		// SRL (HL)
-			writeMemory(registerHL.pair, SRL(cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SRL(readMemory(registerHL.pair)));
 			break;
 		case 0x3f:
 		// SRL A
@@ -869,7 +869,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x46:
 		// BIT 0 (HL)
-			BIT(1<<0, cpu[registerHL.pair]);
+			BIT(1<<0, readMemory(registerHL.pair));
 			break;
 		case 0x47:
 		// BIT 0 A
@@ -901,7 +901,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x4e:
 		// BIT 1 (HL)
-			BIT(1<<1, cpu[registerHL.pair]);
+			BIT(1<<1, readMemory(registerHL.pair));
 			break;
 		case 0x4f:
 		// BIT 1 A
@@ -933,7 +933,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x56:
 		// BIT 2 (HL)
-			BIT(1<<2, cpu[registerHL.pair]);
+			BIT(1<<2, readMemory(registerHL.pair));
 			break;
 		case 0x57:
 		// BIT 2 A
@@ -965,7 +965,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x5e:
 		// BIT 3 (HL)
-			BIT(1<<3, cpu[registerHL.pair]);
+			BIT(1<<3, readMemory(registerHL.pair));
 			break;
 		case 0x5f:
 		// BIT 3 A
@@ -997,7 +997,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x66:
 		// BIT 4 (HL)
-			BIT(1<<4, cpu[registerHL.pair]);
+			BIT(1<<4, readMemory(registerHL.pair));
 			break;
 		case 0x67:
 		// BIT 4 A
@@ -1029,7 +1029,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x6e:
 		// BIT 5 (HL)
-			BIT(1<<5, cpu[registerHL.pair]);
+			BIT(1<<5, readMemory(registerHL.pair));
 			break;
 		case 0x6f:
 		// BIT 5 A
@@ -1061,7 +1061,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x76:
 		// BIT 6 (HL)
-			BIT(1<<6, cpu[registerHL.pair]);
+			BIT(1<<6, readMemory(registerHL.pair));
 			break;
 		case 0x77:
 		// BIT 6 A
@@ -1093,7 +1093,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x7e:
 		// BIT 7 (HL)
-			BIT(1<<7, cpu[registerHL.pair]);
+			BIT(1<<7, readMemory(registerHL.pair));
 			break;
 		case 0x7f:
 		// BIT 7 A
@@ -1125,7 +1125,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x86:
 		// RES 0 (HL)
-			writeMemory(registerHL.pair, RES(1<<0, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<0, readMemory(registerHL.pair)));
 			break;
 		case 0x87:
 		// RES 0 A
@@ -1157,7 +1157,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x8e:
 		// RES 1 (HL)
-			writeMemory(registerHL.pair, RES(1<<1, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<1, readMemory(registerHL.pair)));
 			break;
 		case 0x8f:
 		// RES 1 A
@@ -1189,7 +1189,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x96:
 		// RES 2 (HL)
-			writeMemory(registerHL.pair, RES(1<<2, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<2, readMemory(registerHL.pair)));
 			break;
 		case 0x97:
 		// RES 2 A
@@ -1221,7 +1221,7 @@ void CB(BYTE operand) {
 			break;
 		case 0x9e:
 		// RES 3 (HL)
-			writeMemory(registerHL.pair, RES(1<<3, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<3, readMemory(registerHL.pair)));
 			break;
 		case 0x9f:
 		// RES 3 A
@@ -1253,7 +1253,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xa6:
 		// RES 4 (HL)
-			writeMemory(registerHL.pair, RES(1<<4, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<4, readMemory(registerHL.pair)));
 			break;
 		case 0xa7:
 		// RES 4 A
@@ -1285,7 +1285,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xae:
 		// RES 5 (HL)
-			writeMemory(registerHL.pair, RES(1<<5, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<5, readMemory(registerHL.pair)));
 			break;
 		case 0xaf:
 		// RES 5 A
@@ -1317,7 +1317,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xb6:
 		// RES 6 (HL)
-			writeMemory(registerHL.pair, RES(1<<6, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<6, readMemory(registerHL.pair)));
 			break;
 		case 0xb7:
 		// RES 6 A
@@ -1349,7 +1349,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xbe:
 		// RES 7 (HL)
-			writeMemory(registerHL.pair, RES(1<<7, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, RES(1<<7, readMemory(registerHL.pair)));
 			break;
 		case 0xbf:
 		// RES 7 A
@@ -1381,7 +1381,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xc6:
 		// SET 0 (HL)
-			writeMemory(registerHL.pair, SET(1<<0, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<0, readMemory(registerHL.pair)));
 			break;
 		case 0xc7:
 		// SET 0 A
@@ -1413,7 +1413,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xce:
 		// SET 1 (HL)
-			writeMemory(registerHL.pair, SET(1<<1, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<1, readMemory(registerHL.pair)));
 			break;
 		case 0xcf:
 		// SET 1 A
@@ -1445,7 +1445,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xd6:
 		// SET 2 (HL
-			writeMemory(registerHL.pair, SET(1<<2, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<2, readMemory(registerHL.pair)));
 			break;
 		case 0xd7:
 		// SET 2 A
@@ -1477,7 +1477,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xde:
 		// SET 3 (HL)
-			writeMemory(registerHL.pair, SET(1<<3, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<3, readMemory(registerHL.pair)));
 			break;
 		case 0xdf:
 		// SET 3 A
@@ -1509,7 +1509,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xe6:
 		// SET 4 (HL)
-			writeMemory(registerHL.pair, SET(1<<4, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<4, readMemory(registerHL.pair)));
 			break;
 		case 0xe7:
 		// SET 4 A
@@ -1541,7 +1541,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xee:
 		// SET 5 (HL)
-			writeMemory(registerHL.pair, SET(1<<5, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<5, readMemory(registerHL.pair)));
 			break;
 		case 0xef:
 		// SET 5 A
@@ -1573,7 +1573,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xf6:
 		// SET 6 (HL)
-			writeMemory(registerHL.pair, SET(1<<6, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<6, readMemory(registerHL.pair)));
 			break;
 		case 0xf7:
 		// SET 6 A
@@ -1605,7 +1605,7 @@ void CB(BYTE operand) {
 			break;
 		case 0xfe:
 		// SET 7 (HL)
-			writeMemory(registerHL.pair, SET(1<<7, cpu[registerHL.pair]));
+			writeMemory(registerHL.pair, SET(1<<7, readMemory(registerHL.pair)));
 			break;
 		case 0xff:
 		// SET 7 A
@@ -1630,8 +1630,8 @@ void RST_08() {
 }
 void RET_NC() {if (!flagSet(flag_C)){RET();}}
 void POP_DE() {
-	LD(&registerDE, cpu[SP.pair], 2);SP.pair++;
-	LD(&registerDE, cpu[SP.pair], 1);SP.pair++;
+	LD(&registerDE, readMemory(SP.pair), 2);SP.pair++;
+	LD(&registerDE, readMemory(SP.pair), 1);SP.pair++;
 }
 void JP_NC(WORD operand) {if (!flagSet(flag_C)){JP(operand);}}
 void CALL_NC(WORD operand) {if (!flagSet(flag_C)){CALL(operand);}}
@@ -1650,8 +1650,8 @@ void RST_10() {
 }
 void RET_C() {if (flagSet(flag_C)){RET();}}
 void RETI() {
-	WORD operand = (cpu[SP.pair]<<8); SP.pair++;
-	operand |= (cpu[SP.pair]); SP.pair++;
+	WORD operand = (readMemory(SP.pair)<<8); SP.pair++;
+	operand |= (readMemory(SP.pair)); SP.pair++;
 	JP(operand);
 	interrupt.master = 1;
 }
@@ -1667,8 +1667,8 @@ void RST_18() {
 void LD_FF02X_A(BYTE operand) {
 	writeMemory(0xFF00 + operand, registerAF.hi);}
 void POP_HL() {
-	LD(&registerHL, cpu[SP.pair], 2);SP.pair++;
-	LD(&registerHL, cpu[SP.pair], 1);SP.pair++;
+	LD(&registerHL, readMemory(SP.pair), 2);SP.pair++;
+	LD(&registerHL, readMemory(SP.pair), 1);SP.pair++;
 }
 void LD_FFC_A() {writeMemory(0xFF00 + registerBC.lo, registerAF.hi);}
 void PUSH_HL() {
@@ -1703,12 +1703,12 @@ void RST_28() {
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0028);
 }
-void LD_A_FF02X(BYTE operand) {LD(&registerAF, cpu[0xFF00 + operand], 2);}
+void LD_A_FF02X(BYTE operand) {LD(&registerAF, readMemory(0xFF00 + operand), 2);}
 void POP_AF() {
-	LD(&registerAF, cpu[SP.pair], 2);SP.pair++;
-	LD(&registerAF, cpu[SP.pair], 1);SP.pair++;
+	LD(&registerAF, readMemory(SP.pair), 2);SP.pair++;
+	LD(&registerAF, readMemory(SP.pair), 1);SP.pair++;
 }
-void LD_A_FFC() {LD(&registerAF, cpu[0xFF00 + registerBC.lo], 2);}
+void LD_A_FFC() {LD(&registerAF, readMemory(0xFF00 + registerBC.lo), 2);}
 void DI() {interrupt.timer = 0x00;}
 void PUSH_AF() {
 	SP.pair--;
@@ -1735,7 +1735,7 @@ void LD_HL_SP02X(BYTE operand) {
 	LD_16(&registerHL, (WORD)(result & 0xFFFF));
 }
 void LD_SP_HL() {LD_16(&SP, registerHL.pair);}
-void LD_A_WORD(WORD operand) {LD(&registerAF, cpu[operand], 2);}
+void LD_A_WORD(WORD operand) {LD(&registerAF, readMemory(operand), 2);}
 void EI() {interrupt.timer = 0x01;}
 void RST_38() {
 	SP.pair--;
@@ -1744,5 +1744,5 @@ void RST_38() {
 	writeMemory(SP.pair, PC.hi);
 	JP(0x0038);
 }
-void INC_HL_P() {writeMemory(registerHL.pair, INC(cpu[registerHL.pair]));}
-void DEC_HL_P() {writeMemory(registerHL.pair, DEC(cpu[registerHL.pair]));}
+void INC_HL_P() {writeMemory(registerHL.pair, INC(readMemory(registerHL.pair)));}
+void DEC_HL_P() {writeMemory(registerHL.pair, DEC(readMemory(registerHL.pair)));}

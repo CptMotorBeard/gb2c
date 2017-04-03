@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "hardware.h"
 #include "interrupts.h"
 #include "timers.h"
@@ -60,11 +61,69 @@ void initialize() {
 	keys.keys2.down = 1;
 	keys.keys2.left = 1;
 	keys.keys2.right = 1;
-}
 
+	m.mode = 0;
+	m.ramBank = 0;
+	m.ramEnable = 0;
+	m.ramMode = 0;
+	m.romBank = 0;
+	m.select = 0;
+
+	memset(ramBanks,0,0x8000);
+}
+BYTE readMemory(WORD address){
+	if((address <= 0x3FFF) & (address >= 0)){
+		return cartridge[address];
+	}else if((address <= 0x7FFF) & (address >= 0x4000)){
+		return cartridge[address + m.romBank*0x4000];
+	}else if((address <= 0xBFFF) & (address >=0xA000)){
+		return ramBanks[address + m.ramBank*0x2000];
+	}else if (address == 0xFF00) {
+		if (!(cpu[0xFF00] & 0x20)){
+			return (BYTE) (0xC0 | keys.keys1.a | keys.keys1.b << 1| keys.keys1.select << 2 | keys.keys1.start << 3 | 0x10);
+		}
+		else if (!(cpu[0xFF00] & 0x10)){
+			return (BYTE) (0xC0 | keys.keys2.right | keys.keys2.left << 1| keys.keys2.up << 2 | keys.keys2.down << 3 | 0x20);
+		}
+		else if (!(cpu[0xFF00] & 0x30)) {return 0xFF;}
+		else return 0xCF;
+	}else{
+		return cpu[address];
+	}
+}
 void writeMemory(WORD address, BYTE data) {
-	// 0x0000 - 0x8000 is read only
-	if (address < 0x8000) {} // don't write anything
+	if(address<=0x8000){
+		printf("help %04X\n", address);
+	}
+	// 0x0000 - 0x8000 manipulates the memory controller
+	if ((address <= 0x1FFF) & (address >= 0)) {
+		if((data & 0x0A) == 0x0A){
+			m.ramEnable = 1;
+		}else{
+			m.ramEnable = 0;
+		}
+	}else if((address <= 0x3FFF) & (address >= 0x2000)){
+		BYTE lower5 = data & 0x1F;
+		if(lower5 == 0){
+			lower5 = 0x1;
+		}
+		m.romBank &= 0xE0; // set lower5 to 0
+		m.romBank |= lower5; //set lower5
+	}else if((address>= 0x4000) & (address <= 0x5FFF)){
+		if(m.select == 0){
+			BYTE upper2 = data & 0x60;
+			m.romBank &= 0x9F;
+			m.romBank |= upper2;
+		}else{
+			m.ramBank = data & 0x3;
+		}
+	}else if((address >= 0x6000) & (address <= 0x7FFF)){
+		m.select = data & 0x01;
+	}else if((address >= 0xA000) & (address <= 0xBFFF)){
+		if(m.ramEnable){
+			ramBanks[address + m.ramBank*0x2000] = data;
+		}
+	}
 	// 0xE000 - 0xFE00 also writes to RAM
 	else if ((address >= 0xE000) && (address < 0xFE00)) {
 		// Write to memory
