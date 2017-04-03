@@ -92,9 +92,6 @@ BYTE readMemory(WORD address){
 	}
 }
 void writeMemory(WORD address, BYTE data) {
-	if(address<=0x8000){
-		printf("help %04X\n", address);
-	}
 	// 0x0000 - 0x8000 manipulates the memory controller
 	if ((address <= 0x1FFF) & (address >= 0)) {
 		if((data & 0x0A) == 0x0A){
@@ -168,4 +165,7 @@ void printRegisters() {
 	
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
+	
+	printf("  cpu : %02X", cpu[0xff44]);
+	printf("  READ : %02X", readMemory(0xff44));
 }

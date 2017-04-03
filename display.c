@@ -89,7 +89,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	/////////////// MAIN PROGRAM LOOP ///////////////
 	
 	int c;	
-	
 	while (!bQuit)
     {
 		if (halt != 1) {c = cpuStep(); c /= 4;}		

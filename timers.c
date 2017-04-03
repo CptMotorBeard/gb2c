@@ -48,6 +48,6 @@ void dividerRegister(int cycles) {
 	dividerCounter += cycles;
 	if (dividerCounter >= 255){
 		dividerCounter = 0;
-		writeMemory(0xFF04, (readMemory(0xFF04) + 1));
+		cpu[0xFF04]++;
 	}
 }

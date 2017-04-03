@@ -88,7 +88,7 @@ void gpuStep(int c){
             if(gpu_clock >= 204){            			
                 cleanLine();
 				gpu_clock = 0;
-				writeMemory(0xFF44, (readMemory(0xFF44)+1));
+				cpu[0xFF44]++;
 				if (readMemory(0xFF44) == 143) {
 					// VBLANK
 					if (interrupt.enable && INTERRUPTS_VBLANK) {interrupt.flags |= INTERRUPTS_VBLANK;}
@@ -101,7 +101,7 @@ void gpuStep(int c){
         case VBLANK:
             if(gpu_clock >= 456){
 				gpu_clock = 0;
-				writeMemory(0xFF44, (readMemory(0xFF44)+1));
+				cpu[0xFF44]++;
 				
 				if (readMemory(0xFF44) > 153) {
 					// Restart
