@@ -1,7 +1,6 @@
 #include "hardware.h"
 #include "opcodes.h"
 #include "interrupts.h"
-#include <stdio.h>
 
 // Helper functions for opcodes
 // 8-bit loads

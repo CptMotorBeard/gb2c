@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "hardware.h"
 #include "opcodes.h"
 #include "cpu.h"

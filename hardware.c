@@ -66,7 +66,7 @@ void initialize() {
 	m.ramBank = 0;
 	m.ramEnable = 0;
 	m.ramMode = 0;
-	m.romBank = 0;
+	m.romBank = 1;
 	m.select = 0;
 
 	memset(ramBanks,0,0x8000);
@@ -75,7 +75,7 @@ BYTE readMemory(WORD address){
 	if((address <= 0x3FFF) & (address >= 0)){
 		return cartridge[address];
 	}else if((address <= 0x7FFF) & (address >= 0x4000)){
-		return cartridge[address + m.romBank*0x4000];
+		return cartridge[address + (m.romBank-1)*0x4000];
 	}else if((address <= 0xBFFF) & (address >=0xA000)){
 		return ramBanks[address + m.ramBank*0x2000];
 	}else if (address == 0xFF00) {
@@ -166,6 +166,6 @@ void printRegisters() {
 	printf("  PC : %04X", PC.pair);
 	printf("  SP : %04X", SP.pair);
 	
-	printf("  cpu : %02X", cpu[0xff44]);
-	printf("  READ : %02X", readMemory(0xff44));
+	printf("  READ : %02X", readMemory(0x7FF3));
+	printf("  cartridge : %02X", cartridge[0x7FF3]);	
 }

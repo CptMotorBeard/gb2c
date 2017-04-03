@@ -1,7 +1,6 @@
 #include "hardware.h"
 #include "timers.h"
 #include "interrupts.h"
-#include <stdio.h>
 
 #define TIMA 	0xFF05
 #define TMA		0xFF06

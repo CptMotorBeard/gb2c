@@ -87,8 +87,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
     EnableOpenGL(hwnd, &hDC, &hRC);
 	
 	/////////////// MAIN PROGRAM LOOP ///////////////
-	
-	int c;	
+	int c;
+
 	while (!bQuit)
     {
 		if (halt != 1) {c = cpuStep(); c /= 4;}		
